@@ -1,29 +1,77 @@
 .navbar {
     @include flex-layout(space-between, center, row);
     padding: rem(37px) rem(18px);
-    // background-color: red;
+    position: relative;
 
-    &__links,
-    &__buttons {
+
+    &__right{
         display: none;
     }
 
     &__hamburger {
         background-color: $primary-color;
         color: white;
-        border-radius: 10px;
+        border-radius: rem(10px);
         font-size: rem(26px);
         @include box(41px, 41px);
         @include flex-layout(center, center, row);
     }
 
+    &__buttons__signup{
+        background-color: $primary-color;
+        color: #ffffff;
+    }
+    &__buttons__login{
+        background-color: transparent;
+    }
+
+   &--active{
+    position: absolute;
+    display: block;
+    top:90%;
+    right: 5%;
+    box-shadow: 0 rem(10px) rem(20px) rgba(0, 0, 0, 0.1);
+    padding: rem(30px) rem(40px);
+    @include flex-layout(space-between,flex-start,column);
+    gap: rem(20px);
+
+    .navbar__links{
+        @include flex-layout(space-between,flex-start,column);
+        @include font-style(14px,700);
+        gap:rem(20px);
+        padding: rem(10px);
+
+    }
+   }
+
+
     @include screen(tablet) {
         
             padding: rem(32px) rem(65px);
-            // justify-content: space-around;
+
+        &__links{
+            display: none;
+        }
+
+         &--active{
+            position: static;
+            box-shadow: none;
+            padding: 0;
+            .navbar__links{
+                position: absolute;
+                box-shadow: 0 rem(10px) rem(20px) rgba(0, 0, 0, 0.1);
+                top:90%;
+                left:5%;
+                padding: rem(30px) rem(40px);
+                @include flex-layout(center,flex-start,column);
+                gap: rem(20px);
+                
+            }  
+         }
         
+
         &__buttons {
-            display: block;
+            position: static;
             &__login{
                 background-color: #ffffff;
             }
@@ -43,23 +91,29 @@
         }
 
         &__right {
+            display: flex;
             order: 3;
+            
         }
+        
+
     }
+
+
 
 
     
     @include screen(desktop){
         padding: rem(65px) 0;
         
+        
         &__hamburger{
             display: none;
         }
 
         &__links{
-            display: block;
             @include flex-layout(space-between,center,row);
-            gap:70px;
+            gap:rem(70px);
             @include font-style(14px,700);
         }
 

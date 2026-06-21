@@ -5,4 +5,5 @@
     outline: none;
     border-radius: rem(100px);
     @include font-style(14px,700);
-}
+    cursor: pointer;
+} 
