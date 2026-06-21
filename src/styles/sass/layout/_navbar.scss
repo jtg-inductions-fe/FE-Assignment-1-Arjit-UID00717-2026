@@ -1,0 +1,77 @@
+.navbar {
+    @include flex-layout(space-between, center, row);
+    padding: rem(37px) rem(18px);
+    // background-color: red;
+
+    &__links,
+    &__buttons {
+        display: none;
+    }
+
+    &__hamburger {
+        background-color: $primary-color;
+        color: white;
+        border-radius: 10px;
+        font-size: rem(26px);
+        @include box(41px, 41px);
+        @include flex-layout(center, center, row);
+    }
+
+    @include screen(tablet) {
+        
+            padding: rem(32px) rem(65px);
+            // justify-content: space-around;
+        
+        &__buttons {
+            display: block;
+            &__login{
+                background-color: #ffffff;
+            }
+
+            &__signup{
+                background-color: $primary-color;
+               color: #ffffff;
+            }
+        }
+
+        &__hamburger {
+            order: 1;
+        }
+        &__logo {
+            order: 2;
+            margin-left: rem(180px);
+        }
+
+        &__right {
+            order: 3;
+        }
+    }
+
+
+    
+    @include screen(desktop){
+        padding: rem(65px) 0;
+        
+        &__hamburger{
+            display: none;
+        }
+
+        &__links{
+            display: block;
+            @include flex-layout(space-between,center,row);
+            gap:70px;
+            @include font-style(14px,700);
+        }
+
+        &__right{
+            @include flex-layout(space-around,center,row);
+            width: 80%;
+
+        }
+
+        &__logo{
+            margin-left: rem(130px);
+        }
+    }
+
+}

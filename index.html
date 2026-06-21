@@ -27,7 +27,32 @@
         <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
-        <div>Hello World</div>
+
+        <nav class="navbar">
+            <img src="./assets/logo.svg" alt="travlog logo" class="navbar__logo">
+
+            <div class="navbar__right">
+
+                <ul class="navbar__links">
+                    <li>Home</li>
+                    <li>Discover</li>
+                    <li>Special Deals</li>
+                    <li>Contact</li>
+                </ul>
+
+                <div class="navbar__buttons">
+                    <button class="primary-button navbar__buttons__login">Log In</button>
+                    <button class="primary-button navbar__buttons__signup">Sign Up</button>
+                </div>
+                
+            </div>
+
+            <div class="navbar__hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+        </nav>
+        
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
