@@ -6,9 +6,9 @@ $secondary-font-family:"Inter", sans-serif;
 
 
 //mixin for font styling
-@mixin font-style($font-size,$font-color,$font-weight){
+@mixin font-style($font-size,$font-weight){
     font-size: f.rem($font-size);
-    color: $font-color;
     font-weight: $font-weight;
     font-family: CircularStd,'sens-serif';
 }
+
