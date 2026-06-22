@@ -2,9 +2,9 @@
     @include flex-layout(space-between, center, row);
     padding: rem(37px) rem(18px);
     position: relative;
+    z-index: 99;
 
-
-    &__right{
+    &__right {
         display: none;
     }
 
@@ -17,68 +17,65 @@
         @include flex-layout(center, center, row);
     }
 
-    &__buttons__signup{
+    &__buttons__signup {
         background-color: $primary-color;
         color: #ffffff;
     }
-    &__buttons__login{
+    &__buttons__login {
         background-color: transparent;
     }
 
-   &--active{
-    position: absolute;
-    display: block;
-    top:90%;
-    right: 5%;
-    box-shadow: 0 rem(10px) rem(20px) rgba(0, 0, 0, 0.1);
-    padding: rem(30px) rem(40px);
-    @include flex-layout(space-between,flex-start,column);
-    gap: rem(20px);
+    &--active {
+        position: absolute;
+        display: block;
+        top: 90%;
+        right: 5%;
+        box-shadow: 0 rem(10px) rem(20px) rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        padding: rem(30px) rem(40px);
+        @include flex-layout(space-between, flex-start, column);
+        gap: rem(20px);
 
-    .navbar__links{
-        @include flex-layout(space-between,flex-start,column);
-        @include font-style(14px,700);
-        gap:rem(20px);
-        padding: rem(10px);
-
+        .navbar__links {
+            @include flex-layout(space-between, flex-start, column);
+            @include font-style(14px, 700);
+            gap: rem(20px);
+            padding: rem(10px);
+        }
     }
-   }
-
 
     @include screen(tablet) {
-        
-            padding: rem(32px) rem(65px);
+        padding: rem(32px) rem(65px);
 
-        &__links{
+        &__links {
             display: none;
         }
 
-         &--active{
+        &--active {
             position: static;
             box-shadow: none;
             padding: 0;
-            .navbar__links{
+            .navbar__links {
                 position: absolute;
                 box-shadow: 0 rem(10px) rem(20px) rgba(0, 0, 0, 0.1);
-                top:90%;
-                left:5%;
+                background-color: #ffffff;
+                top: 90%;
+                left: 5%;
                 padding: rem(30px) rem(40px);
-                @include flex-layout(center,flex-start,column);
+                @include flex-layout(center, flex-start, column);
                 gap: rem(20px);
-                
-            }  
-         }
-        
+            }
+        }
 
         &__buttons {
             position: static;
-            &__login{
+            &__login {
                 background-color: #ffffff;
             }
 
-            &__signup{
+            &__signup {
                 background-color: $primary-color;
-               color: #ffffff;
+                color: #ffffff;
             }
         }
 
@@ -93,39 +90,29 @@
         &__right {
             display: flex;
             order: 3;
-            
         }
-        
-
     }
 
-
-
-
-    
-    @include screen(desktop){
+    @include screen(desktop) {
         padding: rem(65px) 0;
-        
-        
-        &__hamburger{
+
+        &__hamburger {
             display: none;
         }
 
-        &__links{
-            @include flex-layout(space-between,center,row);
-            gap:rem(70px);
-            @include font-style(14px,700);
+        &__links {
+            @include flex-layout(space-between, center, row);
+            gap: rem(70px);
+            @include font-style(14px, 700);
         }
 
-        &__right{
-            @include flex-layout(space-around,center,row);
+        &__right {
+            @include flex-layout(space-around, center, row);
             width: 80%;
-
         }
 
-        &__logo{
+        &__logo {
             margin-left: rem(130px);
         }
     }
-
 }

@@ -1,0 +1,414 @@
+.hero-section {
+    width: 100vw;
+    @include flex-layout(space-between, center, column);
+    margin-top: 8%;
+
+    .blur-ellipse {
+        @include box(rem(348px), rem(272px));
+        background-color: #ff5722;
+        border-radius: 50%;
+        filter: blur(150px);
+        opacity: 0.5;
+        position: absolute;
+        top: rem(-36px);
+        left: rem(-36px);
+    }
+
+    // Left Image container
+    &__images-container {
+        width: 90%;
+        // background-color: teal;
+        max-width: 772px;
+        position: relative;
+        aspect-ratio: 772/713;
+    }
+
+    .background-image {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__images {
+        width: 90%;
+        height: 100%;
+        @include flex-layout(space-evenly, center, row);
+        position: absolute;
+        top: 5%;
+        left: 5%;
+    }
+
+    &__images-left {
+        @include flex-layout(space-evenly, center, column);
+        height: 100%;
+        width: 45%;
+        .hero-image {
+            height: 43%;
+            width: 90%;
+            overflow: hidden;
+            border-radius: 18px;
+        }
+
+        .hero-image img {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+    &__images-right {
+        @include flex-layout(space-evenly, center, row);
+        height: 58%;
+        width: 40%;
+        margin-right: rem(20px);
+        overflow: hidden;
+        border-radius: rem(18px);
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    .telegram-icon {
+        @include flex-layout(center, center, row);
+        position: absolute;
+        font-size: 14px;
+        background-color: $secondary-color;
+        color: #ffffff;
+        padding: 3%;
+        border-radius: 50%;
+        top: 42%;
+        left: 1%;
+        box-shadow: 0px 9.75px 9.75px 0px #00000017;
+    }
+
+    .person-icon {
+        position: absolute;
+        font-size: 14px;
+        background-color: $orange-color;
+        color: #ffffff;
+        padding: 3%;
+        border-radius: 50%;
+        bottom: 2%;
+        right: 27%;
+        box-shadow: 0px 9.75px 9.75px 0px #00000017;
+    }
+
+    .top-places-icon {
+        position: absolute;
+        @include flex-layout(space-between, center, row);
+        gap: 5px;
+        padding: rem(7px) rem(16px);
+        background-color: #ffffff;
+        border-radius: rem(50px);
+        bottom: 27%;
+        right: -4%;
+    }
+    .top-places-icon div {
+        color: $yellow-accent;
+        font-size: rem(13px);
+    }
+    .top-places-icon p {
+        @include font-style(7px, 500);
+    }
+
+    //Right text container
+    &__text-container {
+        margin-top: rem(40px);
+        .heading {
+            @include flex-layout(center, center, column);
+            gap: 10px;
+
+            .explore-btn {
+                background-color: #fff;
+                @include flex-layout(center, center, row);
+                gap: 10px;
+                box-shadow: 0px 34px 75px 0px #00000012;
+                padding: rem(16px) rem(32px);
+                border-radius: rem(100px);
+                color: $secondary-color;
+                @include font-style(14px, 700);
+
+                .briefcase-icon {
+                    color: $secondary-color;
+                    font-size: rem(24px);
+                }
+            }
+
+            .main-heading {
+                @include font-style(28px, 700);
+                text-align: center;
+
+                span {
+                    color: $secondary-color;
+                }
+            }
+        }
+
+        .hero-para {
+            padding: rem(20px) rem(11px) 0;
+            color: $para-color;
+            @include font-style(16px, 400);
+            line-height: rem(25px);
+            text-align: center;
+        }
+
+        .triangles {
+            display: none;
+        }
+        .cta-btn {
+            @include flex-layout(space-between, center, column);
+            padding: rem(10px);
+            gap: rem(25px);
+            margin-top: rem(25px);
+            button {
+                width: 100%;
+                padding: rem(23px) rem(28px);
+                @include font-style(14px, 700);
+                border-radius: rem(100px);
+            }
+            &-start {
+                background-color: $primary-color;
+                border: none;
+                color: #fff;
+                box-shadow: 0px 34px 75px 0px #00000012;
+            }
+
+            &-watch {
+                border: none;
+                @include flex-layout(center, center, row);
+                gap: rem(5px);
+                background-color: #ffffff;
+                border: 1px solid $border-color;
+
+                div {
+                    background-color: $primary-color;
+                    color: #fff;
+                    @include box(rem(24px), rem(24px));
+                    font-size: 11px;
+                    border-radius: 50%;
+                    @include flex-layout(center, center, row);
+                }
+            }
+        }
+    }
+
+    @include screen(tablet) {
+        margin-top: 6%;
+        gap: 18px;
+        position: relative;
+
+        &__images-left {
+            .hero-image {
+                height: 41%;
+                width: 84%;
+                margin-left: 20px;
+            }
+
+            .hero-image img {
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+        &__images-right {
+            height: 55%;
+            width: 39%;
+            margin-right: rem(40px);
+        }
+
+        .telegram-icon {
+            font-size: 18px;
+            top: 43.5%;
+            left: 3%;
+        }
+
+        &__text-container {
+            @include flex-layout(center, center, column);
+        }
+
+        .person-icon {
+            font-size: 18px;
+            bottom: 5%;
+            right: 28%;
+        }
+
+        .top-places-icon {
+            padding: rem(16px) rem(32px);
+            bottom: 28.5%;
+            right: -3%;
+        }
+
+        .top-places-icon div {
+            font-size: 18px;
+        }
+        .top-places-icon p {
+            font-size: 15px;
+        }
+
+        .main-heading {
+            width: 70%;
+            margin-top: 28px;
+            h1 {
+                @include font-style(57px, 600);
+            }
+        }
+
+        .hero-para {
+            margin-top: 21px;
+            @include flex-layout(center, center, row);
+            width: 100%;
+
+            p {
+                @include font-style(19px, 400);
+                width: 50%;
+            }
+        }
+
+        .cta-btn {
+            padding: 20px 30px;
+            margin-top: 30px;
+            flex-direction: row;
+            justify-content: center;
+            width: 80%;
+            margin-right: 25px;
+            button {
+                height: rem(49px);
+                width: rem(141px);
+                padding: 0;
+            }
+        }
+
+        .triangles {
+            display: block;
+            position: absolute;
+            bottom: rem(-40px);
+            left: rem(40px);
+        }
+    }
+
+    @include screen(desktop) {
+        margin-top: 20px;
+        padding-right: 100px;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+
+        .blur-ellipse {
+            top: rem(-200px);
+            left: rem(-36px);
+            filter: blur(240px);
+            opacity: 1;
+        }
+
+        .background-image {
+            width: 110%;
+            position: absolute;
+            top: -1.5%;
+            left: -14%;
+            z-index: -1;
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__images-left {
+            .hero-image {
+                height: 44%;
+                width: 91%;
+                margin-left: -110px;
+                margin-top: 40px;
+            }
+        }
+
+        &__images-right {
+            height: 60%;
+            width: 40%;
+            margin-right: rem(90px);
+            margin-top: 40px;
+        }
+
+        .telegram-icon {
+            font-size: 22px;
+            top: 47%;
+            left: -12%;
+        }
+
+        .person-icon {
+            font-size: 22px;
+            bottom: -6%;
+            right: 35%;
+        }
+
+        .top-places-icon {
+            padding: rem(16px) rem(32px);
+            bottom: 21%;
+            right: -0.5%;
+        }
+
+        .triangles {
+            display: block;
+            position: absolute;
+            bottom: rem(-170px);
+            left: rem(40px);
+        }
+
+        &__text-container {
+            margin-top: 75px;
+            justify-content: start;
+
+            .explore-btn {
+                margin-left: -140px;
+            }
+
+            .main-heading h1 {
+                width: 90%;
+                font-size: 69px;
+            }
+
+            .hero-para p {
+                text-align: start;
+                font-size: 20px;
+                margin-left: -60px;
+                margin-top: 10px;
+            }
+
+            .cta-btn {
+                margin-left: -40px;
+                margin-top: 30px;
+                gap: 30px;
+            }
+        }
+    }
+}
+
+//Companies partner list
+.partner-list {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 16px;
+
+    div img {
+        height: 20px;
+    }
+
+    @include screen(tablet) {
+        width: 70%;
+        margin-inline: auto;
+        margin-top: 110px;
+        div img {
+            height: 32px;
+        }
+    }
+
+    @include screen(desktop) {
+        margin-top: 160px;
+        width: 95%;
+        justify-content: space-evenly;
+    }
+}

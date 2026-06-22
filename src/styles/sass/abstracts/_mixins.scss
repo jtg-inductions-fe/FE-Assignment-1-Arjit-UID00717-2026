@@ -1,10 +1,9 @@
-@use 'variables'as v;
+@use 'variables' as v;
 @use 'functions' as f;
 //font weight for heading and paragraph
-$main-heading-font-weight:700;
-$sub-heading-font-weight:700;
-$para-font-weight:400;
-
+$main-heading-font-weight: 700;
+$sub-heading-font-weight: 700;
+$para-font-weight: 400;
 
 //flex layout to reduce repetition
 @mixin flex-layout($justify: center, $align: center, $direction: row) {
@@ -14,24 +13,22 @@ $para-font-weight:400;
     align-items: $align;
 }
 
-
 //for creating any box with writing height width in single line
-@mixin box($height,$width){
+@mixin box($height, $width) {
     height: $height;
     width: $width;
 }
 
-
 //for responsiveness of tablet and desktop
 $breakpoints: (
-  'tablet': v.$bp-tablet,
-  'desktop': v.$bp-desktop
+    'tablet': v.$bp-tablet,
+    'desktop': v.$bp-desktop,
 );
 
 @mixin screen($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
-  
-  @media (min-width: $value) {
-    @content;
-  }
+    $value: map-get($breakpoints, $breakpoint);
+
+    @media (min-width: $value) {
+        @content;
+    }
 }

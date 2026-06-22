@@ -1,9 +1,7 @@
-
-.primary-button{
+.primary-button {
     border: none;
     padding: rem(16px) rem(32px);
-    outline: none;
     border-radius: rem(100px);
-    @include font-style(14px,700);
+    @include font-style(14px, 700);
     cursor: pointer;
-} 
+}
