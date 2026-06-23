@@ -1,14 +1,12 @@
-@use "../abstracts/functions" as f;
+@use '../abstracts/functions' as f;
 
-$primary-font-family : CircularStd;
-$secondary-font-family:"Inter", sans-serif;
-
-
+$primary-font-family: CircularStd;
+$secondary-font-family: 'Inter', sans-serif;
 
 //mixin for font styling
-@mixin font-style($font-size,$font-color,$font-weight){
+@mixin font-style($font-size, $font-color, $font-weight) {
     font-size: f.rem($font-size);
     color: $font-color;
     font-weight: $font-weight;
-    font-family: CircularStd,'sens-serif';
+    font-family: $primary-font-family, 'sans-serif';
 }
