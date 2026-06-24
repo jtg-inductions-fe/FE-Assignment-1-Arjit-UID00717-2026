@@ -66,4 +66,38 @@
             }
         }
     }
+
+    @include screen(tablet) {
+        .travel-info {
+            .travel-text {
+                margin-top: 67px;
+                h3 {
+                    font-size: 23px;
+                    letter-spacing: 4.5px;
+                }
+                h2 {
+                    font-size: 39px;
+                }
+                p {
+                    width: 85.65%;
+                    font-size: 18px;
+                    line-height: 30px;
+                    font-family: $secondary-font-family;
+                }
+            }
+
+            .travel-cards {
+                margin-top: 62px;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                column-gap: 15px;
+                row-gap: 30px;
+                padding-inline: 55px;
+
+                .travel-card {
+                    padding: 36px 8px;
+                }
+            }
+        }
+    }
 }
