@@ -1,8 +1,7 @@
 .travel-point {
-    // background-color: red;
     margin-top: 100px;
     width: 100vw;
-
+    position: relative;
     .travel-image {
         width: 100%;
 
@@ -12,8 +11,6 @@
     }
 
     .travel-info {
-        // background-color: red;
-        max-height: rem(905px);
         margin-top: rem(30px);
         .travel-text {
             h3 {
@@ -42,7 +39,6 @@
         }
 
         .travel-cards {
-            // background-color: red;
             padding-inline: 40px;
             display: grid;
             grid-template-columns: 1fr;
@@ -65,6 +61,11 @@
                 }
             }
         }
+    }
+
+    .ticket-icon,
+    .yellow-circle {
+        display: none;
     }
 
     @include screen(tablet) {
@@ -97,6 +98,69 @@
                 .travel-card {
                     padding: 36px 8px;
                 }
+            }
+        }
+
+        .yellow-circle {
+            display: block;
+            @include box(406px, 180px);
+            background-color: $yellow-accent;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.5;
+            position: absolute;
+            top: -10%;
+            right: 0;
+        }
+    }
+
+    @include screen(desktop) {
+        @include flex-layout(space-evenly, start, row);
+        position: absolute;
+        margin-top: 120px;
+
+        .travel-info {
+            width: 66%;
+            margin: 0;
+            .travel-text {
+                margin: 0;
+                @include flex-layout(start, start, column);
+
+                h3 {
+                    margin-top: 10px;
+                }
+
+                h2 {
+                    text-align: start;
+                    font-size: 44px;
+                    width: 90%;
+                    word-spacing: -1px;
+                }
+
+                p {
+                    text-align: start;
+                    margin-left: 0;
+                    line-height: 28px;
+                }
+            }
+
+            .travel-cards {
+                place-items: start;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                padding-left: 2px;
+                column-gap: 1px;
+                margin-right: 0;
+                .travel-card {
+                    padding-inline: 30px;
+                }
+            }
+
+            .ticket-icon {
+                display: block;
+                position: absolute;
+                right: 0%;
+                bottom: 10%;
             }
         }
     }

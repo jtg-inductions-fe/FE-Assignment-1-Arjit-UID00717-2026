@@ -18,7 +18,7 @@
     &__images-container {
         width: 90%;
         // background-color: teal;
-        max-width: 772px;
+        max-width: rem(772px);
         position: relative;
         aspect-ratio: 772/713;
     }
@@ -51,7 +51,7 @@
             height: 43%;
             width: 90%;
             overflow: hidden;
-            border-radius: 18px;
+            border-radius: rem(18px);
         }
 
         .hero-image img {
@@ -75,32 +75,32 @@
     .telegram-icon {
         @include flex-layout(center, center, row);
         position: absolute;
-        font-size: 14px;
+        font-size: rem(14px);
         background-color: $secondary-color;
         color: #ffffff;
         padding: 3%;
         border-radius: 50%;
         top: 42%;
         left: 1%;
-        box-shadow: 0px 9.75px 9.75px 0px #00000017;
+        box-shadow: 0 rem(9.75px) rem(9.75px) 0 #00000017;
     }
 
     .person-icon {
         position: absolute;
-        font-size: 14px;
+        font-size: rem(14px);
         background-color: $orange-color;
         color: #ffffff;
         padding: 3%;
         border-radius: 50%;
         bottom: 2%;
         right: 27%;
-        box-shadow: 0px 9.75px 9.75px 0px #00000017;
+        box-shadow: 0 rem(9.75px) rem(9.75px) 0 #00000017;
     }
 
     .top-places-icon {
         position: absolute;
         @include flex-layout(space-between, center, row);
-        gap: 5px;
+        gap: rem(5px);
         padding: rem(7px) rem(16px);
         background-color: #ffffff;
         border-radius: rem(50px);
@@ -120,13 +120,13 @@
         margin-top: rem(40px);
         .heading {
             @include flex-layout(center, center, column);
-            gap: 10px;
+            gap: rem(10px);
 
             .explore-btn {
                 background-color: #fff;
                 @include flex-layout(center, center, row);
-                gap: 10px;
-                box-shadow: 0px 34px 75px 0px #00000012;
+                gap: rem(10px);
+                box-shadow: 0 rem(34px) rem(75px) 0 #00000012;
                 padding: rem(16px) rem(32px);
                 border-radius: rem(100px);
                 color: $secondary-color;
@@ -174,7 +174,7 @@
                 background-color: $primary-color;
                 border: none;
                 color: #fff;
-                box-shadow: 0px 34px 75px 0px #00000012;
+                box-shadow: 0 rem(34px) rem(75px) 0 #00000012;
             }
 
             &-watch {
@@ -182,13 +182,13 @@
                 @include flex-layout(center, center, row);
                 gap: rem(5px);
                 background-color: #ffffff;
-                border: 1px solid $border-color;
+                border: rem(1px) solid $border-color;
 
                 div {
                     background-color: $primary-color;
                     color: #fff;
                     @include box(rem(24px), rem(24px));
-                    font-size: 11px;
+                    font-size: rem(11px);
                     border-radius: 50%;
                     @include flex-layout(center, center, row);
                 }
@@ -198,14 +198,14 @@
 
     @include screen(tablet) {
         margin-top: 6%;
-        gap: 18px;
+        gap: rem(18px);
         position: relative;
 
         &__images-left {
             .hero-image {
                 height: 41%;
                 width: 84%;
-                margin-left: 20px;
+                margin-left: rem(20px);
             }
 
             .hero-image img {
@@ -220,18 +220,18 @@
         }
 
         .telegram-icon {
-            font-size: 18px;
+            font-size: rem(18px);
             top: 43.5%;
             left: 3%;
         }
 
         &__text-container {
             @include flex-layout(center, center, column);
-            margin-top: 50px;
+            margin-top: rem(50px);
         }
 
         .person-icon {
-            font-size: 20px;
+            font-size: rem(20px);
             bottom: 5%;
             right: 28%;
         }
@@ -243,22 +243,22 @@
         }
 
         .top-places-icon div {
-            font-size: 18px;
+            font-size: rem(18px);
         }
         .top-places-icon p {
-            font-size: 15px;
+            font-size: rem(15px);
         }
 
         .main-heading {
             width: 70%;
-            margin-top: 28px;
+            margin-top: rem(28px);
             h1 {
                 @include font-style(57px, 600);
             }
         }
 
         .hero-para {
-            margin-top: 21px;
+            margin-top: rem(21px);
             @include flex-layout(center, center, row);
             width: 100%;
 
@@ -269,12 +269,12 @@
         }
 
         .cta-btn {
-            padding: 20px 30px;
-            margin-top: 30px;
+            padding: rem(20px) rem(30px);
+            margin-top: rem(30px);
             flex-direction: row;
             justify-content: center;
             width: 80%;
-            margin-right: 25px;
+            margin-right: rem(25px);
             button {
                 height: rem(49px);
                 width: rem(141px);
@@ -291,8 +291,8 @@
     }
 
     @include screen(desktop) {
-        margin-top: 20px;
-        padding-right: 100px;
+        margin-top: rem(20px);
+        padding-right: rem(100px);
         flex-direction: row-reverse;
         justify-content: space-around;
 
@@ -319,8 +319,8 @@
             .hero-image {
                 height: 44%;
                 width: 91%;
-                margin-left: -110px;
-                margin-top: 40px;
+                margin-left: rem(-110px);
+                margin-top: rem(40px);
             }
         }
 
@@ -328,17 +328,17 @@
             height: 60%;
             width: 40%;
             margin-right: rem(90px);
-            margin-top: 40px;
+            margin-top: rem(40px);
         }
 
         .telegram-icon {
-            font-size: 22px;
+            font-size: rem(22px);
             top: 47%;
             left: -12%;
         }
 
         .person-icon {
-            font-size: 22px;
+            font-size: rem(22px);
             bottom: -6%;
             right: 35%;
         }
@@ -357,29 +357,29 @@
         }
 
         &__text-container {
-            margin-top: 75px;
+            margin-top: rem(75px);
             justify-content: start;
 
             .explore-btn {
-                margin-left: -140px;
+                margin-left: rem(-140px);
             }
 
             .main-heading h1 {
                 width: 90%;
-                font-size: 69px;
+                font-size: rem(69px);
             }
 
             .hero-para p {
                 text-align: start;
-                font-size: 20px;
-                margin-left: -60px;
-                margin-top: 10px;
+                font-size: rem(20px);
+                margin-left: rem(-60px);
+                margin-top: rem(10px);
             }
 
             .cta-btn {
-                margin-left: -40px;
-                margin-top: 30px;
-                gap: 30px;
+                margin-left: rem(-40px);
+                margin-top: rem(30px);
+                gap: rem(30px);
             }
         }
     }
@@ -387,28 +387,28 @@
 
 //Companies partner list
 .partner-list {
-    margin-top: 40px;
+    margin-top: rem(40px);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
-    padding: 16px;
+    gap: rem(25px);
+    padding: rem(16px);
 
     div img {
-        height: 20px;
+        height: rem(20px);
     }
 
     @include screen(tablet) {
         width: 70%;
         margin-inline: auto;
-        margin-top: 100px;
+        margin-top: rem(100px);
         div img {
-            height: 32px;
+            height: rem(32px);
         }
     }
 
     @include screen(desktop) {
-        margin-top: 160px;
+        margin-top: rem(160px);
         width: 95%;
         justify-content: space-evenly;
     }
