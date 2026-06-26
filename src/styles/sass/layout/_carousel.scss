@@ -1,0 +1,199 @@
+.carousel-section {
+    width: 100%;
+
+    margin-top: 132px;
+    .carousel-text {
+        text-align: center;
+
+        h3 {
+            @include font-style(16px, 700);
+            color: $secondary-color;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        h1 {
+            @include font-style(32px, 700);
+            margin-top: 18px;
+        }
+    }
+
+    .splide {
+        position: relative;
+    }
+
+    .left-arrow {
+        position: absolute;
+        padding: 30px;
+        top: 21%;
+        left: 4%;
+        border: 1px solid $border-color;
+        background-color: #ffffff;
+    }
+    .right-arrow {
+        position: absolute;
+        padding: 30px;
+        top: 21%;
+        right: 4%;
+        background-color: $primary-color;
+    }
+
+    .splide__slide {
+        width: 100%;
+        @include flex-layout(center, center, column);
+        gap: 58px;
+        padding: rem(60px) 0;
+
+        .card-avatar {
+            height: rem(135px);
+            width: rem(135px);
+            border-radius: 50%;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .user-info {
+            @include flex-layout(center, center, column);
+            gap: 35px;
+
+            h1 {
+                @include font-style(28px, 700);
+                color: $orange-color;
+                width: 100%;
+                text-align: center;
+                letter-spacing: 0.5px;
+                span {
+                    @include font-style(22px, 500);
+                    color: $heading-color;
+                }
+            }
+
+            .user-rating {
+                @include flex-layout(center, center, row);
+                gap: rem(16px);
+            }
+        }
+
+        .rating-para {
+            @include font-style(18px, 450);
+            color: $para-color;
+            text-align: center;
+            padding-top: rem(26px);
+            line-height: 28px;
+            margin-bottom: 42px;
+        }
+    }
+
+    .splide__pagination {
+        @include flex-layout(center, center, row);
+        gap: 18px;
+    }
+
+    //non-active dots
+    .splide__pagination__page {
+        background: #e0e0e0;
+        border: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+        transition: all 0.3s ease;
+    }
+
+    //active dots
+    .splide__pagination__page.is-active {
+        width: 24px;
+        border-radius: 50%;
+        background-color: $secondary-color;
+        transform: scale(1);
+    }
+
+    @include screen(tablet) {
+        margin-top: 27px;
+        background-image: url('/assets/carousel.png');
+        background-position: 0 48%;
+        background-size: cover;
+
+        .carousel-text {
+            text-align: center;
+
+            h3 {
+                @include font-style(23px, 700);
+                letter-spacing: 4px;
+            }
+
+            h1 {
+                @include font-style(40px, 700);
+                margin-top: 18px;
+            }
+        }
+
+        .splide__slide {
+            gap: 40px;
+            .rating-para {
+                @include font-style(23px, 450);
+                width: 60%;
+                line-height: 34px;
+            }
+        }
+
+        .left-arrow {
+            position: absolute;
+            padding: 50px;
+            top: 40%;
+            left: 6%;
+            border: 1px solid $border-color;
+            background-color: #ffffff;
+        }
+
+        .right-arrow {
+            position: absolute;
+            padding: 50px;
+            top: 40%;
+            right: 6%;
+            background-color: $primary-color;
+        }
+    }
+
+    @include screen(desktop) {
+        margin-top: 105px;
+        background-position: 0 43%;
+
+        .carousel-text {
+            text-align: center;
+
+            h3 {
+                @include font-style(23px, 700);
+                letter-spacing: 4.2px;
+                padding-left: 10px;
+            }
+            h1 {
+                @include font-style(44px, 700);
+                padding-left: 15px;
+            }
+        }
+
+        .left-arrow {
+            top: 39%;
+            left: 9%;
+        }
+        .right-arrow {
+            top: 39%;
+            right: 8%;
+        }
+
+        .splide__slide {
+            padding-left: 20px;
+            .rating-para {
+                width: 62%;
+                padding-left: 10px;
+                line-height: 32px;
+            }
+        }
+    }
+}

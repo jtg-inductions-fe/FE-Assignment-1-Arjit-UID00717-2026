@@ -103,7 +103,7 @@
 
     @include screen(desktop) {
         @include flex-layout(space-evenly, start, row);
-        position: absolute;
+        position: relative;
         margin-top: 120px;
 
         .travel-info {

@@ -24,6 +24,7 @@
             src="https://kit.fontawesome.com/5bb9b76cd3.js"
             crossorigin="anonymous"
         ></script>
+        <link rel="stylesheet" href="path-to-the-file/splide.min.css" />
         <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
@@ -198,6 +199,33 @@
                 </div>
             </div>
         </section>
+
+        <section class="carousel-section">
+            <div class="carousel-text">
+                <h3>Testimonials</h3>
+                <h1>Trust our clients</h1>
+            </div>
+
+            <section class="splide" aria-labelledby="carousel-heading">
+                <div class="splide__arrows">
+                    <button
+                        class="splide__arrow splide__arrow--prev left-arrow"
+                    >
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button
+                        class="splide__arrow splide__arrow--next right-arrow"
+                    >
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="splide__track">
+                    <ul class="splide__list" id="dynamic-slider-list"></ul>
+                </div>
+            </section>
+        </section>
+
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
