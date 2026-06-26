@@ -1,0 +1,175 @@
+.footer {
+    min-width: 100vw;
+    margin-top: 115px;
+    padding-inline: rem(32px);
+    position: relative;
+
+    @include flex-layout(center, start, column);
+    gap: rem(80px);
+    &__logo {
+        @include flex-layout(space-between, center, row);
+        gap: rem(15px);
+
+        h4 {
+            @include font-style(24px, 900);
+            color: $heading-color;
+        }
+    }
+
+    &__brand {
+        width: 100%;
+        @include flex-layout(center, start, column);
+        gap: rem(32px);
+
+        p {
+            @include font-style(16px, 450);
+            color: $para-color;
+            line-height: 26px;
+            width: 110%;
+        }
+    }
+
+    &__social {
+        @include flex-layout(space-between, center, row);
+        gap: rem(27px);
+        .social-icons {
+            background-color: $primary-color;
+            color: white;
+            padding: rem(8px);
+            border-radius: 50%;
+        }
+    }
+
+    &__mobile {
+        width: 100%;
+        @include flex-layout(start, start, column);
+
+        gap: rem(80px);
+        margin-bottom: rem(50px);
+
+        details {
+            width: 100%;
+        }
+
+        details ul {
+            @include font-style(18px, 400);
+            color: $para-color;
+            @include flex-layout(center, start, column);
+            gap: rem(20px);
+            padding: rem(50px) rem(20px);
+            box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        details summary {
+            width: 100%;
+            list-style: none;
+            @include flex-layout(space-between, start, row);
+
+            h4 {
+                @include font-style(23px, 700);
+            }
+        }
+
+        .list-arrow {
+            color: #292d32;
+            border-radius: 50%;
+            border: 1px solid #292d32;
+            @include flex-layout(center, center, row);
+            font-size: 10px;
+            padding: rem(4px);
+        }
+
+        .rotate {
+            transform: rotate(180deg);
+            transition: transform 0.3s ease;
+        }
+    }
+
+    &__desktop {
+        display: none;
+    }
+    .object-icon {
+        display: none;
+    }
+
+    @include screen(tablet) {
+        gap: rem(60px);
+        margin-top: rem(210px);
+        padding-inline: rem(64px) rem(138px);
+
+        &__brand {
+            p {
+                @include font-style(23px, 450);
+                line-height: 36px;
+            }
+        }
+
+        &__mobile {
+            display: none;
+        }
+
+        &__tablet {
+            width: 100%;
+
+            @include flex-layout(space-between, start, row);
+            .company-list {
+                @include flex-layout(space-between, start, column);
+                gap: rem(34px);
+
+                h4 {
+                    @include font-style(23px, 700);
+                    color: $heading-color;
+                }
+                ul {
+                    @include font-style(18px, 400);
+                    font-family: $secondary-font-family;
+                    @include flex-layout(center, start, column);
+                    gap: rem(40px);
+                    line-height: rem(23px);
+                    margin-bottom: rem(64px);
+                }
+            }
+        }
+
+        .object-icon {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 108px;
+        }
+    }
+
+    @include screen(desktop) {
+        flex-direction: row;
+        margin-top: rem(254px);
+        padding-left: rem(125px);
+        padding-right: rem(120px);
+
+        &__brand {
+            p {
+                line-height: 38px;
+                width: 100%;
+            }
+        }
+
+        &__social {
+            margin-top: rem(28px);
+        }
+
+        &__desktop {
+            justify-content: start;
+            gap: rem(40px);
+        }
+
+        .company-list {
+            width: 100%;
+        }
+
+        .object-icon {
+            display: block;
+            position: absolute;
+            right: -10px;
+            bottom: 0;
+        }
+    }
+}

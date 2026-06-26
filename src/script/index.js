@@ -87,3 +87,12 @@ const splide = new Splide('.splide', {
 });
 
 splide.mount();
+
+const summaries = document.querySelectorAll('.footer__mobile details summary');
+
+summaries.forEach((summary) => {
+    summary.addEventListener('click', () => {
+        const icon = summary.querySelector('.up-arrow');
+        icon.classList.toggle('rotate');
+    });
+});
