@@ -1,26 +1,26 @@
 @use 'functions' as f;
 
-//colors
-$primary-color: #5d50c6;
-$secondary-color: #f85e9f;
-$heading-color: #000000;
-$border-color: #1918251a;
-$yellow-accent: #facd49;
-$orange-color: #ff5722;
-$navbar-links-color: #c0babc;
-$para-color: #19182580;
+// Colors
+$primary-color: rgba(93, 80, 198, 1);
+$secondary-color: rgba(248, 94, 159, 1);
+$heading-color: rgba(0, 0, 0, 1);
+$border-color: rgba(25, 24, 37, 0.1);
+$yellow-accent: rgba(250, 205, 73, 1);
+$orange-color: rgba(255, 87, 34, 1);
+$navbar-links-color: rgba(34, 40, 49, 1);
+$para-color: rgba(25, 24, 37, 0.5);
 
-//main heading variables
+// Main heading variables
 $main-heading-desktop: f.rem(69px);
 $main-heading-tablet: f.rem(56px);
 $main-heading-mobile: f.rem(40px);
 
-//sub heading
+// Sub heading
 $sub-heading-desktop: f.rem(44px);
 $sub-heading-tablet: f.rem(40px);
 $sub-heading-mobile: f.rem(32px);
 
-//small heading
+// Small heading
 $small-heading-desktop: f.rem(23px);
 $small-heading-tablet: f.rem(23px);
 $small-heading-mobile: f.rem(16px);

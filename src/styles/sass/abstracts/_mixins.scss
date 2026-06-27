@@ -1,11 +1,11 @@
 @use 'variables' as v;
 
-//font weight for heading and paragraph
+// Font weights for headings and paragraphs
 $main-heading-font-weight: 700;
 $sub-heading-font-weight: 700;
 $para-font-weight: 400;
 
-//flex layout to reduce repetition
+// Flex layout to reduce repetition
 @mixin flex-layout($justify: center, $align: center, $direction: row) {
     display: flex;
     flex-direction: $direction;
@@ -13,13 +13,13 @@ $para-font-weight: 400;
     align-items: $align;
 }
 
-//for creating any box with writing height width in single line
+// For creating any box with writing height width in single line
 @mixin box($height, $width) {
     height: $height;
     width: $width;
 }
 
-//for responsiveness of tablet and desktop
+// For responsiveness of tablet and desktop
 $breakpoints: (
     'tablet': v.$bp-tablet,
     'desktop': v.$bp-desktop,

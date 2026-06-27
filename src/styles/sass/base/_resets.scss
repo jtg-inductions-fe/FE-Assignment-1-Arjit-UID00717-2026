@@ -10,3 +10,23 @@ a {
     text-decoration: none;
     color: $heading-color;
 }
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul,
+ol {
+    list-style: none;
+}
