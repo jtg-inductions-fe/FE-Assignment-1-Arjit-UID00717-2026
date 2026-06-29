@@ -1,7 +1,7 @@
-.primary-button {
+.button--primary {
     border: none;
     padding: rem(16px) rem(32px);
     border-radius: rem(100px);
-    @include font-style(14px, 700);
-    cursor: pointer;
+    font-size: rem(14px);
+    font-weight: $font-weight-bold;
 }

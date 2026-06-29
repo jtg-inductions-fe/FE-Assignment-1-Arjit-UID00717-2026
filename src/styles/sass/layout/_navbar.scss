@@ -1,27 +1,32 @@
 .navbar {
     @include flex-layout(space-between, center, row);
-    padding: rem(37px) rem(18px);
+    padding: rem(36px) rem(16px);
     position: relative;
 
-    &__right {
+    &__menu {
         display: none;
     }
 
     &__hamburger {
         background-color: $primary-color;
         color: white;
-        border-radius: rem(10px);
+        border-radius: 10px;
         font-size: rem(26px);
         @include box(41px, 41px);
         @include flex-layout(center, center, row);
     }
 
-    &__buttons__signup {
+    &__buttons--signup {
         background-color: $primary-color;
         color: #ffffff;
     }
-    &__buttons__login {
+    &__buttons--login {
         background-color: transparent;
+    }
+
+    &__buttons--signup:hover,
+    &__buttons--login:hover {
+        opacity: 0.7;
     }
 
     &--active {
@@ -29,20 +34,23 @@
         display: block;
         top: 90%;
         right: 5%;
-        box-shadow: 0 rem(10px) rem(20px) rgba(0, 0, 0, 0.1);
+        box-shadow: $box-shadow;
         padding: rem(30px) rem(40px);
         @include flex-layout(space-between, flex-start, column);
         gap: rem(20px);
 
         .navbar__links {
             @include flex-layout(space-between, flex-start, column);
-            @include font-style(14px, 700);
             gap: rem(20px);
             padding: rem(10px);
+
+            & li {
+                border-bottom: 2px solid $heading-color;
+            }
         }
     }
 
-    @include screen(tablet) {
+    @include screen(md) {
         padding: rem(32px) rem(65px);
 
         &__links {
@@ -55,7 +63,7 @@
             padding: 0;
             .navbar__links {
                 position: absolute;
-                box-shadow: 0 rem(10px) rem(20px) rgba(0, 0, 0, 0.1);
+                box-shadow: $box-shadow;
                 top: 90%;
                 left: 5%;
                 padding: rem(30px) rem(40px);
@@ -66,13 +74,13 @@
 
         &__buttons {
             position: static;
-            &__login {
-                background-color: #ffffff;
+            &--login {
+                background-color: $color-white;
             }
 
-            &__signup {
+            &--signup {
                 background-color: $primary-color;
-                color: #ffffff;
+                color: $color-white;
             }
         }
 
@@ -84,13 +92,13 @@
             margin-left: rem(180px);
         }
 
-        &__right {
+        &__menu {
             display: flex;
             order: 3;
         }
     }
 
-    @include screen(desktop) {
+    @include screen(lg) {
         padding: rem(65px) 0;
 
         &__hamburger {
@@ -100,10 +108,25 @@
         &__links {
             @include flex-layout(space-between, center, row);
             gap: rem(70px);
-            @include font-style(14px, 700);
         }
 
-        &__right {
+        &__buttons--signup:hover,
+        &__buttons--login:hover {
+            opacity: 0.6;
+        }
+
+        .navbar__links a {
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $primary-color;
+            }
+
+            &:active {
+                opacity: 0.6;
+            }
+        }
+        &__menu {
             @include flex-layout(space-around, center, row);
             width: 80%;
         }
