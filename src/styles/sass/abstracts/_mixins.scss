@@ -1,10 +1,5 @@
 @use 'variables' as v;
 
-// Font weights for headings and paragraphs
-$main-heading-font-weight: 700;
-$sub-heading-font-weight: 700;
-$para-font-weight: 400;
-
 // Flex layout to reduce repetition
 @mixin flex-layout($justify: center, $align: center, $direction: row) {
     display: flex;
@@ -19,14 +14,9 @@ $para-font-weight: 400;
     width: $width;
 }
 
-// For responsiveness of tablet and desktop
-$breakpoints: (
-    'tablet': v.$bp-tablet,
-    'desktop': v.$bp-desktop,
-);
-
+//For responsiveness of tablet and desktop
 @mixin screen($breakpoint) {
-    $value: map-get($breakpoints, $breakpoint);
+    $value: map-get(v.$breakpoints, $breakpoint);
 
     @media (min-width: $value) {
         @content;

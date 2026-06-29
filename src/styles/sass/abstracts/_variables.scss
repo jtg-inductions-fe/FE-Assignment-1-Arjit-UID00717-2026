@@ -1,31 +1,6 @@
-@use 'functions' as f;
-
-// Colors
-$primary-color: rgba(93, 80, 198, 1);
-$secondary-color: rgba(248, 94, 159, 1);
-$heading-color: rgba(0, 0, 0, 1);
-$border-color: rgba(25, 24, 37, 0.1);
-$yellow-accent: rgba(250, 205, 73, 1);
-$orange-color: rgba(255, 87, 34, 1);
-$navbar-links-color: rgba(34, 40, 49, 1);
-$para-color: rgba(25, 24, 37, 0.5);
-
-// Main heading variables
-$main-heading-desktop: f.rem(69px);
-$main-heading-tablet: f.rem(56px);
-$main-heading-mobile: f.rem(40px);
-
-// Sub heading
-$sub-heading-desktop: f.rem(44px);
-$sub-heading-tablet: f.rem(40px);
-$sub-heading-mobile: f.rem(32px);
-
-// Small heading
-$small-heading-desktop: f.rem(23px);
-$small-heading-tablet: f.rem(23px);
-$small-heading-mobile: f.rem(16px);
-
-// Responsive Layout Breakpoints
-$bp-mobile: 430px;
-$bp-tablet: 1024px;
-$bp-desktop: 1440px;
+// For responsiveness of tablet and desktop
+$breakpoints: (
+    sm: 430px,
+    md: 1024px,
+    lg: 1440px,
+);
