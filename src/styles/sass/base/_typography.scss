@@ -10,6 +10,9 @@ $font-weight-bold: 700;
 $font-weight-semi-bold: 450;
 $font-weight-light: 400;
 
+// Shadow for box or card
+$card-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
 // Main heading variables
 $main-heading-lg: f.rem(69px);
 $main-heading-md: f.rem(56px);
@@ -30,7 +33,7 @@ $main-para-lg: f.rem(18px);
 $main-para-md: f.rem(18px);
 $main-para-sm: f.rem(16px);
 
-//Sub paragraph
+// Sub paragraph
 $sub-para-lg: f.rem(23px);
 $sub-para-md: f.rem(23px);
 $sub-para-sm: f.rem(18px);
