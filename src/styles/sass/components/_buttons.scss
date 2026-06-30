@@ -1,7 +1,24 @@
-.primary-button {
+@use '../abstracts/functions' as f;
+@use '../base/typography' as t;
+@use '../abstracts/colors' as c;
+
+.button {
     border: none;
-    padding: rem(16px) rem(32px);
-    border-radius: rem(100px);
-    @include font-style(14px, 700);
-    cursor: pointer;
+    padding: f.rem(16px) f.rem(32px);
+    border-radius: 100px;
+    font-size: f.rem(14px);
+    font-weight: t.$font-weight-bold;
+
+    &:hover {
+        opacity: 0.6;
+    }
+
+    &--primary {
+        background-color: c.$primary-color;
+        color: c.$color-white;
+    }
+
+    &--text {
+        background-color: c.$color-white;
+    }
 }
