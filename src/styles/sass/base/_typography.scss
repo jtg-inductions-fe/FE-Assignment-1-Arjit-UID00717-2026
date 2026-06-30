@@ -126,9 +126,9 @@ $sub-para: (
 );
 
 //mixin for font styling
-@mixin font-style($map) {
+@mixin font-style($typography-map) {
     // Base styles
-    $sm: map.get($map, sm);
+    $sm: map.get($typography-map, sm);
 
     font-size: map.get($sm, font-size);
     line-height: map.get($sm, line-height);
@@ -136,7 +136,7 @@ $sub-para: (
 
     // Tablet
     @media (min-width: map.get(v.$breakpoints, md)) {
-        $md: map.get($map, md);
+        $md: map.get($typography-map, md);
 
         font-size: map.get($md, font-size);
         line-height: map.get($md, line-height);
@@ -145,7 +145,7 @@ $sub-para: (
 
     // Desktop
     @media (min-width: map.get(v.$breakpoints, lg)) {
-        $lg: map.get($map, lg);
+        $lg: map.get($typography-map, lg);
 
         font-size: map.get($lg, font-size);
         line-height: map.get($lg, line-height);
