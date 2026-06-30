@@ -1,6 +1,10 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use '../abstracts/colors' as c;
+@use '../abstracts/variables' as v;
 .navbar {
-    @include flex-layout(space-between, center, row);
-    padding: rem(36px) rem(16px);
+    @include m.flex-layout(space-between, center, row);
+    padding: f.rem(36px) f.rem(16px);
     position: relative;
 
     &__menu {
@@ -8,25 +12,12 @@
     }
 
     &__hamburger {
-        background-color: $primary-color;
-        color: white;
+        background-color: c.$primary-color;
+        color: c.$color-white;
         border-radius: 10px;
-        font-size: rem(26px);
-        @include box(41px, 41px);
-        @include flex-layout(center, center, row);
-    }
-
-    &__buttons--signup {
-        background-color: $primary-color;
-        color: #ffffff;
-    }
-    &__buttons--login {
-        background-color: transparent;
-    }
-
-    &__buttons--signup:hover,
-    &__buttons--login:hover {
-        opacity: 0.7;
+        font-size: f.rem(26px);
+        @include m.box(41px, 41px);
+        @include m.flex-layout(center, center, row);
     }
 
     &--active {
@@ -34,24 +25,24 @@
         display: block;
         top: 90%;
         right: 5%;
-        box-shadow: $box-shadow;
-        padding: rem(30px) rem(40px);
-        @include flex-layout(space-between, flex-start, column);
-        gap: rem(20px);
+        box-shadow: v.$card-box-shadow;
+        padding: f.rem(30px) f.rem(40px);
+        @include m.flex-layout(space-between, flex-start, column);
+        gap: f.rem(20px);
 
         .navbar__links {
-            @include flex-layout(space-between, flex-start, column);
-            gap: rem(20px);
-            padding: rem(10px);
+            @include m.flex-layout(space-between, flex-start, column);
+            gap: f.rem(20px);
+            padding: f.rem(10px);
 
             & li {
-                border-bottom: 2px solid $heading-color;
+                border-bottom: 2px solid c.$text-color;
             }
         }
     }
 
-    @include screen(md) {
-        padding: rem(32px) rem(65px);
+    @include m.screen(md) {
+        padding: f.rem(32px) f.rem(65px);
 
         &__links {
             display: none;
@@ -63,24 +54,12 @@
             padding: 0;
             .navbar__links {
                 position: absolute;
-                box-shadow: $box-shadow;
+                box-shadow: v.$card-box-shadow;
                 top: 90%;
                 left: 5%;
-                padding: rem(30px) rem(40px);
-                @include flex-layout(center, flex-start, column);
-                gap: rem(20px);
-            }
-        }
-
-        &__buttons {
-            position: static;
-            &--login {
-                background-color: $color-white;
-            }
-
-            &--signup {
-                background-color: $primary-color;
-                color: $color-white;
+                padding: f.rem(30px) f.rem(40px);
+                @include m.flex-layout(center, flex-start, column);
+                gap: f.rem(20px);
             }
         }
 
@@ -89,7 +68,7 @@
         }
         &__logo {
             order: 2;
-            margin-left: rem(180px);
+            margin-left: f.rem(180px);
         }
 
         &__menu {
@@ -98,28 +77,23 @@
         }
     }
 
-    @include screen(lg) {
-        padding: rem(65px) 0;
+    @include m.screen(lg) {
+        padding: f.rem(65px) 0;
 
         &__hamburger {
             display: none;
         }
 
         &__links {
-            @include flex-layout(space-between, center, row);
-            gap: rem(70px);
-        }
-
-        &__buttons--signup:hover,
-        &__buttons--login:hover {
-            opacity: 0.6;
+            @include m.flex-layout(space-between, center, row);
+            gap: f.rem(70px);
         }
 
         .navbar__links a {
             transition: color 0.3s ease;
 
             &:hover {
-                color: $primary-color;
+                color: c.$primary-color;
             }
 
             &:active {
@@ -127,12 +101,12 @@
             }
         }
         &__menu {
-            @include flex-layout(space-around, center, row);
+            @include m.flex-layout(space-around, center, row);
             width: 80%;
         }
 
         &__logo {
-            margin-left: rem(130px);
+            margin-left: f.rem(130px);
         }
     }
 }

@@ -1,8 +1,8 @@
-@import './sass/abstracts/functions';
-@import './sass/abstracts/variables';
-@import './sass/abstracts/colors';
-@import './sass/base/typography';
-@import './sass/abstracts/mixins';
-@import './sass/base/resets';
-@import './sass/layout/navbar';
-@import './sass/components/buttons';
+@use './sass/abstracts/functions' as *;
+@use './sass/abstracts/variables' as *;
+@use './sass/abstracts/colors' as *;
+@use './sass/abstracts/mixins' as *;
+@use './sass/base/typography' as *;
+@use './sass/base/resets' as *;
+@use './sass/components/buttons' as *;
+@use './sass/layout/navbar';
