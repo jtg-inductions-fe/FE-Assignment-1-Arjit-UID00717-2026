@@ -1,1 +1,6 @@
-// TODO: Add styles as per the requirement
+@use './sass/abstracts/functions' as *;
+@use './sass/abstracts/variables' as *;
+@use './sass/abstracts/colors' as *;
+@use './sass/abstracts/mixins' as *;
+@use './sass/base/typography' as *;
+@use './sass/base/resets' as *;
