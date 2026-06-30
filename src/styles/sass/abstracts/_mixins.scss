@@ -14,7 +14,7 @@
     width: $width;
 }
 
-//For responsiveness of tablet and desktop
+// For responsiveness of tablet and desktop
 @mixin screen($breakpoint) {
     $value: map-get(v.$breakpoints, $breakpoint);
 
@@ -23,7 +23,7 @@
     }
 }
 
-//mixin for font styling
+// Mixin for font styling
 @mixin font-style($typography-map) {
     // Base styles
     $sm: map.get($typography-map, sm);
