@@ -27,7 +27,54 @@
         <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
-        <div>Hello World</div>
+        <nav class="navbar">
+            <img
+                src="./assets/logo.svg"
+                alt="travlog logo"
+                class="navbar__logo"
+            />
+
+            <div class="navbar__menu">
+                <!-- TODO: handle accessibility and navigation to section on click    -->
+                <ul class="navbar__links">
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Home</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Discover</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Special Deals</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Contact</a
+                        >
+                    </li>
+                </ul>
+
+                <div class="navbar__buttons">
+                    <button class="button button--text">Log In</button>
+                    <button class="button button--primary">Sign Up</button>
+                </div>
+            </div>
+
+            <button
+                class="navbar__hamburger"
+                aria-expanded="false"
+                aria-controls="main-menu"
+                aria-label="Menu"
+            >
+                <i class="fa-solid fa-bars" aria-label="hamburger menu"></i>
+            </button>
+        </nav>
+
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

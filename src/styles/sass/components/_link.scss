@@ -1,0 +1,19 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/functions' as f;
+
+.link {
+    color: c.$grey-color;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: c.$primary-color;
+    }
+
+    &--lg {
+        font-size: f.rem(18px);
+    }
+
+    &--sm {
+        font-size: f.rem(14px);
+    }
+}

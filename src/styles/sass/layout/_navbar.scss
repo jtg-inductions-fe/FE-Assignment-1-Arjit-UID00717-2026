@@ -1,0 +1,118 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use '../abstracts/colors' as c;
+@use '../abstracts/variables' as v;
+@use '../base/typography' as t;
+
+.navbar {
+    // Base layout configurations for mobile viewports
+    @include m.flex-layout(space-between, center, row);
+    padding: f.rem(36px) f.rem(16px);
+    position: relative;
+
+    &__menu {
+        // Hide full menu tracking container on smaller devices by default
+        display: none;
+        &--active {
+            position: absolute;
+            display: block;
+            top: 90%;
+            right: 5%;
+            box-shadow: c.$card-box-shadow;
+            padding: f.rem(30px) f.rem(40px);
+            @include m.flex-layout(space-between, flex-start, column);
+            gap: f.rem(20px);
+        }
+    }
+
+    &__links {
+        @include m.flex-layout(space-between, flex-start, column);
+        gap: f.rem(20px);
+        padding: f.rem(10px);
+
+        &-item {
+            border-bottom: 2px solid c.$text-color;
+        }
+    }
+
+    &__hamburger {
+        // Styled trigger button for mobile navigation
+        background-color: c.$primary-color;
+        color: c.$color-white;
+        border-radius: 10px;
+        font-size: f.rem(26px);
+        @include m.box(41px, 41px);
+        @include m.flex-layout(center, center, row);
+    }
+
+    // Medium screen adaptations (Tablets)
+    @include m.screen(md) {
+        padding: f.rem(32px) f.rem(65px);
+
+        &__menu {
+            &--active {
+                position: static;
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+
+        &__links {
+            display: none;
+
+            .navbar__menu--active & {
+                position: absolute;
+                box-shadow: c.$card-box-shadow;
+                top: 90%;
+                left: 5%;
+                padding: f.rem(30px) f.rem(40px);
+                @include m.flex-layout(center, flex-start, column);
+                gap: f.rem(20px);
+            }
+        }
+
+        // Reorder structural blocks inside the navbar via flex properties
+        &__hamburger {
+            order: 1;
+        }
+
+        &__logo {
+            order: 2;
+            margin-left: f.rem(180px);
+        }
+
+        &__menu {
+            display: flex;
+            order: 3;
+        }
+    }
+
+    // Large screen configurations (Desktop viewports)
+    @include m.screen(lg) {
+        padding: f.rem(65px) 0;
+
+        // Hiding hamburger icon on large screens
+        &__hamburger {
+            display: none;
+        }
+
+        &__links {
+            @include m.flex-layout(space-between, center, row);
+            gap: f.rem(70px);
+        }
+
+        &__links-item {
+            border: none;
+            font-weight: t.$font-weight-bold;
+        }
+
+        &__menu {
+            @include m.flex-layout(space-around, center, row);
+            width: 80%;
+        }
+
+        &__logo {
+            margin-left: f.rem(130px);
+        }
+    }
+}
