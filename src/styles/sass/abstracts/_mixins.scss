@@ -1,11 +1,7 @@
 @use 'variables' as v;
-@use 'functions' as f;
-//font weight for heading and paragraph
-$main-heading-font-weight: 700;
-$sub-heading-font-weight: 700;
-$para-font-weight: 400;
+@use 'sass:map';
 
-//flex layout to reduce repetition
+// Flex layout to reduce repetition
 @mixin flex-layout($justify: center, $align: center, $direction: row) {
     display: flex;
     flex-direction: $direction;
@@ -13,22 +9,54 @@ $para-font-weight: 400;
     align-items: $align;
 }
 
-//for creating any box with writing height width in single line
+// For creating any box with writing height width in single line
 @mixin box($height, $width) {
     height: $height;
     width: $width;
 }
 
-//for responsiveness of tablet and desktop
-$breakpoints: (
-    'tablet': v.$bp-tablet,
-    'desktop': v.$bp-desktop,
-);
-
+// For responsiveness of tablet and desktop
 @mixin screen($breakpoint) {
-    $value: map-get($breakpoints, $breakpoint);
+    $value: map-get(v.$breakpoints, $breakpoint);
 
     @media (min-width: $value) {
         @content;
+    }
+}
+
+// Mixin for font styling
+@mixin font-style($typography-map) {
+    // Base styles
+    $sm: map.get($typography-map, sm);
+
+    font-size: map.get($sm, font-size);
+    line-height: map.get($sm, line-height);
+    font-weight: map.get($sm, font-weight);
+
+    // Tablet
+    @media (min-width: map.get(v.$breakpoints, md)) {
+        $md: map.get($typography-map, md);
+
+        font-size: map.get($md, font-size);
+        line-height: map.get($md, line-height);
+        font-weight: map.get($md, font-weight);
+    }
+
+    // Desktop
+    @media (min-width: map.get(v.$breakpoints, lg)) {
+        $lg: map.get($typography-map, lg);
+
+        font-size: map.get($lg, font-size);
+        line-height: map.get($lg, line-height);
+        font-weight: map.get($lg, font-weight);
+    }
+}
+
+// Resizes an image to completely fill its parent container while maintaining its aspect ratio
+@mixin fluid-image($fit: cover) {
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: $fit;
     }
 }

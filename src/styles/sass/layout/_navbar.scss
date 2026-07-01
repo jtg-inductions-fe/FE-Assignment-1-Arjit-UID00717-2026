@@ -1,118 +1,127 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use '../abstracts/colors' as c;
+@use '../abstracts/variables' as v;
+@use '../base/typography' as t;
+
 .navbar {
-    @include flex-layout(space-between, center, row);
-    padding: rem(37px) rem(18px);
+    // Base layout configurations for mobile viewports
+    @include m.flex-layout(space-between, center, row);
+    padding: f.rem(36px) f.rem(16px);
     position: relative;
     z-index: 99;
 
-    &__right {
+    &__menu {
+        // Hide full menu tracking container on smaller devices by default
         display: none;
     }
 
     &__hamburger {
-        background-color: $primary-color;
-        color: white;
-        border-radius: rem(10px);
-        font-size: rem(26px);
-        @include box(41px, 41px);
-        @include flex-layout(center, center, row);
-    }
-
-    &__buttons__signup {
-        background-color: $primary-color;
-        color: #ffffff;
-    }
-    &__buttons__login {
-        background-color: transparent;
+        // Styled trigger button for mobile navigation
+        background-color: c.$primary-color;
+        color: c.$color-white;
+        border-radius: 10px;
+        font-size: f.rem(26px);
+        @include m.box(41px, 41px);
+        @include m.flex-layout(center, center, row);
     }
 
     &--active {
+        background-color: c.$color-white;
         position: absolute;
         display: block;
         top: 90%;
         right: 5%;
-        box-shadow: 0 rem(10px) rem(20px) rgba(0, 0, 0, 0.1);
-        background-color: #ffffff;
-        padding: rem(30px) rem(40px);
-        @include flex-layout(space-between, flex-start, column);
-        gap: rem(20px);
+        box-shadow: t.$card-box-shadow;
+        padding: f.rem(30px) f.rem(40px);
+        @include m.flex-layout(space-between, flex-start, column);
+        gap: f.rem(20px);
 
         .navbar__links {
-            @include flex-layout(space-between, flex-start, column);
-            @include font-style(14px, 700);
-            gap: rem(20px);
-            padding: rem(10px);
+            @include m.flex-layout(space-between, flex-start, column);
+            gap: f.rem(20px);
+            padding: f.rem(10px);
+
+            & li {
+                border-bottom: 2px solid c.$text-color;
+            }
         }
     }
 
-    @include screen(tablet) {
-        padding: rem(32px) rem(65px);
+    // Medium screen adaptations (Tablets)
+    @include m.screen(md) {
+        padding: f.rem(32px) f.rem(65px);
 
         &__links {
             display: none;
         }
 
-        &--active {
+        // Reposition active layout elements for mid-size structural flow
+        .hamburger--active {
             position: static;
             box-shadow: none;
             padding: 0;
+
             .navbar__links {
                 position: absolute;
-                box-shadow: 0 rem(10px) rem(20px) rgba(0, 0, 0, 0.1);
-                background-color: #ffffff;
+                box-shadow: t.$card-box-shadow;
                 top: 90%;
                 left: 5%;
-                padding: rem(30px) rem(40px);
-                @include flex-layout(center, flex-start, column);
-                gap: rem(20px);
+                padding: f.rem(30px) f.rem(40px);
+                @include m.flex-layout(center, flex-start, column);
+                gap: f.rem(20px);
             }
         }
 
-        &__buttons {
-            position: static;
-            &__login {
-                background-color: #ffffff;
-            }
-
-            &__signup {
-                background-color: $primary-color;
-                color: #ffffff;
-            }
-        }
-
+        // Reorder structural blocks inside the navbar via flex properties
         &__hamburger {
             order: 1;
         }
+
         &__logo {
             order: 2;
-            margin-left: rem(180px);
+            margin-left: f.rem(180px);
         }
 
-        &__right {
+        &__menu {
             display: flex;
             order: 3;
         }
     }
 
-    @include screen(desktop) {
-        padding: rem(65px) 0;
+    // Large screen configurations (Desktop viewports)
+    @include m.screen(lg) {
+        padding: f.rem(65px) 0;
 
+        // Hiding hamburger icon on large screens
         &__hamburger {
             display: none;
         }
 
         &__links {
-            @include flex-layout(space-between, center, row);
-            gap: rem(70px);
-            @include font-style(14px, 700);
+            @include m.flex-layout(space-between, center, row);
+            gap: f.rem(70px);
         }
 
-        &__right {
-            @include flex-layout(space-around, center, row);
+        .navbar__links a {
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: c.$primary-color;
+            }
+
+            &:active {
+                opacity: 0.6;
+            }
+        }
+
+        &__menu {
+            @include m.flex-layout(space-around, center, row);
             width: 80%;
         }
 
         &__logo {
-            margin-left: rem(130px);
+            margin-left: f.rem(130px);
         }
     }
 }
