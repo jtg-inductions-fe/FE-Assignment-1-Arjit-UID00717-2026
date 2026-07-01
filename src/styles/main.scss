@@ -1,9 +1,10 @@
-@use './sass/layout/hero';
-@use './sass/abstracts/functions' as *;
-@use './sass/abstracts/variables' as *;
-@use './sass/abstracts/colors' as *;
-@use './sass/abstracts/mixins' as *;
-@use './sass/base/typography' as *;
-@use './sass/base/resets' as *;
-@use './sass/components/buttons' as *;
+@use './sass/abstracts/functions';
+@use './sass/abstracts/variables';
+@use './sass/abstracts/colors';
+@use './sass/abstracts/mixins';
+@use './sass/base/typography';
+@use './sass/base/resets';
+@use './sass/components/buttons';
 @use './sass/layout/navbar';
+@use './sass/layout/hero';
+@use './sass/layout/partner';

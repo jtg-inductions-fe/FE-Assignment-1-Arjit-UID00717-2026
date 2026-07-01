@@ -9,6 +9,7 @@
     @include m.flex-layout(space-between, center, row);
     padding: f.rem(36px) f.rem(16px);
     position: relative;
+    z-index: 99;
 
     &__menu {
         // Hide full menu tracking container on smaller devices by default
@@ -25,8 +26,8 @@
         @include m.flex-layout(center, center, row);
     }
 
-    // Active state styles for the dropdown overlay
-    .hamburger--active {
+    &--active {
+        background-color: c.$color-white;
         position: absolute;
         display: block;
         top: 90%;

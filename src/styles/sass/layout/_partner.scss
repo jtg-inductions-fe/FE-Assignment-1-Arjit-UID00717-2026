@@ -1,0 +1,30 @@
+@use '../abstracts/mixins' as m;
+
+.partner-list {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 16px;
+
+    &__logo {
+        height: 20px;
+    }
+
+    @include m.screen(md) {
+        width: 70%;
+        margin-inline: auto;
+        margin-top: 110px;
+
+        &__logo {
+            height: 32px;
+        }
+    }
+
+    @include m.screen(lg) {
+        margin-top: 160px;
+        width: 95%;
+        justify-content: space-evenly;
+    }
+}
