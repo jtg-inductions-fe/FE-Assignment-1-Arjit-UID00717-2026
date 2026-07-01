@@ -35,11 +35,28 @@
             />
 
             <div class="navbar__menu">
+                <!-- TODO: handle accessibility and navigation to section on click    -->
                 <ul class="navbar__links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Discover</a></li>
-                    <li><a href="#">Special Deals</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Home</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Discover</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Special Deals</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Contact</a
+                        >
+                    </li>
                 </ul>
 
                 <div class="navbar__buttons">
@@ -48,8 +65,13 @@
                 </div>
             </div>
 
-            <button class="navbar__hamburger">
-                <i class="fa-solid fa-bars"></i>
+            <button
+                class="navbar__hamburger"
+                aria-expanded="false"
+                aria-controls="main-menu"
+                aria-label="Menu"
+            >
+                <i class="fa-solid fa-bars" aria-label="hamburger menu"></i>
             </button>
         </nav>
 

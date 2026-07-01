@@ -13,6 +13,26 @@
     &__menu {
         // Hide full menu tracking container on smaller devices by default
         display: none;
+        &--active {
+            position: absolute;
+            display: block;
+            top: 90%;
+            right: 5%;
+            box-shadow: c.$card-box-shadow;
+            padding: f.rem(30px) f.rem(40px);
+            @include m.flex-layout(space-between, flex-start, column);
+            gap: f.rem(20px);
+        }
+    }
+
+    &__links {
+        @include m.flex-layout(space-between, flex-start, column);
+        gap: f.rem(20px);
+        padding: f.rem(10px);
+
+        &-item {
+            border-bottom: 2px solid c.$text-color;
+        }
     }
 
     &__hamburger {
@@ -25,45 +45,24 @@
         @include m.flex-layout(center, center, row);
     }
 
-    // Active state styles for the dropdown overlay
-    .hamburger--active {
-        position: absolute;
-        display: block;
-        top: 90%;
-        right: 5%;
-        box-shadow: t.$card-box-shadow;
-        padding: f.rem(30px) f.rem(40px);
-        @include m.flex-layout(space-between, flex-start, column);
-        gap: f.rem(20px);
-
-        .navbar__links {
-            @include m.flex-layout(space-between, flex-start, column);
-            gap: f.rem(20px);
-            padding: f.rem(10px);
-
-            & li {
-                border-bottom: 2px solid c.$text-color;
-            }
-        }
-    }
-
     // Medium screen adaptations (Tablets)
     @include m.screen(md) {
         padding: f.rem(32px) f.rem(65px);
 
-        &__links {
-            display: none;
+        &__menu {
+            &--active {
+                position: static;
+                box-shadow: none;
+                padding: 0;
+            }
         }
 
-        // Reposition active layout elements for mid-size structural flow
-        .hamburger--active {
-            position: static;
-            box-shadow: none;
-            padding: 0;
+        &__links {
+            display: none;
 
-            .navbar__links {
+            .navbar__menu--active & {
                 position: absolute;
-                box-shadow: t.$card-box-shadow;
+                box-shadow: c.$card-box-shadow;
                 top: 90%;
                 left: 5%;
                 padding: f.rem(30px) f.rem(40px);
@@ -102,16 +101,9 @@
             gap: f.rem(70px);
         }
 
-        .navbar__links a {
-            transition: color 0.3s ease;
-
-            &:hover {
-                color: c.$primary-color;
-            }
-
-            &:active {
-                opacity: 0.6;
-            }
+        &__links-item {
+            border: none;
+            font-weight: t.$font-weight-bold;
         }
 
         &__menu {
