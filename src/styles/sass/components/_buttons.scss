@@ -1,6 +1,7 @@
 @use '../abstracts/functions' as f;
 @use '../base/typography' as t;
 @use '../abstracts/colors' as c;
+@use '../abstracts/mixins' as m;
 
 .button {
     border: none;
@@ -8,6 +9,8 @@
     border-radius: 100px;
     font-size: f.rem(14px);
     font-weight: t.$font-weight-bold;
+    @include m.flex-layout(center, center, row);
+    gap: f.rem(5px);
 
     &:hover {
         opacity: 0.6;
@@ -20,5 +23,9 @@
 
     &--text {
         background-color: c.$color-white;
+    }
+
+    &--outlined {
+        border: 1px solid c.$off-white;
     }
 }

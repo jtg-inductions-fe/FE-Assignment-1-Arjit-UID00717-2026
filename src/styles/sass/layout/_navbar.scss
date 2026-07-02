@@ -9,6 +9,11 @@
     @include m.flex-layout(space-between, center, row);
     padding: f.rem(36px) f.rem(16px);
     position: relative;
+    z-index: 99;
+
+    &__logo {
+        @include m.box(f.rem(40px), f.rem(40px));
+    }
 
     &__menu {
         // Hide full menu tracking container on smaller devices by default
@@ -22,7 +27,12 @@
             padding: f.rem(30px) f.rem(40px);
             @include m.flex-layout(space-between, flex-start, column);
             gap: f.rem(20px);
+            background-color: c.$color-white;
         }
+    }
+
+    &__buttons {
+        @include m.flex-layout();
     }
 
     &__links {

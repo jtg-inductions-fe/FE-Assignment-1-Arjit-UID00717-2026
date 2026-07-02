@@ -1,4 +1,3 @@
-@use 'sass:map';
 @use '../abstracts/functions' as f;
 @use '../abstracts/variables' as v;
 
@@ -92,17 +91,17 @@ $small-heading: (
 $main-para: (
     lg: (
         font-size: $main-para-lg,
-        line-height: 120%,
+        line-height: 160%,
         font-weight: $font-weight-light,
     ),
     md: (
         font-size: $main-para-md,
-        line-height: 120%,
+        line-height: 160%,
         font-weight: $font-weight-light,
     ),
     sm: (
         font-size: $main-para-sm,
-        line-height: 120%,
+        line-height: 160%,
         font-weight: $font-weight-light,
     ),
 );

@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'sass:map';
 
 // Flex layout to reduce repetition
 @mixin flex-layout($justify: center, $align: center, $direction: row) {
@@ -16,7 +17,7 @@
 
 // For responsiveness of tablet and desktop
 @mixin screen($breakpoint) {
-    $value: map-get(v.$breakpoints, $breakpoint);
+    $value: map.get(v.$breakpoints, $breakpoint);
 
     @media (min-width: $value) {
         @content;

@@ -14,14 +14,20 @@ a {
 }
 
 body {
+    overflow-x: hidden;
     min-height: 100vh;
     line-height: 1.5;
 }
 
-img,
 svg {
     display: block;
     max-width: 100%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 button {
@@ -39,8 +45,10 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 400;
+    font-weight: inherit;
+    font-size: inherit;
 }
+
 li {
     list-style-type: none;
 }
