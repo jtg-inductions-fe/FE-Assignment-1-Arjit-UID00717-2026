@@ -54,12 +54,18 @@ document.addEventListener('click', (e) => {
 });
 
 // Dynamically creating card and inserting into cards container
-const cardsContainer = document.querySelector('.travel-cards');
+const cardsContainer = document.querySelector('.travel__cards');
 
-travelData.forEach((item) => {
-    cardsContainer.innerHTML += `
-    <div class='travel-card'>
-        <h2>${item.number}</h2>
-        <p>${item.title}</p>
-    </div>`;
-});
+// 1. Create an array of HTML strings and join them into one big string
+const cardsHTML = travelData
+    .map(
+        (item) => `
+    <div class='card'>
+        <h2 class='card-heading' >${item.number}</h2>
+        <p class='card-para' >${item.title}</p>
+    </div>`,
+    )
+    .join('');
+
+// 2. Update the DOM a single time
+cardsContainer.innerHTML = cardsHTML;

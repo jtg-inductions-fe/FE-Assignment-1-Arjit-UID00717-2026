@@ -1,110 +1,79 @@
-.travel-point {
-    margin-top: 100px;
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+@use '../base/typography' as t;
+@use '../abstracts/colors' as c;
+
+.travel {
+    margin-top: f.rem(100px);
     width: 100vw;
     position: relative;
-    .travel-image {
-        width: 100%;
 
-        img {
-            width: 100%;
-        }
+    &__info {
+        margin-top: f.rem(30px);
     }
 
-    .travel-info {
-        margin-top: rem(30px);
-        .travel-text {
-            h3 {
-                @include font-style(16px, 700);
-                color: $secondary-color;
-                text-align: center;
-                letter-spacing: 3px;
-            }
-
-            h2 {
-                @include font-style(32px, 700);
-                text-align: center;
-                margin-top: 17px;
-            }
-
-            p {
-                @include font-style(16px, 400);
-                color: $para-color;
-                text-align: center;
-                font-family: $secondary-font-family;
-                width: 90%;
-                margin-inline: auto;
-                margin-top: 30px;
-                line-height: 26px;
-            }
-        }
-
-        .travel-cards {
-            padding-inline: 40px;
-            display: grid;
-            grid-template-columns: 1fr;
-            row-gap: 16px;
-            margin-top: 30px;
-            .travel-card {
-                border: 1px solid $border-color;
-                border-radius: rem(32px);
-                padding: 35px 20px;
-                @include flex-layout(center, center, column);
-                gap: 16px;
-                h2 {
-                    @include font-style(35px, 700);
-                    color: $orange-color;
-                }
-
-                p {
-                    @include font-style(18px, 400);
-                    font-family: $secondary-font-family;
-                }
-            }
-        }
+    &__main-heading {
+        color: c.$secondary-color;
+        text-align: center;
+        letter-spacing: f.rem(3px);
+        @include m.font-style(t.$small-heading);
     }
 
-    .ticket-icon,
-    .yellow-circle {
+    &__sub-heading {
+        text-align: center;
+        margin-top: f.rem(17px);
+        @include m.font-style(t.$sub-heading);
+    }
+
+    &__para {
+        color: c.$grey-color;
+        text-align: center;
+        font-family: t.$secondary-font-family;
+        width: 90%;
+        margin-inline: auto;
+        margin-top: f.rem(30px);
+        @include m.font-style(t.$main-para);
+    }
+
+    &__cards {
+        padding-inline: f.rem(40px);
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: f.rem(16px);
+        margin-top: f.rem(30px);
+    }
+
+    &__ticket-icon {
         display: none;
     }
 
-    @include screen(tablet) {
-        .travel-info {
-            .travel-text {
-                margin-top: 67px;
-                h3 {
-                    font-size: 23px;
-                    letter-spacing: 4.5px;
-                }
-                h2 {
-                    font-size: 39px;
-                }
-                p {
-                    width: 85.65%;
-                    font-size: 18px;
-                    line-height: 30px;
-                    font-family: $secondary-font-family;
-                }
-            }
-
-            .travel-cards {
-                margin-top: 62px;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 1fr 1fr;
-                column-gap: 15px;
-                row-gap: 30px;
-                padding-inline: 55px;
-
-                .travel-card {
-                    padding: 36px 8px;
-                }
-            }
+    @include m.screen(md) {
+        &__info-text {
+            margin-top: f.rem(60px);
         }
 
-        .yellow-circle {
+        &__main-heading {
+            letter-spacing: f.rem(4.5px);
+        }
+
+        &__para {
+            width: 85%;
+            font-family: t.$secondary-font-family;
+        }
+
+        &__cards {
+            margin-top: f.rem(62px);
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            column-gap: f.rem(15px);
+            row-gap: f.rem(30px);
+            padding-inline: f.rem(55px);
+        }
+
+        &__yellow-circle {
             display: block;
-            @include box(406px, 180px);
-            background-color: $yellow-accent;
+            @include m.box(406px, 180px);
+            background-color: c.$yellow-accent;
             border-radius: 50%;
             filter: blur(150px);
             opacity: 0.5;
@@ -114,54 +83,50 @@
         }
     }
 
-    @include screen(desktop) {
-        @include flex-layout(space-evenly, start, row);
-        position: absolute;
-        margin-top: 120px;
+    @include m.screen(lg) {
+        @include m.flex-layout(space-evenly, start, row);
+        margin-top: f.rem(120px);
 
-        .travel-info {
-            width: 66%;
+        &__image {
+            height: 100%;
+        }
+
+        &__info {
+            width: 40%;
             margin: 0;
-            .travel-text {
-                margin: 0;
-                @include flex-layout(start, start, column);
+        }
 
-                h3 {
-                    margin-top: 10px;
-                }
+        &__info-text {
+            margin: 0;
+            @include m.flex-layout(start, start, column);
+            gap: f.rem(8px);
+        }
 
-                h2 {
-                    text-align: start;
-                    font-size: 44px;
-                    width: 90%;
-                    word-spacing: -1px;
-                }
+        &__sub-heading {
+            text-align: start;
+            width: 75%;
+        }
 
-                p {
-                    text-align: start;
-                    margin-left: 0;
-                    line-height: 28px;
-                }
-            }
+        &__para {
+            text-align: start;
+            margin-left: 0;
+        }
 
-            .travel-cards {
-                place-items: start;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 1fr 1fr;
-                padding-left: 2px;
-                column-gap: 1px;
-                margin-right: 0;
-                .travel-card {
-                    padding-inline: 30px;
-                }
-            }
+        &__cards {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            padding-left: f.rem(2px);
+            margin-right: 0;
+            column-gap: f.rem(50px);
+            margin-right: f.rem(60px);
+            position: relative;
+        }
 
-            .ticket-icon {
-                display: block;
-                position: absolute;
-                right: 0%;
-                bottom: 10%;
-            }
+        &__ticket-icon {
+            display: block;
+            position: absolute;
+            top: 40%;
+            right: 0;
         }
     }
 }
