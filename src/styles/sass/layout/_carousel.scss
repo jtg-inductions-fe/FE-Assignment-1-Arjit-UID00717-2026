@@ -1,3 +1,8 @@
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+@use '../base/typography' as t;
+@use '../abstracts/colors' as c;
+
 .carousel-section {
     width: 100%;
 
@@ -6,13 +11,11 @@
         text-align: center;
 
         h3 {
-            @include font-style(16px, 700);
-            color: $secondary-color;
+            color: c.$secondary-color;
             text-transform: uppercase;
             letter-spacing: 3px;
         }
         h1 {
-            @include font-style(32px, 700);
             margin-top: 18px;
         }
     }
@@ -26,7 +29,7 @@
         padding: 30px;
         top: 21%;
         left: 4%;
-        border: 1px solid $border-color;
+        border: 1px solid c.$light-grey-color;
         background-color: #ffffff;
     }
     .right-arrow {
@@ -34,18 +37,18 @@
         padding: 30px;
         top: 21%;
         right: 4%;
-        background-color: $primary-color;
+        background-color: c.$primary-color;
     }
 
     .splide__slide {
         width: 100%;
-        @include flex-layout(center, center, column);
+        @include m.flex-layout(center, center, column);
         gap: 58px;
-        padding: rem(60px) 0;
+        padding: f.rem(60px) 0;
 
         .card-avatar {
-            height: rem(135px);
-            width: rem(135px);
+            height: f.rem(135px);
+            width: f.rem(135px);
             border-radius: 50%;
             overflow: hidden;
             img {
@@ -57,40 +60,37 @@
         }
 
         .user-info {
-            @include flex-layout(center, center, column);
+            @include m.flex-layout(center, center, column);
             gap: 35px;
 
             h1 {
-                @include font-style(28px, 700);
-                color: $orange-color;
+                color: c.$orange-color;
                 width: 100%;
                 text-align: center;
                 letter-spacing: 0.5px;
                 span {
-                    @include font-style(22px, 500);
-                    color: $heading-color;
+                    color: c.$grey-color;
                 }
             }
 
             .user-rating {
-                @include flex-layout(center, center, row);
-                gap: rem(16px);
+                @include m.flex-layout(center, center, row);
+                gap: f.rem(16px);
             }
         }
 
         .rating-para {
-            @include font-style(18px, 450);
-            color: $para-color;
+            color: c.$grey-color;
             text-align: center;
-            padding-top: rem(26px);
-            line-height: 28px;
-            margin-bottom: 42px;
+            padding-top: f.rem(26px);
+            line-height: f.rem(28px);
+            margin-bottom: f.rem(42px);
         }
     }
 
     .splide__pagination {
-        @include flex-layout(center, center, row);
-        gap: 18px;
+        @include m.flex-layout(center, center, row);
+        gap: f.rem(18px);
     }
 
     //non-active dots
@@ -109,11 +109,11 @@
     .splide__pagination__page.is-active {
         width: 24px;
         border-radius: 50%;
-        background-color: $secondary-color;
+        background-color: c.$secondary-color;
         transform: scale(1);
     }
 
-    @include screen(tablet) {
+    @include m.screen(md) {
         margin-top: 27px;
         background-image: url('/assets/carousel.png');
         background-position: 0 48%;
@@ -123,12 +123,10 @@
             text-align: center;
 
             h3 {
-                @include font-style(23px, 700);
                 letter-spacing: 4px;
             }
 
             h1 {
-                @include font-style(40px, 700);
                 margin-top: 18px;
             }
         }
@@ -136,7 +134,6 @@
         .splide__slide {
             gap: 40px;
             .rating-para {
-                @include font-style(23px, 450);
                 width: 60%;
                 line-height: 34px;
             }
@@ -147,8 +144,8 @@
             padding: 50px;
             top: 40%;
             left: 6%;
-            border: 1px solid $border-color;
-            background-color: #ffffff;
+            border: 1px solid c.$grey-color;
+            background-color: c.$color-white;
         }
 
         .right-arrow {
@@ -156,25 +153,23 @@
             padding: 50px;
             top: 40%;
             right: 6%;
-            background-color: $primary-color;
+            background-color: c.$primary-color;
         }
     }
 
-    @include screen(desktop) {
-        margin-top: 105px;
+    @include m.screen(lg) {
+        margin-top: f.rem(105px);
         background-position: 0 43%;
 
         .carousel-text {
             text-align: center;
 
             h3 {
-                @include font-style(23px, 700);
                 letter-spacing: 4.2px;
                 padding-left: 10px;
             }
             h1 {
-                @include font-style(44px, 700);
-                padding-left: 15px;
+                padding-left: f.rem(15px);
             }
         }
 
