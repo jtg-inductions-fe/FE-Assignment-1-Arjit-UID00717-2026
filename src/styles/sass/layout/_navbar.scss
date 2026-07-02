@@ -31,6 +31,10 @@
         }
     }
 
+    &__buttons {
+        @include m.flex-layout();
+    }
+
     &__links {
         @include m.flex-layout(space-between, flex-start, column);
         gap: f.rem(20px);
