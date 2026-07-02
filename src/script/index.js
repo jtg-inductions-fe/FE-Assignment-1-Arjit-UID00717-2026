@@ -1,6 +1,7 @@
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
-import { travelData, reviewsData } from './data';
+import { travelData } from '../MOCK_DATA/card_data';
+import { carouselData } from '../MOCK_DATA/carousel_data';
 
 // DOM Element Selectors
 const hamburger = document.querySelector('.navbar__hamburger');
@@ -63,8 +64,8 @@ const cardsHTML = travelData
     .map(
         (item) => `
     <div class='card'>
-        <h2 class='card-heading' >${item.number}</h2>
-        <p class='card-para' >${item.title}</p>
+        <h2 class='card__heading' >${item.heading}</h2>
+        <p class='card__para' >${item.para}</p>
     </div>`,
     )
     .join('');
@@ -77,7 +78,7 @@ const sliderList = document.getElementById('dynamic-slider-list');
 if (sliderList) {
     let finalHtml = '';
 
-    reviewsData.forEach((user) => {
+    carouselData.forEach((user) => {
         let stars = '';
         for (let i = 0; i < user.rating; i++) {
             stars += '<img src="/assets/star.svg" alt="star">';
