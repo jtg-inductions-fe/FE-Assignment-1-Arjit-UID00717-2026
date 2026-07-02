@@ -46,23 +46,20 @@
         left: 5%;
     }
 
-    &__column {
-        height: 100%;
-        &-left {
-            @include m.flex-layout(space-evenly, center, column);
-            width: 40%;
-            gap: f.rem(20px);
-            height: 90%;
-        }
+    &__column-left {
+        @include m.flex-layout(space-evenly, center, column);
+        width: 40%;
+        gap: f.rem(20px);
+        height: 90%;
+    }
 
-        &-right {
-            @include m.flex-layout(space-evenly, center, row);
-            height: 90%;
-            width: 40%;
-            margin-right: f.rem(20px);
-            overflow: hidden;
-            border-radius: f.rem(18px);
-        }
+    &__column-right {
+        @include m.flex-layout(space-evenly, center, row);
+        height: 90%;
+        width: 40%;
+        margin-right: f.rem(20px);
+        overflow: hidden;
+        border-radius: f.rem(18px);
     }
 
     &__image-wrapper {
@@ -79,26 +76,26 @@
         padding: f.rem(10px);
         border-radius: 50%;
         @include m.flex-layout(center, center, row);
+    }
 
-        &-telegram {
-            background-color: c.$secondary-color;
-            color: c.$color-white;
-            top: 42%;
-            left: 1%;
-        }
+    &__icon-badge-telegram {
+        background-color: c.$secondary-color;
+        color: c.$color-white;
+        top: 42%;
+        left: 1%;
+    }
 
-        &-add-user {
-            background-color: c.$orange-color;
-            color: c.$color-white;
-            bottom: 2%;
-            right: 27%;
-        }
+    &__icon-badge-add-user {
+        background-color: c.$orange-color;
+        color: c.$color-white;
+        bottom: 2%;
+        right: 27%;
     }
 
     &__location-badge {
         position: absolute;
         @include m.flex-layout(space-between, center, row);
-        gap: 5px;
+        gap: f.rem(5px);
         padding: f.rem(8px) f.rem(12px);
         background-color: c.$color-white;
         border-radius: f.rem(50px);
@@ -178,20 +175,13 @@
         width: 100%;
         padding: f.rem(23px) f.rem(28px);
         border-radius: f.rem(100px);
-        border: none;
-
-        &--watch {
-            @include m.flex-layout(center, center, row);
-            gap: f.rem(5px);
-            border: 1px solid c.$grey-color;
-        }
     }
 
     &__btn-icon {
         background-color: c.$primary-color;
         color: c.$color-white;
-        @include m.box(f.rem(24px), f.rem(24px));
-        font-size: f.rem(11px);
+        @include m.box(f.rem(20px), f.rem(20px));
+        font-size: f.rem(10px);
         border-radius: 50%;
         @include m.flex-layout(center, center, row);
     }
@@ -227,17 +217,18 @@
 
         &__icon-badge {
             padding: f.rem(20px);
-            &-telegram {
-                font-size: f.rem(18px);
-                top: 42.5%;
-                left: 1%;
-            }
+        }
 
-            &-add-user {
-                font-size: f.rem(18px);
-                bottom: 6%;
-                right: 31%;
-            }
+        &__icon-badge-telegram {
+            font-size: f.rem(18px);
+            top: 42.5%;
+            left: 1%;
+        }
+
+        &__icon-badge-add-user {
+            font-size: f.rem(18px);
+            bottom: 6%;
+            right: 31%;
         }
 
         &__content {
@@ -326,10 +317,13 @@
 
         &__column-left {
             height: 100%;
+        }
 
-            & .hero__image-wrapper {
-                height: 100%;
-                width: 100%;
+        &__image-wrapper {
+            height: 100%;
+            width: 100%;
+
+            .hero__column-left & {
                 margin-top: f.rem(20px);
                 margin-right: f.rem(40px);
             }
@@ -342,18 +336,16 @@
             margin-top: f.rem(26px);
         }
 
-        &__icon-badge {
-            &-telegram {
-                font-size: f.rem(22px);
-                top: 45%;
-                left: -6%;
-            }
+        &__icon-badge-telegram {
+            font-size: f.rem(22px);
+            top: 44%;
+            left: -8%;
+        }
 
-            &-add-user {
-                font-size: f.rem(22px);
-                bottom: 0%;
-                right: 33%;
-            }
+        &__icon-badge-add-user {
+            font-size: f.rem(22px);
+            bottom: 0;
+            right: 33%;
         }
 
         &__location-badge {
@@ -379,7 +371,8 @@
 
         &__title {
             width: 70%;
-            padding-left: f.rem(10px);
+            padding-left: f.rem(30px);
+            text-align: start;
         }
 
         &__description {
@@ -389,9 +382,13 @@
         }
 
         &__actions {
-            margin-right: f.rem(50px);
+            margin-right: f.rem(8px);
             margin-top: f.rem(50px);
-            gap: f.rem(30px);
+            gap: f.rem(20px);
+        }
+
+        &__btn-watch {
+            width: f.rem(181px);
         }
     }
 }

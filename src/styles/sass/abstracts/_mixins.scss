@@ -17,7 +17,7 @@
 
 // For responsiveness of tablet and desktop
 @mixin screen($breakpoint) {
-    $value: map-get(v.$breakpoints, $breakpoint);
+    $value: map.get(v.$breakpoints, $breakpoint);
 
     @media (min-width: $value) {
         @content;
