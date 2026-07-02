@@ -1,3 +1,5 @@
+import { travelData } from '../MOCK_DATA/card_data';
+
 // DOM Element Selectors
 const hamburger = document.querySelector('.navbar__hamburger');
 const navMenu = document.querySelector('.navbar__menu');
@@ -50,3 +52,20 @@ document.addEventListener('click', (e) => {
         resetIconToBurger();
     }
 });
+
+// Dynamically creating card and inserting into cards container
+const cardsContainer = document.querySelector('.travel__cards');
+
+// 1. Create an array of HTML strings and join them into one big string
+const cardsHTML = travelData
+    .map(
+        (item) => `
+    <div class='card'>
+        <h2 class='card__heading' >${item.heading}</h2>
+        <p class='card__para' >${item.para}</p>
+    </div>`,
+    )
+    .join('');
+
+// 2. Update the DOM a single time
+cardsContainer.innerHTML = cardsHTML;

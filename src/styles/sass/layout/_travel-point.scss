@@ -1,0 +1,132 @@
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+@use '../base/typography' as t;
+@use '../abstracts/colors' as c;
+
+.travel {
+    margin-top: f.rem(100px);
+    width: 100vw;
+    position: relative;
+
+    &__info {
+        margin-top: f.rem(30px);
+    }
+
+    &__main-heading {
+        color: c.$secondary-color;
+        text-align: center;
+        letter-spacing: f.rem(3px);
+        @include m.font-style(t.$small-heading);
+    }
+
+    &__sub-heading {
+        text-align: center;
+        margin-top: f.rem(17px);
+        @include m.font-style(t.$sub-heading);
+    }
+
+    &__para {
+        color: c.$grey-color;
+        text-align: center;
+        font-family: t.$secondary-font-family;
+        width: 90%;
+        margin-inline: auto;
+        margin-top: f.rem(30px);
+        @include m.font-style(t.$main-para);
+    }
+
+    &__cards {
+        padding-inline: f.rem(40px);
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: f.rem(16px);
+        margin-top: f.rem(30px);
+    }
+
+    &__ticket-icon {
+        display: none;
+    }
+
+    @include m.screen(md) {
+        &__info-text {
+            margin-top: f.rem(60px);
+        }
+
+        &__main-heading {
+            letter-spacing: f.rem(4.5px);
+        }
+
+        &__para {
+            width: 85%;
+            font-family: t.$secondary-font-family;
+        }
+
+        &__cards {
+            margin-top: f.rem(62px);
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            column-gap: f.rem(15px);
+            row-gap: f.rem(30px);
+            padding-inline: f.rem(55px);
+        }
+
+        &__yellow-circle {
+            display: block;
+            @include m.box(406px, 180px);
+            background-color: c.$yellow-accent;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.5;
+            position: absolute;
+            top: -10%;
+            right: 0;
+        }
+    }
+
+    @include m.screen(lg) {
+        @include m.flex-layout(space-evenly, start, row);
+        margin-top: f.rem(120px);
+
+        &__image {
+            height: 100%;
+        }
+
+        &__info {
+            width: 40%;
+            margin: 0;
+        }
+
+        &__info-text {
+            margin: 0;
+            @include m.flex-layout(start, start, column);
+            gap: f.rem(8px);
+        }
+
+        &__sub-heading {
+            text-align: start;
+            width: 75%;
+        }
+
+        &__para {
+            text-align: start;
+            margin-left: 0;
+        }
+
+        &__cards {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            padding-left: f.rem(2px);
+            margin-right: 0;
+            column-gap: f.rem(50px);
+            margin-right: f.rem(60px);
+            position: relative;
+        }
+
+        &__ticket-icon {
+            display: block;
+            position: absolute;
+            top: 40%;
+            right: 0;
+        }
+    }
+}
