@@ -51,12 +51,3 @@
         font-weight: map.get($lg, font-weight);
     }
 }
-
-// Resizes an image to completely fill its parent container while maintaining its aspect ratio
-@mixin fluid-image($fit: cover) {
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: $fit;
-    }
-}

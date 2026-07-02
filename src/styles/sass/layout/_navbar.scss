@@ -11,6 +11,10 @@
     position: relative;
     z-index: 99;
 
+    &__logo {
+        @include m.box(f.rem(40px), f.rem(40px));
+    }
+
     &__menu {
         // Hide full menu tracking container on smaller devices by default
         display: none;
@@ -23,6 +27,7 @@
             padding: f.rem(30px) f.rem(40px);
             @include m.flex-layout(space-between, flex-start, column);
             gap: f.rem(20px);
+            background-color: c.$color-white;
         }
     }
 
