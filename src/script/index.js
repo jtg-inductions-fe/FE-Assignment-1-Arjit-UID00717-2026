@@ -7,7 +7,7 @@ const BREAKPOINT = 1440; // Breakpoint for md screen
 
 // Toggle Menu and Icons on Click
 hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('hamburger--active');
+    navMenu.classList.toggle('navbar__menu--active');
 
     const icon = hamburger.querySelector('i, svg');
 
@@ -35,7 +35,7 @@ function resetIconToBurger() {
 window.addEventListener('resize', () => {
     // Automatically close the mobile menu if the screen expands past the breakpoint
     if (window.innerWidth >= BREAKPOINT) {
-        navMenu.classList.remove('hamburger--active');
+        navMenu.classList.remove('navbar__menu--active');
         resetIconToBurger();
     }
 });
@@ -48,7 +48,7 @@ document.addEventListener('click', (e) => {
 
     // Close the menu if the user clicks anywhere else on the screen
     if (!isClickInsideMenu && !isClickOnHamburger) {
-        navMenu.classList.remove('hamburger--active');
+        navMenu.classList.remove('navbar__menu--active');
         resetIconToBurger();
     }
 });

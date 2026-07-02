@@ -35,11 +35,28 @@
             />
 
             <div class="navbar__menu">
+                <!-- TODO: handle accessibility and navigation to section on click    -->
                 <ul class="navbar__links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Discover</a></li>
-                    <li><a href="#">Special Deals</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Home</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Discover</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Special Deals</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="navbar__links-item link link--sm"
+                            >Contact</a
+                        >
+                    </li>
                 </ul>
 
                 <div class="navbar__buttons">
@@ -48,8 +65,13 @@
                 </div>
             </div>
 
-            <button class="navbar__hamburger">
-                <i class="fa-solid fa-bars"></i>
+            <button
+                class="navbar__hamburger"
+                aria-expanded="false"
+                aria-controls="main-menu"
+                aria-label="Menu"
+            >
+                <i class="fa-solid fa-bars" aria-label="hamburger menu"></i>
             </button>
         </nav>
 
@@ -64,11 +86,14 @@
                 </div>
 
                 <div class="hero__showcase">
-                    <div class="hero__column hero__column--left">
+                    <div class="hero__column hero__column-left">
                         <div class="hero__image-wrapper">
                             <img src="./assets/ocean.jpg" alt="ocean view" />
                         </div>
-                        <div class="hero__image-wrapper">
+                        <div
+                            class="hero__image-wrapper"
+                            hero__column-left-wrapper
+                        >
                             <img
                                 src="./assets/mountain.jpg"
                                 alt="mountain view"
@@ -76,15 +101,11 @@
                         </div>
 
                         <!-- Floating badges/icons -->
-                        <div
-                            class="hero__icon-badge hero__icon-badge--telegram"
-                        >
+                        <div class="hero__icon-badge hero__icon-badge-telegram">
                             <i class="fa-solid fa-paper-plane"></i>
                         </div>
 
-                        <div
-                            class="hero__icon-badge hero__icon-badge--add-user"
-                        >
+                        <div class="hero__icon-badge hero__icon-badge-add-user">
                             <i class="fa-solid fa-user-plus"></i>
                         </div>
 
@@ -96,7 +117,7 @@
                         </div>
                     </div>
 
-                    <div class="hero__column hero__column--right">
+                    <div class="hero__column hero__column-right">
                         <div class="hero__image-wrapper">
                             <img src="./assets/city.jpg" alt="city view" />
                         </div>
@@ -132,7 +153,7 @@
                     <button class="hero__btn button--primary">
                         Get Started
                     </button>
-                    <button class="hero__btn button--text">
+                    <button class="hero__btn hero__btn--watch button--text">
                         <span class="hero__btn-icon"
                             ><i class="fa-solid fa-play"></i
                         ></span>

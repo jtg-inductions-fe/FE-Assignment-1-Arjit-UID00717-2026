@@ -25,7 +25,7 @@
     /* --- Media Gallery Container--- */
     &__gallery {
         width: 90%;
-        max-width: 772px;
+        max-width: f.rem(772px);
         position: relative;
         aspect-ratio: 772/713;
     }
@@ -35,8 +35,6 @@
         position: absolute;
         top: 0;
         z-index: -1;
-
-        @include m.fluid-image(cover);
     }
 
     &__showcase {
@@ -50,22 +48,20 @@
 
     &__column {
         height: 100%;
-        &--left {
+        &-left {
             @include m.flex-layout(space-evenly, center, column);
             width: 40%;
             gap: f.rem(20px);
             height: 90%;
         }
 
-        &--right {
+        &-right {
             @include m.flex-layout(space-evenly, center, row);
             height: 90%;
             width: 40%;
             margin-right: f.rem(20px);
             overflow: hidden;
             border-radius: f.rem(18px);
-
-            @include m.fluid-image(cover);
         }
     }
 
@@ -74,26 +70,24 @@
         width: 100%;
         overflow: hidden;
         border-radius: 18px;
-
-        @include m.fluid-image(cover);
     }
 
     /* --- Floating Overlays & Badges --- */
     &__icon-badge {
         position: absolute;
-        font-size: 14px;
-        padding: 3%;
+        font-size: f.rem(14px);
+        padding: f.rem(10px);
         border-radius: 50%;
         @include m.flex-layout(center, center, row);
 
-        &--telegram {
+        &-telegram {
             background-color: c.$secondary-color;
             color: c.$color-white;
             top: 42%;
             left: 1%;
         }
 
-        &--add-user {
+        &-add-user {
             background-color: c.$orange-color;
             color: c.$color-white;
             bottom: 2%;
@@ -134,13 +128,14 @@
         background-color: c.$color-white;
         @include m.flex-layout(center, center, row);
         gap: f.rem(10px);
-        padding: f.rem(16px) f.rem(32px);
+        padding: f.rem(16px) f.rem(28px);
         border-radius: f.rem(100px);
         color: c.$secondary-color;
+        box-shadow: c.$card-box-shadow;
     }
 
     &__badge-text {
-        @include m.font-style(t.$main-para);
+        font-size: f.rem(14px);
     }
 
     &__badge-icon {
@@ -149,13 +144,9 @@
     }
 
     &__title {
+        text-align: center;
+        width: 80%;
         @include m.font-style(t.$main-heading);
-        /* Chained & selector keeps styling priority clean below typography mixin */
-
-        & {
-            text-align: center;
-            width: 80%;
-        }
     }
 
     &__title-highlight {
@@ -163,15 +154,12 @@
     }
 
     &__description {
+        color: c.$grey-color;
+        margin-inline: auto;
+        padding-top: f.rem(20px);
+        width: 87%;
+        text-align: center;
         @include m.font-style(t.$main-para);
-
-        & {
-            color: c.$grey-color;
-            margin-inline: auto;
-            padding-top: f.rem(20px);
-            width: 87%;
-            text-align: center;
-        }
     }
 
     &__decorative-triangles {
@@ -191,12 +179,12 @@
         padding: f.rem(23px) f.rem(28px);
         border-radius: f.rem(100px);
         border: none;
-    }
 
-    .button--text {
-        @include m.flex-layout(center, center, row);
-        gap: f.rem(5px);
-        border: 1px solid c.$grey-color;
+        &--watch {
+            @include m.flex-layout(center, center, row);
+            gap: f.rem(5px);
+            border: 1px solid c.$grey-color;
+        }
     }
 
     &__btn-icon {
@@ -211,9 +199,19 @@
     /* Media Queries */
 
     @include m.screen(md) {
-        margin-top: 6%;
+        margin-top: f.rem(62px);
         gap: f.rem(18px);
         position: relative;
+
+        &__gallery {
+            width: 90%;
+        }
+
+        &__showcase {
+            width: 92%;
+            top: 6%;
+            left: 6%;
+        }
 
         &__image-wrapper {
             height: 100%;
@@ -221,22 +219,24 @@
             margin-left: f.rem(20px);
         }
 
-        &__column--right {
-            height: 55%;
-            width: 39%;
-            margin-right: f.rem(40px);
+        &__column-right {
+            height: 56%;
+            width: 40%;
+            margin-right: f.rem(68px);
         }
 
         &__icon-badge {
-            &--telegram {
+            padding: f.rem(20px);
+            &-telegram {
                 font-size: f.rem(18px);
-                top: 43.5%;
-                left: 3%;
+                top: 42.5%;
+                left: 1%;
             }
-            &--add-user {
+
+            &-add-user {
                 font-size: f.rem(18px);
-                bottom: 5%;
-                right: 28%;
+                bottom: 6%;
+                right: 31%;
             }
         }
 
@@ -272,7 +272,7 @@
 
         &__actions {
             padding: f.rem(20px) f.rem(30px);
-            margin-top: 30px;
+            margin-top: f.rem(30px);
             flex-direction: row;
             justify-content: center;
             width: 80%;
@@ -290,6 +290,8 @@
             position: absolute;
             bottom: 0;
             left: f.rem(40px);
+            width: f.rem(65px);
+            height: f.rem(168px);
         }
     }
 
@@ -299,10 +301,6 @@
         flex-direction: row-reverse; /* Reverses copy context and gallery arrangement */
         justify-content: space-around;
 
-        &__showcase {
-            left: 0;
-        }
-
         &__blur-ellipse {
             top: 0;
             left: 0;
@@ -310,51 +308,64 @@
             opacity: 1;
         }
 
-        &__bg-globe {
-            width: 110%;
-            position: absolute;
-            top: -1.5%;
-            left: -14%;
-            z-index: -1;
+        &__gallery {
+            width: 100%;
         }
 
-        &__column {
-            &--left {
-                .hero__image-wrapper {
-                    height: 100%;
-                    width: 91%;
-                    margin-top: f.rem(20px);
-                }
+        &__showcase {
+            width: 92%;
+            top: 8%;
+            left: 4%;
+        }
+
+        &__bg-globe {
+            width: 110%;
+            top: 1%;
+            left: -11%;
+        }
+
+        &__column-left {
+            height: 100%;
+
+            & .hero__image-wrapper {
+                height: 100%;
+                width: 100%;
+                margin-top: f.rem(20px);
+                margin-right: f.rem(40px);
             }
-            &--right {
-                height: 62%;
-                width: 50%;
-                margin-right: f.rem(90px);
-                margin-top: f.rem(40px);
-            }
+        }
+
+        &__column-right {
+            height: 60%;
+            width: 44%;
+            margin-right: f.rem(90px);
+            margin-top: f.rem(26px);
         }
 
         &__icon-badge {
-            &--telegram {
+            &-telegram {
                 font-size: f.rem(22px);
-                top: 47%;
-                left: 1%;
+                top: 45%;
+                left: -6%;
             }
-            &--add-user {
+
+            &-add-user {
                 font-size: f.rem(22px);
-                bottom: -6%;
-                right: 30%;
+                bottom: 0%;
+                right: 33%;
             }
         }
 
         &__location-badge {
             padding: f.rem(16px) f.rem(32px);
-            bottom: 21%;
+            bottom: 25%;
         }
 
         &__decorative-triangles {
             top: 100%;
             left: 2.5%;
+            display: block;
+            position: absolute;
         }
 
         &__content {
@@ -368,6 +379,7 @@
 
         &__title {
             width: 70%;
+            padding-left: f.rem(10px);
         }
 
         &__description {
