@@ -1,4 +1,4 @@
-import { travelData } from './data';
+import { travelData } from '../MOCK_DATA/card_data';
 
 // DOM Element Selectors
 const hamburger = document.querySelector('.navbar__hamburger');
@@ -61,8 +61,8 @@ const cardsHTML = travelData
     .map(
         (item) => `
     <div class='card'>
-        <h2 class='card-heading' >${item.number}</h2>
-        <p class='card-para' >${item.title}</p>
+        <h2 class='card__heading' >${item.heading}</h2>
+        <p class='card__para' >${item.para}</p>
     </div>`,
     )
     .join('');

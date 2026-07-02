@@ -11,13 +11,13 @@
     gap: f.rem(10px);
     width: 100%;
 
-    &-heading {
+    &__heading {
         color: c.$orange-color;
         font-size: f.rem(35px);
         font-weight: t.$font-weight-bold;
     }
 
-    &-para {
+    &__para {
         font-family: t.$secondary-font-family;
         font-size: f.rem(18px);
     }
