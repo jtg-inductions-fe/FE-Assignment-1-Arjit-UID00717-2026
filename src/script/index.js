@@ -74,11 +74,13 @@ cardsContainer.innerHTML = cardsHTML;
 // Called the Mount to show carousel on UI
 splide.mount();
 
+// List of all suammaries
 const summaries = document.querySelectorAll('.footer__mobile details summary');
 
+// Adding click event to toggle the rotation of all mobile footer arrows.
 summaries.forEach((summary) => {
     summary.addEventListener('click', () => {
         const icon = summary.querySelector('.up-arrow');
-        icon.classList.toggle('rotate');
+        icon.classList.toggle('footer__summary-arrow--rotate');
     });
 });

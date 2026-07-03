@@ -268,53 +268,59 @@
 
         <footer class="footer">
             <div class="footer__brand">
-                <div class="footer__logo">
-                    <img src="/assets/logo.svg" alt="travlog logo" />
-                    <h4>Travlog</h4>
+                <div class="footer__logo-container">
+                    <img
+                        src="/assets/logo.svg"
+                        alt="travlog logo"
+                        class="footer__logo-img"
+                    />
+                    <h4 class="footer__logo-title">Travlog</h4>
                 </div>
-                <p>
+                <p class="footer__description">
                     Contrary to popular belief, Lorem Ipsum is not simply random
                     text. It has roots in a piece of classical Latin literature
                     from 45 BC.
                 </p>
-                <div class="footer__social">
-                    <a href="#" class="social-icons">
+                <div class="footer__social footer__social-list">
+                    <a href="#" class="footer__social-link">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="social-icons">
+                    <a href="#" class="footer__social-link">
                         <i class="fa-brands fa-twitter"></i>
                     </a>
-                    <a href="#" class="social-icons">
+                    <a href="#" class="footer__social-link">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                 </div>
             </div>
 
             <div class="footer__mobile">
-                <details>
-                    <summary>
-                        <h4>Company</h4>
-                        <div class="list-arrow">
+                <details class="footer__details">
+                    <summary class="footer__summary">
+                        <h4 class="footer__summary-title">Company</h4>
+                        <div class="footer__summary-arrow">
                             <i class="fa-solid fa-chevron-down up-arrow"></i>
                         </div>
                     </summary>
 
-                    <ul>
+                    <ul class="footer__summary-list">
                         <li><a href="#">About</a></li>
                         <li><a href="#">Career</a></li>
                         <li><a href="#">Mobile</a></li>
                     </ul>
                 </details>
 
-                <details>
-                    <summary>
-                        <h4>Contact Us</h4>
-                        <div class="list-arrow">
-                            <i class="fa-solid fa-chevron-down up-arrow"></i>
+                <details class="footer__details">
+                    <summary class="footer__summary">
+                        <h4 class="footer__summary-title">Contact Us</h4>
+                        <div class="footer__summary-arrow">
+                            <i
+                                class="fa-solid fa-chevron-down up-arrow footer__arrow-icon"
+                            ></i>
                         </div>
                     </summary>
 
-                    <ul>
+                    <ul class="footer__summary-list">
                         <li><a href="#">Why Travlog?</a></li>
                         <li><a href="#">Partner</a></li>
                         <li><a href="#">FAQ’s</a></li>
@@ -322,15 +328,15 @@
                     </ul>
                 </details>
 
-                <details>
-                    <summary>
-                        <h4>Meet Us</h4>
-                        <div class="list-arrow">
+                <details class="footer__details">
+                    <summary class="footer__summary">
+                        <h4 class="footer__summary-title">Meet Us</h4>
+                        <div class="footer__summary-arrow">
                             <i class="fa-solid fa-chevron-down up-arrow"></i>
                         </div>
                     </summary>
 
-                    <ul>
+                    <ul class="footer__summary-list">
                         <li><a href="#">+00 92 1234 56789</a></li>
                         <li><a href="#">info@travlog.com</a></li>
                         <li><a href="#">205. R Street, New York BD23200</a></li>
@@ -339,32 +345,46 @@
             </div>
 
             <div class="footer__desktop footer__tablet">
-                <div class="company-list">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Career</a></li>
-                        <li><a href="#">Mobile</a></li>
+                <div class="footer__group">
+                    <h4 class="footer__group-title">Company</h4>
+                    <ul class="footer__group-list">
+                        <li><a href="#" class="link link--lg">About</a></li>
+                        <li><a href="#" class="link link--lg">Career</a></li>
+                        <li><a href="#" class="link link--lg">Mobile</a></li>
                     </ul>
                 </div>
 
-                <div class="company-list">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="#">Why Travlog?</a></li>
-                        <li><a href="#">Partner with us</a></li>
-                        <li><a href="#">FAQ’s</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-
-                <div class="company-list">
-                    <h4>Meet Us</h4>
-                    <ul>
-                        <li><a href="#">+00 92 1234 56789</a></li>
-                        <li><a href="#">info@travlog.com</a></li>
+                <div class="footer__group">
+                    <h4 class="footer__group-title">Contact</h4>
+                    <ul class="footer__group-list">
                         <li>
-                            <a href="#"
+                            <a href="#" class="link link--lg">Why Travlog?</a>
+                        </li>
+                        <li>
+                            <a href="#" class="link link--lg"
+                                >Partner with us</a
+                            >
+                        </li>
+                        <li><a href="#" class="link link--lg">FAQ’s</a></li>
+                        <li><a href="#" class="link link--lg">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__group">
+                    <h4 class="footer__group-title">Meet Us</h4>
+                    <ul class="footer__group-list">
+                        <li>
+                            <a href="#" class="link link--lg"
+                                >+00 92 1234 56789</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#" class="link link--lg"
+                                >info@travlog.com</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#" class="link link--lg"
                                 >205. R Street, New York <br />BD23200</a
                             >
                         </li>
@@ -372,7 +392,7 @@
                 </div>
             </div>
 
-            <div class="object-icon">
+            <div class="footer__decor-container">
                 <img src="assets/object.svg" alt="object icon" />
             </div>
         </footer>
