@@ -1,199 +1,202 @@
-.carousel-section {
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+@use '../base/typography' as t;
+@use '../abstracts/colors' as c;
+
+.carousel {
     width: 100%;
+    margin-top: f.rem(132px);
 
-    margin-top: 132px;
-    .carousel-text {
+    &__text-container {
         text-align: center;
-
-        h3 {
-            @include font-style(16px, 700);
-            color: $secondary-color;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-        h1 {
-            @include font-style(32px, 700);
-            margin-top: 18px;
-        }
     }
 
+    &__subtitle {
+        color: c.$secondary-color;
+        text-transform: uppercase;
+        letter-spacing: f.rem(3px);
+        @include m.font-style(t.$small-heading);
+    }
+
+    &__title {
+        margin-top: f.rem(18px);
+        @include m.font-style(t.$sub-heading);
+    }
+
+    //overriding splide default arrow styles
     .splide {
         position: relative;
+
+        &__arrow--prev {
+            position: absolute;
+            padding: f.rem(30px);
+            top: 21%;
+            left: 4%;
+            border: 1px solid c.$light-grey-color;
+            background-color: c.$color-white;
+        }
+
+        &__arrow--next {
+            position: absolute;
+            padding: f.rem(30px);
+            top: 21%;
+            right: 4%;
+            background-color: c.$primary-color;
+        }
     }
 
-    .left-arrow {
-        position: absolute;
-        padding: 30px;
-        top: 21%;
-        left: 4%;
-        border: 1px solid $border-color;
-        background-color: #ffffff;
-    }
-    .right-arrow {
-        position: absolute;
-        padding: 30px;
-        top: 21%;
-        right: 4%;
-        background-color: $primary-color;
+    &__arrow-icon {
+        @include m.box(f.rem(15px), f.rem(15px));
     }
 
-    .splide__slide {
+    &__item {
         width: 100%;
-        @include flex-layout(center, center, column);
-        gap: 58px;
-        padding: rem(60px) 0;
-
-        .card-avatar {
-            height: rem(135px);
-            width: rem(135px);
-            border-radius: 50%;
-            overflow: hidden;
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-            }
-        }
-
-        .user-info {
-            @include flex-layout(center, center, column);
-            gap: 35px;
-
-            h1 {
-                @include font-style(28px, 700);
-                color: $orange-color;
-                width: 100%;
-                text-align: center;
-                letter-spacing: 0.5px;
-                span {
-                    @include font-style(22px, 500);
-                    color: $heading-color;
-                }
-            }
-
-            .user-rating {
-                @include flex-layout(center, center, row);
-                gap: rem(16px);
-            }
-        }
-
-        .rating-para {
-            @include font-style(18px, 450);
-            color: $para-color;
-            text-align: center;
-            padding-top: rem(26px);
-            line-height: 28px;
-            margin-bottom: 42px;
-        }
+        @include m.flex-layout(center, center, column);
+        gap: f.rem(58px);
+        padding: f.rem(60px) 0;
     }
 
+    &__avatar-container {
+        height: f.rem(135px);
+        width: f.rem(135px);
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    &__avatar {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__info {
+        @include m.flex-layout(center, center, column);
+        gap: f.rem(35px);
+    }
+
+    &__user-name {
+        color: c.$orange-color;
+        width: 100%;
+        text-align: center;
+        letter-spacing: f.rem(0.5px);
+        font-size: f.rem(24px);
+        font-weight: t.$font-weight-bold;
+    }
+
+    &__user-role {
+        color: c.$grey-color;
+        font-size: f.rem(24px);
+    }
+
+    &__rating {
+        @include m.flex-layout(center, center, row);
+        gap: f.rem(16px);
+    }
+
+    &__feedback {
+        color: c.$grey-color;
+        text-align: center;
+        padding-top: f.rem(26px);
+        margin-bottom: f.rem(42px);
+        @include m.font-style(t.$sub-para);
+    }
+
+    //dots container for pagination
     .splide__pagination {
-        @include flex-layout(center, center, row);
-        gap: 18px;
+        @include m.flex-layout(center, center, row);
+        gap: f.rem(18px);
     }
 
-    //non-active dots
+    //non-active dots in pagination
     .splide__pagination__page {
-        background: #e0e0e0;
+        background: c.$light-grey-color;
         border: none;
-        width: 24px;
-        height: 24px;
+        @include m.box(f.rem(24px), f.rem(24px));
         border-radius: 50%;
         cursor: pointer;
         padding: 0;
         transition: all 0.3s ease;
     }
 
-    //active dots
+    //active dots in pagination
     .splide__pagination__page.is-active {
-        width: 24px;
         border-radius: 50%;
-        background-color: $secondary-color;
+        background-color: c.$secondary-color;
         transform: scale(1);
     }
 
-    @include screen(tablet) {
-        margin-top: 27px;
+    @include m.screen(md) {
+        margin-top: f.rem(27px);
         background-image: url('/assets/carousel.png');
         background-position: 0 48%;
         background-size: cover;
 
-        .carousel-text {
-            text-align: center;
+        &__subtitle {
+            letter-spacing: f.rem(4px);
+        }
 
-            h3 {
-                @include font-style(23px, 700);
-                letter-spacing: 4px;
+        &__item {
+            gap: f.rem(40px);
+        }
+
+        &__feedback {
+            width: 60%;
+        }
+
+        //overriding splide default arrow styles
+        .splide {
+            &__arrow--prev {
+                padding: f.rem(50px);
+                top: 40%;
+                left: 6%;
             }
 
-            h1 {
-                @include font-style(40px, 700);
-                margin-top: 18px;
+            &__arrow--next {
+                padding: f.rem(50px);
+                top: 40%;
+                right: 6%;
             }
         }
 
-        .splide__slide {
-            gap: 40px;
-            .rating-para {
-                @include font-style(23px, 450);
-                width: 60%;
-                line-height: 34px;
-            }
-        }
-
-        .left-arrow {
-            position: absolute;
-            padding: 50px;
-            top: 40%;
-            left: 6%;
-            border: 1px solid $border-color;
-            background-color: #ffffff;
-        }
-
-        .right-arrow {
-            position: absolute;
-            padding: 50px;
-            top: 40%;
-            right: 6%;
-            background-color: $primary-color;
+        &__arrow-icon {
+            @include m.box(f.rem(24px), f.rem(24px));
         }
     }
 
-    @include screen(desktop) {
-        margin-top: 105px;
-        background-position: 0 43%;
+    @include m.screen(lg) {
+        margin-top: f.rem(105px);
+        background-position: 0 39%;
 
-        .carousel-text {
-            text-align: center;
+        &__subtitle {
+            letter-spacing: f.rem(4.2px);
+            padding-left: f.rem(10px);
+        }
 
-            h3 {
-                @include font-style(23px, 700);
-                letter-spacing: 4.2px;
-                padding-left: 10px;
+        &__title {
+            padding-left: f.rem(15px);
+        }
+
+        //overriding splide default arrow styles
+        .splide {
+            &__arrow--prev {
+                top: 39%;
+                left: 9%;
             }
-            h1 {
-                @include font-style(44px, 700);
-                padding-left: 15px;
+
+            &__arrow--next {
+                top: 39%;
+                right: 8%;
             }
         }
 
-        .left-arrow {
-            top: 39%;
-            left: 9%;
-        }
-        .right-arrow {
-            top: 39%;
-            right: 8%;
+        &__item {
+            padding-left: f.rem(20px);
         }
 
-        .splide__slide {
-            padding-left: 20px;
-            .rating-para {
-                width: 62%;
-                padding-left: 10px;
-                line-height: 32px;
-            }
+        &__feedback {
+            width: 62%;
+            padding-left: f.rem(10px);
         }
     }
 }

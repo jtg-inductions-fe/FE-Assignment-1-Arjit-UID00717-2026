@@ -1,0 +1,31 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+
+.partner-list {
+    margin-top: f.rem(36px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: f.rem(25px);
+    padding: f.rem(16px);
+
+    &__logo {
+        height: f.rem(20px);
+    }
+
+    @include m.screen(md) {
+        width: 70%;
+        margin-inline: auto;
+        margin-top: f.rem(100px);
+
+        &__logo {
+            height: f.rem(32px);
+        }
+    }
+
+    @include m.screen(lg) {
+        margin-top: f.rem(160px);
+        width: 95%;
+        justify-content: space-evenly;
+    }
+}

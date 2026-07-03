@@ -1,415 +1,394 @@
-.hero-section {
-    width: 100vw;
-    @include flex-layout(space-between, center, column);
-    margin-top: 8%;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use '../abstracts/colors' as c;
+@use '../abstracts/variables' as v;
+@use '../base/typography' as t;
 
-    .blur-ellipse {
-        @include box(rem(348px), rem(272px));
-        background-color: #ff5722;
+.hero {
+    /* Mobile-first structural layout base */
+    width: 100vw;
+    @include m.flex-layout(space-between, center, column);
+    margin-top: f.rem(34px);
+
+    /* --- Decorative Background Elements --- */
+    &__blur-ellipse {
+        @include m.box(348px, 272px);
+        background-color: c.$orange-color;
         border-radius: 50%;
-        filter: blur(150px);
+        filter: blur(150px); // Filter to make the ellipse blur
         opacity: 0.5;
         position: absolute;
-        top: rem(-36px);
-        left: rem(-36px);
+        top: 0;
+        left: 0;
     }
 
-    // Left Image container
-    &__images-container {
+    /* --- Media Gallery Container--- */
+    &__gallery {
         width: 90%;
-        // background-color: teal;
-        max-width: rem(772px);
+        max-width: f.rem(772px);
         position: relative;
         aspect-ratio: 772/713;
     }
 
-    .background-image {
+    &__bg-globe {
         width: 100%;
         position: absolute;
         top: 0;
         z-index: -1;
-        img {
-            width: 100%;
-            object-fit: cover;
-        }
     }
 
-    &__images {
+    &__showcase {
         width: 90%;
         height: 100%;
-        @include flex-layout(space-evenly, center, row);
+        @include m.flex-layout(space-evenly, center, row);
         position: absolute;
         top: 5%;
         left: 5%;
     }
 
-    &__images-left {
-        @include flex-layout(space-evenly, center, column);
-        height: 100%;
-        width: 45%;
-        .hero-image {
-            height: 43%;
-            width: 90%;
-            overflow: hidden;
-            border-radius: rem(18px);
-        }
-
-        .hero-image img {
-            object-fit: cover;
-            width: 100%;
-        }
-    }
-    &__images-right {
-        @include flex-layout(space-evenly, center, row);
-        height: 58%;
+    &__column-left {
+        @include m.flex-layout(space-evenly, center, column);
         width: 40%;
-        margin-right: rem(20px);
-        overflow: hidden;
-        border-radius: rem(18px);
-        img {
-            object-fit: cover;
-            width: 100%;
-        }
+        gap: f.rem(20px);
+        height: 90%;
     }
 
-    .telegram-icon {
-        @include flex-layout(center, center, row);
+    &__column-right {
+        @include m.flex-layout(space-evenly, center, row);
+        height: 90%;
+        width: 40%;
+        margin-right: f.rem(20px);
+        overflow: hidden;
+        border-radius: f.rem(18px);
+    }
+
+    &__image-wrapper {
+        height: 65%;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 18px;
+    }
+
+    /* --- Floating Overlays & Badges --- */
+    &__icon-badge {
         position: absolute;
-        font-size: rem(14px);
-        background-color: $secondary-color;
-        color: #ffffff;
-        padding: 3%;
+        font-size: f.rem(14px);
+        padding: f.rem(10px);
         border-radius: 50%;
+        @include m.flex-layout(center, center, row);
+    }
+
+    &__icon-badge-telegram {
+        background-color: c.$secondary-color;
+        color: c.$color-white;
         top: 42%;
         left: 1%;
-        box-shadow: 0 rem(9.75px) rem(9.75px) 0 #00000017;
     }
 
-    .person-icon {
-        position: absolute;
-        font-size: rem(14px);
-        background-color: $orange-color;
-        color: #ffffff;
-        padding: 3%;
-        border-radius: 50%;
+    &__icon-badge-add-user {
+        background-color: c.$orange-color;
+        color: c.$color-white;
         bottom: 2%;
         right: 27%;
-        box-shadow: 0 rem(9.75px) rem(9.75px) 0 #00000017;
     }
 
-    .top-places-icon {
+    &__location-badge {
         position: absolute;
-        @include flex-layout(space-between, center, row);
-        gap: rem(5px);
-        padding: rem(7px) rem(16px);
-        background-color: #ffffff;
-        border-radius: rem(50px);
-        bottom: 27%;
-        right: -4%;
-    }
-    .top-places-icon div {
-        color: $yellow-accent;
-        font-size: rem(13px);
-    }
-    .top-places-icon p {
-        @include font-style(7px, 500);
+        @include m.flex-layout(space-between, center, row);
+        gap: f.rem(5px);
+        padding: f.rem(8px) f.rem(12px);
+        background-color: c.$color-white;
+        border-radius: f.rem(50px);
+        bottom: f.rem(90px);
+        right: 0;
     }
 
-    //Right text container
-    &__text-container {
-        margin-top: rem(40px);
-        .heading {
-            @include flex-layout(center, center, column);
-            gap: rem(10px);
+    &__location-icon {
+        color: c.$yellow-accent;
+        font-size: f.rem(13px);
+    }
 
-            .explore-btn {
-                background-color: #fff;
-                @include flex-layout(center, center, row);
-                gap: rem(10px);
-                box-shadow: 0 rem(34px) rem(75px) 0 #00000012;
-                padding: rem(16px) rem(32px);
-                border-radius: rem(100px);
-                color: $secondary-color;
-                @include font-style(14px, 700);
+    &__location-text {
+        font-size: f.rem(7.19px);
+    }
 
-                .briefcase-icon {
-                    color: $secondary-color;
-                    font-size: rem(24px);
-                }
-            }
+    &__content {
+        margin-top: f.rem(40px);
+    }
 
-            .main-heading {
-                @include font-style(28px, 700);
-                text-align: center;
+    &__header {
+        @include m.flex-layout(center, center, column);
+        gap: f.rem(10px);
+    }
 
-                span {
-                    color: $secondary-color;
-                }
-            }
+    &__badge {
+        background-color: c.$color-white;
+        @include m.flex-layout(center, center, row);
+        gap: f.rem(10px);
+        padding: f.rem(16px) f.rem(28px);
+        border-radius: f.rem(100px);
+        color: c.$secondary-color;
+        box-shadow: c.$card-box-shadow;
+    }
+
+    &__badge-text {
+        font-size: f.rem(14px);
+    }
+
+    &__badge-icon {
+        color: c.$secondary-color;
+        font-size: f.rem(24px);
+    }
+
+    &__title {
+        text-align: center;
+        width: 80%;
+        @include m.font-style(t.$main-heading);
+    }
+
+    &__title-highlight {
+        color: c.$secondary-color;
+    }
+
+    &__description {
+        color: c.$grey-color;
+        margin-inline: auto;
+        padding-top: f.rem(20px);
+        width: 87%;
+        text-align: center;
+        @include m.font-style(t.$main-para);
+    }
+
+    &__decorative-triangles {
+        display: none; // Hidden on mobile viewports
+    }
+
+    /* --- Call to Action Element Styles --- */
+    &__actions {
+        @include m.flex-layout(space-between, center, column);
+        padding: f.rem(10px);
+        gap: f.rem(25px);
+        margin-top: f.rem(25px);
+    }
+
+    &__btn {
+        width: 100%;
+        padding: f.rem(23px) f.rem(28px);
+        border-radius: f.rem(100px);
+    }
+
+    &__btn-icon {
+        background-color: c.$primary-color;
+        color: c.$color-white;
+        @include m.box(f.rem(20px), f.rem(20px));
+        font-size: f.rem(10px);
+        border-radius: 50%;
+        @include m.flex-layout(center, center, row);
+    }
+
+    /* Media Queries */
+
+    @include m.screen(md) {
+        margin-top: f.rem(62px);
+        gap: f.rem(18px);
+        position: relative;
+
+        &__gallery {
+            width: 90%;
         }
 
-        .hero-para {
-            padding: rem(20px) rem(11px) 0;
-            color: $para-color;
-            @include font-style(16px, 400);
-            line-height: rem(25px);
+        &__showcase {
+            width: 92%;
+            top: 6%;
+            left: 6%;
+        }
+
+        &__image-wrapper {
+            height: 100%;
+            width: 95%;
+            margin-left: f.rem(20px);
+        }
+
+        &__column-right {
+            height: 56%;
+            width: 40%;
+            margin-right: f.rem(68px);
+        }
+
+        &__icon-badge {
+            padding: f.rem(20px);
+        }
+
+        &__icon-badge-telegram {
+            font-size: f.rem(18px);
+            top: 42.5%;
+            left: 1%;
+        }
+
+        &__icon-badge-add-user {
+            font-size: f.rem(18px);
+            bottom: 6%;
+            right: 31%;
+        }
+
+        &__content {
+            @include m.flex-layout(center, center, column);
+        }
+
+        &__location-badge {
+            padding: f.rem(16px) f.rem(32px);
+            bottom: 28.5%;
+        }
+
+        &__location-icon {
+            font-size: f.rem(18px);
+        }
+
+        &__location-text {
+            font-size: f.rem(15px);
+        }
+
+        &__title {
+            width: 70%;
+            margin-top: f.rem(28px);
+        }
+
+        &__description {
+            @include m.flex-layout(center, center, row);
+            @include m.font-style(t.$main-para);
+            margin-top: f.rem(21px);
+            width: 45%;
             text-align: center;
         }
 
-        .triangles {
-            display: none;
-        }
-        .cta-btn {
-            @include flex-layout(space-between, center, column);
-            padding: rem(10px);
-            gap: rem(25px);
-            margin-top: rem(25px);
-            button {
-                width: 100%;
-                padding: rem(23px) rem(28px);
-                @include font-style(14px, 700);
-                border-radius: rem(100px);
-            }
-            &-start {
-                background-color: $primary-color;
-                border: none;
-                color: #fff;
-                box-shadow: 0 rem(34px) rem(75px) 0 #00000012;
-            }
-
-            &-watch {
-                border: none;
-                @include flex-layout(center, center, row);
-                gap: rem(5px);
-                background-color: #ffffff;
-                border: rem(1px) solid $border-color;
-
-                div {
-                    background-color: $primary-color;
-                    color: #fff;
-                    @include box(rem(24px), rem(24px));
-                    font-size: rem(11px);
-                    border-radius: 50%;
-                    @include flex-layout(center, center, row);
-                }
-            }
-        }
-    }
-
-    @include screen(tablet) {
-        margin-top: 6%;
-        gap: rem(18px);
-        position: relative;
-
-        &__images-left {
-            .hero-image {
-                height: 41%;
-                width: 84%;
-                margin-left: rem(20px);
-            }
-
-            .hero-image img {
-                object-fit: cover;
-                width: 100%;
-            }
-        }
-        &__images-right {
-            height: 55%;
-            width: 39%;
-            margin-right: rem(40px);
-        }
-
-        .telegram-icon {
-            font-size: rem(18px);
-            top: 43.5%;
-            left: 3%;
-        }
-
-        &__text-container {
-            @include flex-layout(center, center, column);
-            margin-top: rem(50px);
-        }
-
-        .person-icon {
-            font-size: rem(20px);
-            bottom: 5%;
-            right: 28%;
-        }
-
-        .top-places-icon {
-            padding: rem(16px) rem(32px);
-            bottom: 28.5%;
-            right: -3%;
-        }
-
-        .top-places-icon div {
-            font-size: rem(18px);
-        }
-        .top-places-icon p {
-            font-size: rem(15px);
-        }
-
-        .main-heading {
-            width: 70%;
-            margin-top: rem(28px);
-            h1 {
-                @include font-style(57px, 600);
-            }
-        }
-
-        .hero-para {
-            margin-top: rem(21px);
-            @include flex-layout(center, center, row);
-            width: 100%;
-
-            p {
-                @include font-style(19px, 400);
-                width: 50%;
-            }
-        }
-
-        .cta-btn {
-            padding: rem(20px) rem(30px);
-            margin-top: rem(30px);
+        &__actions {
+            padding: f.rem(20px) f.rem(30px);
+            margin-top: f.rem(30px);
             flex-direction: row;
             justify-content: center;
             width: 80%;
-            margin-right: rem(25px);
-            button {
-                height: rem(49px);
-                width: rem(141px);
-                padding: 0;
-            }
+            margin-right: f.rem(25px);
         }
 
-        .triangles {
+        &__btn {
+            height: f.rem(49px);
+            width: f.rem(141px);
+            padding: 0;
+        }
+
+        &__decorative-triangles {
             display: block;
             position: absolute;
-            bottom: rem(-40px);
-            left: rem(40px);
+            bottom: 0;
+            left: f.rem(40px);
+            width: f.rem(65px);
+            height: f.rem(168px);
         }
     }
 
-    @include screen(desktop) {
-        margin-top: rem(20px);
-        padding-right: rem(100px);
-        flex-direction: row-reverse;
+    @include m.screen(lg) {
+        margin-top: f.rem(20px);
+        padding-right: f.rem(100px);
+        flex-direction: row-reverse; /* Reverses copy context and gallery arrangement */
         justify-content: space-around;
 
-        .blur-ellipse {
-            top: rem(-200px);
-            left: rem(-36px);
+        &__blur-ellipse {
+            top: 0;
+            left: 0;
             filter: blur(240px);
             opacity: 1;
         }
 
-        .background-image {
+        &__gallery {
+            width: 100%;
+        }
+
+        &__showcase {
+            width: 92%;
+            top: 8%;
+            left: 4%;
+        }
+
+        &__bg-globe {
             width: 110%;
-            position: absolute;
-            top: -1.5%;
-            left: -14%;
-            z-index: -1;
-            img {
-                width: 100%;
-                object-fit: cover;
+            top: 1%;
+            left: -11%;
+        }
+
+        &__column-left {
+            height: 100%;
+        }
+
+        &__image-wrapper {
+            height: 100%;
+            width: 100%;
+
+            .hero__column-left & {
+                margin-top: f.rem(20px);
+                margin-right: f.rem(40px);
             }
         }
 
-        &__images-left {
-            .hero-image {
-                height: 44%;
-                width: 91%;
-                margin-left: rem(-110px);
-                margin-top: rem(40px);
-            }
-        }
-
-        &__images-right {
+        &__column-right {
             height: 60%;
-            width: 40%;
-            margin-right: rem(90px);
-            margin-top: rem(40px);
+            width: 44%;
+            margin-right: f.rem(90px);
+            margin-top: f.rem(26px);
         }
 
-        .telegram-icon {
-            font-size: rem(22px);
-            top: 47%;
-            left: -12%;
+        &__icon-badge-telegram {
+            font-size: f.rem(22px);
+            top: 44%;
+            left: -8%;
         }
 
-        .person-icon {
-            font-size: rem(22px);
-            bottom: -6%;
-            right: 35%;
+        &__icon-badge-add-user {
+            font-size: f.rem(22px);
+            bottom: 0;
+            right: 33%;
         }
 
-        .top-places-icon {
-            padding: rem(16px) rem(32px);
-            bottom: 21%;
-            right: -0.5%;
+        &__location-badge {
+            padding: f.rem(16px) f.rem(32px);
+            bottom: 25%;
         }
 
-        .triangles {
+        &__decorative-triangles {
+            top: 100%;
+            left: 2.5%;
             display: block;
             position: absolute;
-            bottom: rem(-170px);
-            left: rem(40px);
         }
 
-        &__text-container {
-            margin-top: rem(75px);
+        &__content {
+            margin-top: f.rem(75px);
             justify-content: start;
-
-            .explore-btn {
-                margin-left: rem(-140px);
-            }
-
-            .main-heading h1 {
-                width: 90%;
-                font-size: rem(69px);
-            }
-
-            .hero-para p {
-                text-align: start;
-                font-size: rem(20px);
-                margin-left: rem(-60px);
-                margin-top: rem(10px);
-            }
-
-            .cta-btn {
-                margin-left: rem(-40px);
-                margin-top: rem(30px);
-                gap: rem(30px);
-            }
         }
-    }
-}
 
-//Companies partner list
-.partner-list {
-    margin-top: rem(40px);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: rem(25px);
-    padding: rem(16px);
-
-    div img {
-        height: rem(20px);
-    }
-
-    @include screen(tablet) {
-        width: 70%;
-        margin-inline: auto;
-        margin-top: rem(100px);
-        div img {
-            height: rem(32px);
+        &__badge {
+            margin-right: f.rem(140px);
         }
-    }
 
-    @include screen(desktop) {
-        margin-top: rem(160px);
-        width: 95%;
-        justify-content: space-evenly;
+        &__title {
+            width: 70%;
+            padding-left: f.rem(30px);
+            text-align: start;
+        }
+
+        &__description {
+            text-align: center;
+            margin-top: f.rem(20px);
+            width: 55%;
+        }
+
+        &__actions {
+            margin-right: f.rem(8px);
+            margin-top: f.rem(50px);
+            gap: f.rem(20px);
+        }
+
+        &__btn-watch {
+            width: f.rem(181px);
+        }
     }
 }

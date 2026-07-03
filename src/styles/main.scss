@@ -1,12 +1,14 @@
-// TODO: Add styles as per the requirement
-@import './sass/abstracts/functions';
-@import './sass/abstracts/variables';
-@import './sass/abstracts/mixins';
-@import './sass/base/resets';
-@import './sass/base/typography';
-@import './sass/layout/navbar';
-@import './sass/layout/hero';
-@import './sass/layout/travel-point';
-@import './sass/layout/carousel';
-@import './sass/layout/footer';
-@import './sass/components/buttons';
+@use './sass/abstracts/functions';
+@use './sass/abstracts/variables';
+@use './sass/abstracts/colors';
+@use './sass/abstracts/mixins';
+@use './sass/base/typography';
+@use './sass/base/resets';
+@use './sass/components/buttons';
+@use './sass/components/link';
+@use './sass/components/card';
+@use './sass/layout/navbar';
+@use './sass/layout/hero';
+@use './sass/layout/partner';
+@use './sass/layout/travel-point';
+@use './sass/layout/carousel';

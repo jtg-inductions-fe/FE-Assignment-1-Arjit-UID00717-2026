@@ -1,0 +1,24 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/mixins' as m;
+@use '../base/typography' as t;
+@use '../abstracts/functions' as f;
+
+.card {
+    border: 1px solid c.$light-grey-color;
+    border-radius: 32px;
+    padding: f.rem(30px) f.rem(20px);
+    @include m.flex-layout(center, center, column);
+    gap: f.rem(10px);
+    width: 100%;
+
+    &__heading {
+        color: c.$orange-color;
+        font-size: f.rem(35px);
+        font-weight: t.$font-weight-bold;
+    }
+
+    &__para {
+        font-family: t.$secondary-font-family;
+        font-size: f.rem(18px);
+    }
+}
