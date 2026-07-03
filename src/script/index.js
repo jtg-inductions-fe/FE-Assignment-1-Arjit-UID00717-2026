@@ -1,7 +1,5 @@
-import Splide from '@splidejs/splide';
-import '@splidejs/splide/css';
 import { travelData } from '../MOCK_DATA/card_data';
-import { carouselData } from '../MOCK_DATA/carousel_data';
+import splide from './carousel';
 
 // DOM Element Selectors
 const hamburger = document.querySelector('.navbar__hamburger');
@@ -73,41 +71,5 @@ const cardsHTML = travelData
 // 2. Update the DOM a single time
 cardsContainer.innerHTML = cardsHTML;
 
-const sliderList = document.getElementById('dynamic-slider-list');
-
-if (sliderList) {
-    let finalHtml = '';
-
-    carouselData.forEach((user) => {
-        let stars = '';
-        for (let i = 0; i < user.rating; i++) {
-            stars += '<img src="/assets/star.svg" alt="star">';
-        }
-
-        finalHtml += `
-            <li class="splide__slide">
-                <div class="card-avatar">
-                    <img src="${user.avatar}" alt="${user.name}">
-                </div>
-                <div class="user-info">
-                    <h1>${user.name} <span>/ ${user.role}</span></h1>
-                    <div class="user-rating">
-                        ${stars}
-                    </div>
-                    <p class="rating-para">${user.text}</p>
-                </div>
-            </li>
-        `;
-    });
-
-    sliderList.innerHTML = finalHtml;
-}
-
-// Initialize Splide slider
-const splide = new Splide('.splide', {
-    type: 'loop',
-    perPage: 1,
-    pagination: true,
-});
-
+// Called the Mount to show carousel on UI
 splide.mount();

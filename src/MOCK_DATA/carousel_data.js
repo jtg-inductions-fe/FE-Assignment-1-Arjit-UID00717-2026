@@ -1,12 +1,5 @@
-// Dummy data for cards in travel point section
+// Dummy data for cards in carousel section
 export const carouselData = [
-    { number: '500+', title: 'Holiday Package' },
-    { number: '100', title: 'Luxury Hotel' },
-    { number: '7', title: 'Premium Airlines' },
-    { number: '2k+', title: 'Happy Customer' },
-];
-
-export const reviewsData = [
     {
         name: 'Mark Smith',
         role: 'Travel Enthusiast',

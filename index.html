@@ -233,23 +233,30 @@
             </div>
         </section>
 
-        <section class="carousel-section">
-            <div class="carousel-text">
-                <h3>Testimonials</h3>
-                <h1>Trust our clients</h1>
+        <section class="carousel">
+            <div class="carousel__text-container">
+                <h3 class="carousel__subtitle">Testimonials</h3>
+                <h1 class="carousel__title">Trust our clients</h1>
             </div>
 
-            <section class="splide" aria-labelledby="carousel-heading">
+            <section
+                class="splide carousel__splide"
+                aria-labelledby="carousel-heading"
+            >
                 <div class="splide__arrows">
-                    <button
-                        class="splide__arrow splide__arrow--prev left-arrow"
-                    >
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <button class="splide__arrow splide__arrow--prev">
+                        <img
+                            src="/assets/left-arrow.svg"
+                            alt="left arrow"
+                            class="carousel__arrow-icon"
+                        />
                     </button>
-                    <button
-                        class="splide__arrow splide__arrow--next right-arrow"
-                    >
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <button class="splide__arrow splide__arrow--next">
+                        <img
+                            src="/assets/right-arrow.svg"
+                            alt="right arrow"
+                            class="carousel__arrow-icon"
+                        />
                     </button>
                 </div>
 
