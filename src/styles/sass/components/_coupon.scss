@@ -1,0 +1,17 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use '../abstracts/colors' as c;
+
+.coupon {
+    border: 1px solid c.$dark-pink;
+    border-radius: 16px;
+    @include m.flex-layout(space-between, start, row);
+    gap: f.rem(42px);
+    padding: f.rem(16px);
+    width: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(244, 67, 108, 0.1),
+        rgba(124, 58, 237, 0.1)
+    );
+}

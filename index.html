@@ -49,7 +49,9 @@
                         >
                     </li>
                     <li>
-                        <a href="#" class="navbar__links-item link link--sm"
+                        <a
+                            href="#"
+                            class="navbar__links-item link link--sm navbar__special-deals"
                             >Special Deals</a
                         >
                     </li>
@@ -396,6 +398,99 @@
                 <img src="assets/object.svg" alt="object icon" />
             </div>
         </footer>
+
+        <section class="special-deals">
+            <div class="special-deals__overlay"></div>
+
+            <div class="special-deals__modal">
+                <button class="special-deals__close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="special-deals__text">
+                    <div class="special-deals__label">
+                        <i
+                            class="fa-solid fa-gift special-deals__label-icon"
+                        ></i>
+                        <span class="special-deals__label-text"
+                            >SPECIAL DEALS</span
+                        >
+                    </div>
+
+                    <h3 class="special-deals__title">Spin & Win!</h3>
+                    <p class="special-deals__description">
+                        Tap the center of the wheel to spin
+                    </p>
+                </div>
+
+                <div class="special-deals__wheel-container">
+                    <div class="special-deals__pointer"></div>
+                    <div class="special-deals__wheel">
+                        <span class="special-deals__loading-text"
+                            >Loading...</span
+                        >
+                    </div>
+                </div>
+
+                <div class="special-deals__result">
+                    <p class="special-deals__result-title">You won!</p>
+                    <div class="special-deals__coupon coupon">
+                        <div class="special-deals__coupon-content">
+                            <h6 class="special-deals__coupon-title">
+                                20% off Flights
+                            </h6>
+                            <span class="special-deals__coupon-expiry"
+                                >Expires in 12d</span
+                            >
+                        </div>
+
+                        <div class="special-deals__coupon-action">
+                            <span class="special-deals__coupon-code"
+                                >FLY20-ABCD</span
+                            >
+                            <button class="special-deals__copy-button">
+                                <i
+                                    class="fa-regular fa-clone special-deals__copy-icon"
+                                ></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="special-deals__view-button">
+                    <span class="special-deals__view-text"
+                        >View All Unlocked Deals</span
+                    >
+                    <span class="special-deals__count">3</span>
+                </button>
+            </div>
+
+            <div class="special-deals__unlock-modal">
+                <button class="special-deals__close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="special-deals__text">
+                    <div>
+                        <i
+                            class="fa-solid fa-gift special-deals__label-icon"
+                        ></i>
+                        <span class="special-deals__label-text"
+                            >SPECIAL DEALS</span
+                        >
+                    </div>
+                    <h3 class="special-deals__title">Unlocked Deals</h3>
+                    <p class="special-deals__description">
+                        All the deals you’ve unlocked yet!
+                    </p>
+                </div>
+
+                <div class="special-deals__list-container"></div>
+
+                <button class="special-deals__view-button">
+                    <span class="special-deals__view-text">Go Back</span>
+                </button>
+            </div>
+        </section>
 
         <script type="module" src="./src/script/index.js"></script>
     </body>
