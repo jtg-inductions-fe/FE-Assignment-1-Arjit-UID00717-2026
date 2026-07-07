@@ -1,5 +1,5 @@
 import Splide from '@splidejs/splide';
-import '@splidejs/splide/css';
+import '@splidejs/splide/css/core';
 import { carouselData } from '../MOCK_DATA/carousel_data';
 
 const sliderList = document.getElementById('dynamic-slider-list');
@@ -15,12 +15,12 @@ if (sliderList) {
 
         finalHtml += `
             <li class="splide__slide carousel__item">
-                <div class="card-avatar carousel__avatar-container">
+                <div class="carousel__avatar-container">
                     <img src="${user.avatar}" alt="${user.name} class="carousel__avatar">
                 </div>
-                <div class="user-info carousel__info">
+                <div class="carousel__info">
                     <h1 class="carousel__user-name">${user.name} <span class="carousel__user-role" >/ ${user.role}</span></h1>
-                    <div class="user-rating carousel__rating">
+                    <div class="carousel__rating">
                         ${stars}
                     </div>
                     <p class="carousel__feedback">${user.text}</p>
@@ -37,6 +37,11 @@ const splide = new Splide('.splide', {
     type: 'loop',
     perPage: 1,
     pagination: true,
+    arrows: true,
+    classes: {
+        pagination: 'carousel__pagination',
+        page: 'carousel__page',
+    },
 });
 
 export default splide;

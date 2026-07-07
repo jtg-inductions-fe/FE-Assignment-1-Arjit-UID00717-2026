@@ -6,6 +6,9 @@
 .carousel {
     width: 100%;
     margin-top: f.rem(132px);
+    display: relative;
+    max-width: f.rem(1440px);
+    margin-inline: auto;
 
     &__text-container {
         text-align: center;
@@ -24,24 +27,26 @@
     }
 
     //overriding splide default arrow styles
-    .splide {
+    &__splide {
         position: relative;
+    }
 
-        &__arrow--prev {
-            position: absolute;
-            padding: f.rem(30px);
-            top: 21%;
+    &__arrow {
+        position: absolute;
+        padding: f.rem(20px);
+        top: 15%;
+        border-radius: 50%;
+
+        &--prev {
             left: 4%;
             border: 1px solid c.$light-grey-color;
             background-color: c.$color-white;
         }
 
-        &__arrow--next {
-            position: absolute;
-            padding: f.rem(30px);
-            top: 21%;
-            right: 4%;
+        &--next {
+            right: 5%;
             background-color: c.$primary-color;
+            border: none;
         }
     }
 
@@ -64,9 +69,6 @@
     }
 
     &__avatar {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
         object-position: center;
     }
 
@@ -80,7 +82,7 @@
         width: 100%;
         text-align: center;
         letter-spacing: f.rem(0.5px);
-        font-size: f.rem(24px);
+        font-size: f.rem(28px);
         font-weight: t.$font-weight-bold;
     }
 
@@ -103,27 +105,25 @@
     }
 
     //dots container for pagination
-    .splide__pagination {
+    &__pagination {
         @include m.flex-layout(center, center, row);
         gap: f.rem(18px);
     }
 
     //non-active dots in pagination
-    .splide__pagination__page {
-        background: c.$light-grey-color;
+    &__page {
+        background-color: c.$light-grey-color;
         border: none;
         @include m.box(f.rem(24px), f.rem(24px));
         border-radius: 50%;
         cursor: pointer;
         padding: 0;
         transition: all 0.3s ease;
-    }
 
-    //active dots in pagination
-    .splide__pagination__page.is-active {
-        border-radius: 50%;
-        background-color: c.$secondary-color;
-        transform: scale(1);
+        //active dots in pagination
+        & .is-active {
+            background-color: c.$secondary-color;
+        }
     }
 
     @include m.screen(md) {
@@ -145,16 +145,15 @@
         }
 
         //overriding splide default arrow styles
-        .splide {
-            &__arrow--prev {
-                padding: f.rem(50px);
-                top: 40%;
+        &__arrow {
+            padding: f.rem(36px);
+            top: 30%;
+
+            &--prev {
                 left: 6%;
             }
 
-            &__arrow--next {
-                padding: f.rem(50px);
-                top: 40%;
+            &--next {
                 right: 6%;
             }
         }
@@ -166,7 +165,7 @@
 
     @include m.screen(lg) {
         margin-top: f.rem(105px);
-        background-position: 0 39%;
+        background-position: 0 35%;
 
         &__subtitle {
             letter-spacing: f.rem(4.2px);
@@ -178,14 +177,15 @@
         }
 
         //overriding splide default arrow styles
-        .splide {
-            &__arrow--prev {
-                top: 39%;
+        &__arrow {
+            padding: f.rem(40px);
+            top: 28%;
+
+            &--prev {
                 left: 9%;
             }
 
-            &__arrow--next {
-                top: 39%;
+            &--next {
                 right: 8%;
             }
         }

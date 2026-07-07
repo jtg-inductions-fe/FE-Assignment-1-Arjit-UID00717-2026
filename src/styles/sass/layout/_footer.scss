@@ -6,7 +6,7 @@
 
 .footer {
     min-width: 100vw;
-    margin-top: f.rem(115px);
+    margin-top: f.rem(80px);
     padding-inline: f.rem(32px);
     position: relative;
 
@@ -103,7 +103,7 @@
 
     @include m.screen(md) {
         gap: f.rem(50px);
-        margin-top: f.rem(200px);
+        margin-top: f.rem(164px);
         padding-inline: f.rem(64px) f.rem(138px);
 
         &__mobile {
@@ -118,20 +118,20 @@
         &__group {
             @include m.flex-layout(space-between, start, column);
             gap: f.rem(34px);
+        }
 
-            &-title {
-                color: c.$text-color;
-                font-size: f.rem(23px);
-                font-weight: t.$font-weight-bold;
-            }
+        &__group-title {
+            color: c.$text-color;
+            font-size: f.rem(23px);
+            font-weight: t.$font-weight-bold;
+        }
 
-            &-list {
-                font-family: t.$secondary-font-family;
-                @include m.flex-layout(center, start, column);
-                gap: f.rem(35px);
-                line-height: f.rem(23px);
-                margin-bottom: f.rem(64px);
-            }
+        &__group-list {
+            font-family: t.$secondary-font-family;
+            @include m.flex-layout(center, start, column);
+            gap: f.rem(35px);
+            line-height: f.rem(23px);
+            margin-bottom: f.rem(64px);
         }
 
         &__description {
@@ -151,7 +151,7 @@
 
     @include m.screen(lg) {
         flex-direction: row;
-        margin-top: f.rem(236px);
+        margin-top: f.rem(210px);
         padding-left: f.rem(130px);
         padding-right: f.rem(120px);
 

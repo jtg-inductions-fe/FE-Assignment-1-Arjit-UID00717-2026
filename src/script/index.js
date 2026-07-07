@@ -9,7 +9,13 @@ const BREAKPOINT = 1440; // Breakpoint for md screen
 // Toggle Menu and Icons on Click
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('navbar__menu--active');
-
+    if (
+        navMenu.classList.contains('navbar__menu--active') &&
+        window.innerWidth < BREAKPOINT
+    ) {
+        let a = document.querySelector('.navbar__menu--active');
+        a.focus();
+    }
     const icon = hamburger.querySelector('i, svg');
 
     if (icon) {
@@ -75,7 +81,7 @@ cardsContainer.innerHTML = cardsHTML;
 splide.mount();
 
 // List of all suammaries
-const summaries = document.querySelectorAll('.footer__mobile details summary');
+const summaries = document.querySelectorAll('.footer__summary');
 
 // Adding click event to toggle the rotation of all mobile footer arrows.
 summaries.forEach((summary) => {

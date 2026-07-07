@@ -18,6 +18,8 @@
     &__menu {
         // Hide full menu tracking container on smaller devices by default
         display: none;
+        outline: none;
+
         &--active {
             position: absolute;
             display: block;
@@ -39,6 +41,7 @@
         @include m.flex-layout(space-between, flex-start, column);
         gap: f.rem(20px);
         padding: f.rem(10px);
+        outline: none;
 
         &-item {
             border-bottom: 2px solid c.$text-color;
@@ -78,6 +81,7 @@
                 padding: f.rem(30px) f.rem(40px);
                 @include m.flex-layout(center, flex-start, column);
                 gap: f.rem(20px);
+                background-color: c.$color-white;
             }
         }
 
