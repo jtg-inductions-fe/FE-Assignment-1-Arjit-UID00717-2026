@@ -33,9 +33,11 @@
 
     &__arrow {
         position: absolute;
-        padding: f.rem(20px);
-        top: 15%;
+        height: f.rem(64px);
+        width: f.rem(64px);
+        top: 16%;
         border-radius: 50%;
+        @include m.flex-layout(center, center, row);
 
         &--prev {
             left: 4%;
@@ -44,7 +46,7 @@
         }
 
         &--next {
-            right: 5%;
+            right: 4%;
             background-color: c.$primary-color;
             border: none;
         }
@@ -57,13 +59,13 @@
     &__item {
         width: 100%;
         @include m.flex-layout(center, center, column);
-        gap: f.rem(58px);
+        gap: f.rem(52px);
         padding: f.rem(60px) 0;
     }
 
     &__avatar-container {
-        height: f.rem(135px);
-        width: f.rem(135px);
+        height: f.rem(132px);
+        width: f.rem(128px);
         border-radius: 50%;
         overflow: hidden;
     }
@@ -74,7 +76,7 @@
 
     &__info {
         @include m.flex-layout(center, center, column);
-        gap: f.rem(35px);
+        gap: f.rem(34px);
     }
 
     &__user-name {
@@ -84,6 +86,7 @@
         letter-spacing: f.rem(0.5px);
         font-size: f.rem(28px);
         font-weight: t.$font-weight-bold;
+        margin-top: f.rem(4px);
     }
 
     &__user-role {
@@ -100,7 +103,6 @@
         color: c.$grey-color;
         text-align: center;
         padding-top: f.rem(26px);
-        margin-bottom: f.rem(42px);
         @include m.font-style(t.$sub-para);
     }
 
@@ -121,13 +123,13 @@
         transition: all 0.3s ease;
 
         //active dots in pagination
-        & .is-active {
+        &.is-active {
             background-color: c.$secondary-color;
         }
     }
 
     @include m.screen(md) {
-        margin-top: f.rem(27px);
+        margin-top: f.rem(32px);
         background-image: url('/assets/carousel.png');
         background-position: 0 48%;
         background-size: cover;
@@ -137,7 +139,7 @@
         }
 
         &__item {
-            gap: f.rem(40px);
+            gap: f.rem(28px);
         }
 
         &__feedback {
@@ -147,7 +149,9 @@
         //overriding splide default arrow styles
         &__arrow {
             padding: f.rem(36px);
-            top: 30%;
+            top: 32%;
+            height: f.rem(100px);
+            width: f.rem(100px);
 
             &--prev {
                 left: 6%;
@@ -165,7 +169,7 @@
 
     @include m.screen(lg) {
         margin-top: f.rem(105px);
-        background-position: 0 35%;
+        background-position: 0 38%;
 
         &__subtitle {
             letter-spacing: f.rem(4.2px);
@@ -179,7 +183,7 @@
         //overriding splide default arrow styles
         &__arrow {
             padding: f.rem(40px);
-            top: 28%;
+            top: 30%;
 
             &--prev {
                 left: 9%;
