@@ -1,0 +1,206 @@
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+@use '../base/typography' as t;
+@use '../abstracts/colors' as c;
+
+.carousel {
+    width: 100%;
+    margin-top: f.rem(132px);
+    display: relative;
+    max-width: f.rem(1440px);
+    margin-inline: auto;
+
+    &__text-container {
+        text-align: center;
+    }
+
+    &__subtitle {
+        color: c.$secondary-color;
+        text-transform: uppercase;
+        letter-spacing: f.rem(3px);
+        @include m.font-style(t.$small-heading);
+    }
+
+    &__title {
+        margin-top: f.rem(18px);
+        @include m.font-style(t.$sub-heading);
+    }
+
+    //overriding splide default arrow styles
+    &__splide {
+        position: relative;
+    }
+
+    &__arrow {
+        position: absolute;
+        height: f.rem(64px);
+        width: f.rem(64px);
+        top: 16%;
+        border-radius: 50%;
+        @include m.flex-layout(center, center, row);
+
+        &--prev {
+            left: 4%;
+            border: 1px solid c.$light-grey-color;
+            background-color: c.$color-white;
+        }
+
+        &--next {
+            right: 4%;
+            background-color: c.$primary-color;
+            border: none;
+        }
+    }
+
+    &__arrow-icon {
+        @include m.box(f.rem(15px), f.rem(15px));
+    }
+
+    &__item {
+        width: 100%;
+        @include m.flex-layout(center, center, column);
+        gap: f.rem(52px);
+        padding: f.rem(60px) 0;
+    }
+
+    &__avatar-container {
+        height: f.rem(132px);
+        width: f.rem(128px);
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    &__avatar {
+        object-position: center;
+    }
+
+    &__info {
+        @include m.flex-layout(center, center, column);
+        gap: f.rem(34px);
+    }
+
+    &__user-name {
+        color: c.$orange-color;
+        width: 100%;
+        text-align: center;
+        letter-spacing: f.rem(0.5px);
+        font-size: f.rem(28px);
+        font-weight: t.$font-weight-bold;
+        margin-top: f.rem(4px);
+    }
+
+    &__user-role {
+        color: c.$grey-color;
+        font-size: f.rem(24px);
+    }
+
+    &__rating {
+        @include m.flex-layout(center, center, row);
+        gap: f.rem(16px);
+    }
+
+    &__feedback {
+        color: c.$grey-color;
+        text-align: center;
+        padding-top: f.rem(26px);
+        @include m.font-style(t.$sub-para);
+    }
+
+    //dots container for pagination
+    &__pagination {
+        @include m.flex-layout(center, center, row);
+        gap: f.rem(18px);
+    }
+
+    //non-active dots in pagination
+    &__page {
+        background-color: c.$light-grey-color;
+        border: none;
+        @include m.box(f.rem(24px), f.rem(24px));
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+        transition: all 0.3s ease;
+
+        //active dots in pagination
+        &.is-active {
+            background-color: c.$secondary-color;
+        }
+    }
+
+    @include m.screen(md) {
+        margin-top: f.rem(32px);
+        background-image: url('/assets/carousel.png');
+        background-position: 0 48%;
+        background-size: cover;
+
+        &__subtitle {
+            letter-spacing: f.rem(4px);
+        }
+
+        &__item {
+            gap: f.rem(28px);
+        }
+
+        &__feedback {
+            width: 60%;
+        }
+
+        //overriding splide default arrow styles
+        &__arrow {
+            padding: f.rem(36px);
+            top: 32%;
+            height: f.rem(100px);
+            width: f.rem(100px);
+
+            &--prev {
+                left: 6%;
+            }
+
+            &--next {
+                right: 6%;
+            }
+        }
+
+        &__arrow-icon {
+            @include m.box(f.rem(24px), f.rem(24px));
+        }
+    }
+
+    @include m.screen(lg) {
+        margin-top: f.rem(105px);
+        background-position: 0 38%;
+
+        &__subtitle {
+            letter-spacing: f.rem(4.2px);
+            padding-left: f.rem(10px);
+        }
+
+        &__title {
+            padding-left: f.rem(15px);
+        }
+
+        //overriding splide default arrow styles
+        &__arrow {
+            padding: f.rem(40px);
+            top: 30%;
+
+            &--prev {
+                left: 9%;
+            }
+
+            &--next {
+                right: 8%;
+            }
+        }
+
+        &__item {
+            padding-left: f.rem(20px);
+        }
+
+        &__feedback {
+            width: 62%;
+            padding-left: f.rem(10px);
+        }
+    }
+}

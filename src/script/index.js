@@ -1,4 +1,5 @@
 import { travelData } from '../MOCK_DATA/card_data';
+import splide from './carousel';
 
 // DOM Element Selectors
 const hamburger = document.querySelector('.navbar__hamburger');
@@ -7,10 +8,20 @@ const BREAKPOINT = 1440; // Breakpoint for md screen
 
 // Toggle Menu and Icons on Click
 hamburger.addEventListener('click', () => {
+    // Toggle the mobile and tablet navigation menu visibility
     navMenu.classList.toggle('navbar__menu--active');
 
+    // Shift focus to the opened menu on small screens
+    if (
+        navMenu.classList.contains('navbar__menu--active') &&
+        window.innerWidth < BREAKPOINT
+    ) {
+        let a = document.querySelector('.navbar__menu--active');
+        a.focus();
+    }
     const icon = hamburger.querySelector('i, svg');
 
+    // Switch between the 'hamburger' and 'close' icons depending on menu state
     if (icon) {
         if (icon.classList.contains('fa-bars')) {
             icon.classList.remove('fa-bars');
@@ -69,3 +80,17 @@ const cardsHTML = travelData
 
 // 2. Update the DOM a single time
 cardsContainer.innerHTML = cardsHTML;
+
+// Called the Mount to show carousel on UI
+splide.mount();
+
+// List of all suammaries
+const summaries = document.querySelectorAll('.footer__summary');
+
+// Adding click event to toggle the rotation of all mobile footer arrows.
+summaries.forEach((summary) => {
+    summary.addEventListener('click', () => {
+        const icon = summary.querySelector('.up-arrow');
+        icon.classList.toggle('footer__summary-arrow--rotate');
+    });
+});

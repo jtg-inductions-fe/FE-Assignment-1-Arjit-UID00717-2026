@@ -5,6 +5,7 @@ $primary-font-family: 'CircularStd';
 $secondary-font-family: 'Inter', sans-serif;
 
 // Font weights for headings and paragraphs
+$font-weight-bold-max: 900;
 $font-weight-bold: 700;
 $font-weight-semi-bold: 450;
 $font-weight-light: 400;
@@ -109,17 +110,17 @@ $main-para: (
 $sub-para: (
     lg: (
         font-size: $sub-para-lg,
-        line-height: 120%,
+        line-height: 160%,
         font-weight: $font-weight-semi-bold,
     ),
     md: (
         font-size: $sub-para-md,
-        line-height: 120%,
+        line-height: 160%,
         font-weight: $font-weight-semi-bold,
     ),
     sm: (
         font-size: $sub-para-sm,
-        line-height: 120%,
+        line-height: 160%,
         font-weight: $font-weight-semi-bold,
     ),
 );
