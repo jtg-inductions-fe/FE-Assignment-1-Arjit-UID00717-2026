@@ -8,7 +8,10 @@ const BREAKPOINT = 1440; // Breakpoint for md screen
 
 // Toggle Menu and Icons on Click
 hamburger.addEventListener('click', () => {
+    // Toggle the mobile and tablet navigation menu visibility
     navMenu.classList.toggle('navbar__menu--active');
+
+    // Shift focus to the opened menu on small screens
     if (
         navMenu.classList.contains('navbar__menu--active') &&
         window.innerWidth < BREAKPOINT
@@ -18,6 +21,7 @@ hamburger.addEventListener('click', () => {
     }
     const icon = hamburger.querySelector('i, svg');
 
+    // Switch between the 'hamburger' and 'close' icons depending on menu state
     if (icon) {
         if (icon.classList.contains('fa-bars')) {
             icon.classList.remove('fa-bars');
