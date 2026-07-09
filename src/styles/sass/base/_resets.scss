@@ -1,4 +1,5 @@
 @use '../base/typography' as v;
+@use '../abstracts/colors' as c;
 
 *,
 *::before,
@@ -52,4 +53,13 @@ h6 {
 
 li {
     list-style-type: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+*:focus-visible {
+    outline: 3px solid c.$yellow-accent;
+    outline-offset: 3px;
 }

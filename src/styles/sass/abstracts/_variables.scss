@@ -1,6 +1,10 @@
 // For responsiveness of tablet and desktop
+$breakpoint-sm: 430px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1440px;
+
 $breakpoints: (
-    sm: 430px,
-    md: 1024px,
-    lg: 1440px,
+    sm: $breakpoint-sm,
+    md: $breakpoint-md,
+    lg: $breakpoint-lg,
 );

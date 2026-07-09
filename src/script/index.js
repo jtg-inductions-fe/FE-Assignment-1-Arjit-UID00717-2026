@@ -8,10 +8,20 @@ const BREAKPOINT = 1440; // Breakpoint for md screen
 
 // Toggle Menu and Icons on Click
 hamburger.addEventListener('click', () => {
+    // Toggle the mobile and tablet navigation menu visibility
     navMenu.classList.toggle('navbar__menu--active');
 
+    // Shift focus to the opened menu on small screens
+    if (
+        navMenu.classList.contains('navbar__menu--active') &&
+        window.innerWidth < BREAKPOINT
+    ) {
+        let a = document.querySelector('.navbar__menu--active');
+        a.focus();
+    }
     const icon = hamburger.querySelector('i, svg');
 
+    // Switch between the 'hamburger' and 'close' icons depending on menu state
     if (icon) {
         if (icon.classList.contains('fa-bars')) {
             icon.classList.remove('fa-bars');
@@ -75,7 +85,7 @@ cardsContainer.innerHTML = cardsHTML;
 splide.mount();
 
 // List of all suammaries
-const summaries = document.querySelectorAll('.footer__mobile details summary');
+const summaries = document.querySelectorAll('.footer__summary');
 
 // Adding click event to toggle the rotation of all mobile footer arrows.
 summaries.forEach((summary) => {

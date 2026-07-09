@@ -6,7 +6,7 @@
 
 .hero {
     /* Mobile-first structural layout base */
-    width: 100vw;
+    width: 100%;
     @include m.flex-layout(space-between, center, column);
     margin-top: f.rem(34px);
 
