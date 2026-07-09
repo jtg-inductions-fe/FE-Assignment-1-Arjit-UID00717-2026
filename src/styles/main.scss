@@ -1,5 +1,5 @@
-@use './sass/abstracts/functions';
-@use './sass/abstracts/variables';
+@use './sass/abstracts/functions' as f;
+@use './sass/abstracts/variables' as v;
 @use './sass/abstracts/colors';
 @use './sass/abstracts/mixins';
 @use './sass/base/typography';
@@ -13,3 +13,8 @@
 @use './sass/layout/travel-point';
 @use './sass/layout/carousel';
 @use './sass/layout/footer';
+
+.wrapper {
+    max-width: v.$breakpoint-lg;
+    margin-inline: auto;
+}

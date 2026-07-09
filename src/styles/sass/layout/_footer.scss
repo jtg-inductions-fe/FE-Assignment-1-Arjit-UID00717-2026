@@ -5,7 +5,7 @@
 @use '../base/typography' as t;
 
 .footer {
-    min-width: 100vw;
+    min-width: 100%;
     margin-top: f.rem(124px);
     padding-inline: f.rem(32px);
     position: relative;
