@@ -1,1 +1,22 @@
-// TODO: Add styles as per the requirement
+@use './sass/abstracts/functions' as f;
+@use './sass/abstracts/variables' as v;
+@use './sass/abstracts/colors';
+@use './sass/abstracts/mixins';
+@use './sass/base/typography';
+@use './sass/base/resets';
+@use './sass/components/buttons';
+@use './sass/components/link';
+@use './sass/components/card';
+@use './sass/components/coupon';
+@use './sass/layout/navbar';
+@use './sass/layout/hero';
+@use './sass/layout/partner';
+@use './sass/layout/travel-point';
+@use './sass/layout/carousel';
+@use './sass/layout/footer';
+@use './sass/layout/special-deals';
+
+.wrapper {
+    max-width: v.$breakpoint-lg;
+    margin-inline: auto;
+}

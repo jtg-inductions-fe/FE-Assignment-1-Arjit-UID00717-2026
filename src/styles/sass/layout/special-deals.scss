@@ -1,0 +1,269 @@
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+@use '../base/typography' as t;
+@use '../abstracts/colors' as c;
+
+.special-deals {
+    @include m.flex-layout(flex-end, flex-end, row);
+    position: fixed;
+    z-index: 99;
+    inset: 0;
+    font-family: t.$secondary-font-family;
+    display: none;
+
+    &__overlay {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: c.$fade-black;
+        inset: 0;
+    }
+
+    &__modal {
+        @include m.flex-layout(start, center, column);
+        position: absolute;
+        max-width: f.rem(360px);
+        background-color: c.$color-white;
+        left: 50%;
+        transform: translateX(-50%);
+        width: f.rem(360px);
+        border-radius: 24px 24px 0 0;
+        gap: f.rem(20px);
+        padding: f.rem(24px);
+    }
+
+    &__close-icon {
+        border: none;
+        font-size: t.$text-lg;
+        position: absolute;
+        top: 5%;
+        right: 5%;
+    }
+
+    &__text {
+        @include m.flex-layout(center, center, column);
+        gap: f.rem(8px);
+    }
+
+    &__label-icon {
+        font-size: t.$label-text;
+        color: c.$dark-pink;
+    }
+
+    &__label-text {
+        font-size: t.$heading-text;
+        color: c.$dark-pink;
+        font-weight: t.$font-weight-medium-bold;
+        letter-spacing: f.rem(1px);
+    }
+
+    &__title {
+        font-size: t.$text-lg;
+        font-weight: t.$font-weight-bold;
+    }
+
+    &__description {
+        color: c.$off-grey;
+        font-size: t.$heading-text;
+    }
+
+    &__wheel-container {
+        width: f.rem(227px);
+        height: f.rem(236px);
+        position: relative;
+    }
+
+    &__wheel {
+        transition: transform 4s ease-out;
+        width: f.rem(227px);
+        height: f.rem(227px);
+        border-radius: 50%;
+        background-color: c.$off-white;
+    }
+
+    &__segment {
+        @include m.flex-layout(center, center);
+    }
+
+    &__segment-wrapper {
+        width: f.rem(227px);
+        height: f.rem(227px);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: f.rem(4px);
+        border-radius: 50%;
+        overflow: hidden;
+        color: c.$color-white;
+        box-shadow: c.$shadow-glow;
+        border: 4px solid c.$color-white;
+        font-size: t.$heading-text;
+    }
+
+    &__segment-1 {
+        background-color: c.$dark-pink;
+    }
+
+    &__segment-2 {
+        background-color: c.$purple-color;
+    }
+
+    &__segment-3 {
+        background-color: c.$sky-blue;
+    }
+
+    &__segment-4 {
+        background-color: c.$dark-yellow;
+    }
+
+    &__segment-text {
+        text-align: center;
+        width: f.rem(84px);
+    }
+
+    &__segment-text1 {
+        transform: rotate(-45deg);
+    }
+
+    &__segment-text2 {
+        transform: rotate(45deg);
+    }
+
+    &__segment-text3 {
+        transform: rotate(-135deg);
+    }
+
+    &__segment-text4 {
+        transform: rotate(135deg);
+    }
+
+    &__loading-text {
+        position: absolute;
+        inset: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        color: c.$text-color;
+        font-weight: bold;
+        z-index: 100;
+    }
+
+    &__spin-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        height: f.rem(44px);
+        width: f.rem(44px);
+        background-color: c.$color-white;
+        border: 3px solid c.$dark-pink;
+        color: c.$dark-pink;
+    }
+
+    &__pointer {
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 14px solid c.$dark-pink;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        z-index: 20;
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+
+    &__result {
+        @include m.flex-layout(center, center, column);
+        gap: f.rem(8px);
+        width: 100%;
+        display: none;
+    }
+
+    &__result-title {
+        font-size: t.$heading-text;
+        color: c.$text-color;
+        font-weight: t.$font-weight-bold;
+    }
+
+    &__count {
+        display: inline-block;
+        font-size: t.$heading-text;
+        height: f.rem(18px);
+        width: f.rem(18px);
+        background-color: c.$purple-color;
+        color: c.$color-white;
+        border-radius: 50%;
+        font-weight: 500;
+        @include m.flex-layout(center, center, row);
+    }
+
+    // Unlocked deals modal
+    &__unlock-modal {
+        @include m.flex-layout(start, center, column);
+        display: none;
+        position: absolute;
+        max-width: f.rem(360px);
+        background-color: c.$color-white;
+        left: 50%;
+        transform: translateX(-50%);
+        width: f.rem(360px);
+        border-radius: 24px 24px 0 0;
+        gap: f.rem(20px);
+        padding: f.rem(24px);
+    }
+
+    &__list-container {
+        @include m.flex-layout(space-between, center, column);
+        gap: f.rem(10px);
+        overflow-y: auto;
+        padding: f.rem(20px);
+        height: f.rem(221px);
+        width: f.rem(312px);
+    }
+
+    // Expired deals
+    &__coupon-expired {
+        cursor: not-allowed;
+        background: none;
+        background-color: c.$off-white;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    &__copy-disable {
+        cursor: not-allowed;
+    }
+
+    &__coupon-inactive {
+        color: c.$off-grey;
+    }
+
+    &__list-coupon {
+        display: flex;
+    }
+
+    &__copy-button-disabled {
+        color: c.$off-grey;
+        pointer-events: none;
+    }
+
+    &__coupon-invalid {
+        color: c.$off-grey;
+    }
+
+    @include m.screen(lg) {
+        &__modal {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 24px;
+        }
+
+        &__unlock-modal {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 24px;
+        }
+    }
+}

@@ -1,0 +1,132 @@
+@use '../abstracts/functions' as f;
+@use '../abstracts/variables' as v;
+
+$primary-font-family: 'CircularStd';
+$secondary-font-family: 'Inter', sans-serif;
+
+// Font weights for headings and paragraphs
+$font-weight-bold-max: 900;
+$font-weight-bold: 700;
+$font-weight-semi-bold: 450;
+$font-weight-light: 400;
+$font-weight-medium-bold: 600;
+
+// Main heading variables
+$main-heading-lg: f.rem(69px);
+$main-heading-md: f.rem(56px);
+$main-heading-sm: f.rem(40px);
+
+// Sub heading
+$sub-heading-lg: f.rem(44px);
+$sub-heading-md: f.rem(40px);
+$sub-heading-sm: f.rem(32px);
+
+// Small heading
+$small-heading-lg: f.rem(23px);
+$small-heading-md: f.rem(23px);
+$small-heading-sm: f.rem(16px);
+
+// Main paragraph
+$main-para-lg: f.rem(18px);
+$main-para-md: f.rem(18px);
+$main-para-sm: f.rem(16px);
+
+// Sub paragraph
+$sub-para-lg: f.rem(23px);
+$sub-para-md: f.rem(23px);
+$sub-para-sm: f.rem(18px);
+
+//heading-text
+$heading-text: f.rem(12px);
+$label-text: f.rem(14px);
+$text-lg: f.rem(20px);
+
+$main-heading: (
+    lg: (
+        font-size: $main-heading-lg,
+        line-height: 120%,
+        font-weight: $font-weight-bold,
+    ),
+    md: (
+        font-size: $main-heading-md,
+        line-height: 120%,
+        font-weight: $font-weight-bold,
+    ),
+    sm: (
+        font-size: $main-heading-sm,
+        line-height: 120%,
+        font-weight: $font-weight-bold,
+    ),
+);
+
+$sub-heading: (
+    lg: (
+        font-size: $sub-heading-lg,
+        line-height: 120%,
+        font-weight: $font-weight-bold,
+    ),
+    md: (
+        font-size: $sub-heading-md,
+        line-height: 120%,
+        font-weight: $font-weight-bold,
+    ),
+    sm: (
+        font-size: $sub-heading-sm,
+        line-height: 120%,
+        font-weight: $font-weight-bold,
+    ),
+);
+
+$small-heading: (
+    lg: (
+        font-size: $small-heading-lg,
+        line-height: 120%,
+        font-weight: $font-weight-bold,
+    ),
+    md: (
+        font-size: $small-heading-md,
+        line-height: 120%,
+        font-weight: $font-weight-bold,
+    ),
+    sm: (
+        font-size: $small-heading-sm,
+        line-height: 120%,
+        font-weight: $font-weight-bold,
+    ),
+);
+
+$main-para: (
+    lg: (
+        font-size: $main-para-lg,
+        line-height: 160%,
+        font-weight: $font-weight-light,
+    ),
+    md: (
+        font-size: $main-para-md,
+        line-height: 160%,
+        font-weight: $font-weight-light,
+    ),
+    sm: (
+        font-size: $main-para-sm,
+        line-height: 160%,
+        font-weight: $font-weight-light,
+    ),
+);
+
+$sub-para: (
+    lg: (
+        font-size: $sub-para-lg,
+        line-height: 160%,
+        font-weight: $font-weight-semi-bold,
+    ),
+    md: (
+        font-size: $sub-para-md,
+        line-height: 160%,
+        font-weight: $font-weight-semi-bold,
+    ),
+    sm: (
+        font-size: $sub-para-sm,
+        line-height: 160%,
+        font-weight: $font-weight-semi-bold,
+    ),
+);

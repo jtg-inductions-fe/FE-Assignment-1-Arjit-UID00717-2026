@@ -1,0 +1,57 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use '../abstracts/colors' as c;
+@use '../base/typography' as t;
+
+.coupon {
+    border: 1px solid c.$dark-pink;
+    border-radius: 16px;
+    @include m.flex-layout(space-between, start, row);
+    gap: f.rem(42px);
+    padding: f.rem(16px);
+    width: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(244, 67, 108, 0.1),
+        rgba(124, 58, 237, 0.1)
+    );
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+    }
+
+    &__title {
+        font-size: f.rem(12px);
+        color: c.$text-color;
+        font-weight: t.$font-weight-bold;
+    }
+
+    &__code {
+        font-size: f.rem(12px);
+        color: c.$black-color;
+        font-weight: t.$font-weight-bold;
+        background-color: c.$color-white;
+        padding: f.rem(4px) f.rem(10px);
+        border-radius: 8px;
+    }
+
+    &__action {
+        @include m.flex-layout(space-between, center, row);
+        gap: f.rem(8px);
+        width: f.rem(134px);
+    }
+
+    &__expiry {
+        color: c.$purple-color;
+        font-size: f.rem(12px);
+        font-weight: t.$font-weight-light;
+    }
+
+    &__button {
+        border: none;
+        font-size: f.rem(16px);
+        color: c.$dark-pink;
+    }
+}

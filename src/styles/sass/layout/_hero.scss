@@ -1,0 +1,394 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use '../abstracts/colors' as c;
+@use '../abstracts/variables' as v;
+@use '../base/typography' as t;
+
+.hero {
+    /* Mobile-first structural layout base */
+    width: 100%;
+    @include m.flex-layout(space-between, center, column);
+    margin-top: f.rem(34px);
+
+    /* --- Decorative Background Elements --- */
+    &__blur-ellipse {
+        @include m.box(348px, 272px);
+        background-color: c.$orange-color;
+        border-radius: 50%;
+        filter: blur(150px); // Filter to make the ellipse blur
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    /* --- Media Gallery Container--- */
+    &__gallery {
+        width: 90%;
+        max-width: f.rem(772px);
+        position: relative;
+        aspect-ratio: 772/713;
+    }
+
+    &__bg-globe {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+
+    &__showcase {
+        width: 90%;
+        height: 100%;
+        @include m.flex-layout(space-evenly, center, row);
+        position: absolute;
+        top: 5%;
+        left: 5%;
+    }
+
+    &__column-left {
+        @include m.flex-layout(space-evenly, center, column);
+        width: 40%;
+        gap: f.rem(20px);
+        height: 90%;
+    }
+
+    &__column-right {
+        @include m.flex-layout(space-evenly, center, row);
+        height: 90%;
+        width: 40%;
+        margin-right: f.rem(20px);
+        overflow: hidden;
+        border-radius: f.rem(18px);
+    }
+
+    &__image-wrapper {
+        height: 65%;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 18px;
+    }
+
+    /* --- Floating Overlays & Badges --- */
+    &__icon-badge {
+        position: absolute;
+        font-size: f.rem(14px);
+        padding: f.rem(10px);
+        border-radius: 50%;
+        @include m.flex-layout(center, center, row);
+    }
+
+    &__icon-badge-telegram {
+        background-color: c.$secondary-color;
+        color: c.$color-white;
+        top: 42%;
+        left: 1%;
+    }
+
+    &__icon-badge-add-user {
+        background-color: c.$orange-color;
+        color: c.$color-white;
+        bottom: 2%;
+        right: 27%;
+    }
+
+    &__location-badge {
+        position: absolute;
+        @include m.flex-layout(space-between, center, row);
+        gap: f.rem(5px);
+        padding: f.rem(8px) f.rem(12px);
+        background-color: c.$color-white;
+        border-radius: f.rem(50px);
+        bottom: f.rem(90px);
+        right: 0;
+    }
+
+    &__location-icon {
+        color: c.$yellow-accent;
+        font-size: f.rem(13px);
+    }
+
+    &__location-text {
+        font-size: f.rem(7.19px);
+    }
+
+    &__content {
+        margin-top: f.rem(40px);
+    }
+
+    &__header {
+        @include m.flex-layout(center, center, column);
+        gap: f.rem(10px);
+    }
+
+    &__badge {
+        background-color: c.$color-white;
+        @include m.flex-layout(center, center, row);
+        gap: f.rem(10px);
+        padding: f.rem(16px) f.rem(28px);
+        border-radius: f.rem(100px);
+        color: c.$secondary-color;
+        box-shadow: c.$card-box-shadow;
+    }
+
+    &__badge-text {
+        font-size: f.rem(14px);
+    }
+
+    &__badge-icon {
+        color: c.$secondary-color;
+        font-size: f.rem(24px);
+    }
+
+    &__title {
+        text-align: center;
+        width: 80%;
+        @include m.font-style(t.$main-heading);
+    }
+
+    &__title-highlight {
+        color: c.$secondary-color;
+    }
+
+    &__description {
+        color: c.$grey-color;
+        margin-inline: auto;
+        padding-top: f.rem(20px);
+        width: 87%;
+        text-align: center;
+        @include m.font-style(t.$main-para);
+    }
+
+    &__decorative-triangles {
+        display: none; // Hidden on mobile viewports
+    }
+
+    /* --- Call to Action Element Styles --- */
+    &__actions {
+        @include m.flex-layout(space-between, center, column);
+        padding: f.rem(10px);
+        gap: f.rem(25px);
+        margin-top: f.rem(25px);
+    }
+
+    &__btn {
+        width: 100%;
+        padding: f.rem(23px) f.rem(28px);
+        border-radius: f.rem(100px);
+    }
+
+    &__btn-icon {
+        background-color: c.$primary-color;
+        color: c.$color-white;
+        @include m.box(f.rem(20px), f.rem(20px));
+        font-size: f.rem(10px);
+        border-radius: 50%;
+        @include m.flex-layout(center, center, row);
+    }
+
+    /* Media Queries */
+
+    @include m.screen(md) {
+        margin-top: f.rem(62px);
+        gap: f.rem(18px);
+        position: relative;
+
+        &__gallery {
+            width: 90%;
+        }
+
+        &__showcase {
+            width: 92%;
+            top: 6%;
+            left: 6%;
+        }
+
+        &__image-wrapper {
+            height: 100%;
+            width: 95%;
+            margin-left: f.rem(20px);
+        }
+
+        &__column-right {
+            height: 56%;
+            width: 40%;
+            margin-right: f.rem(68px);
+        }
+
+        &__icon-badge {
+            padding: f.rem(20px);
+        }
+
+        &__icon-badge-telegram {
+            font-size: f.rem(18px);
+            top: 42.5%;
+            left: 1%;
+        }
+
+        &__icon-badge-add-user {
+            font-size: f.rem(18px);
+            bottom: 6%;
+            right: 31%;
+        }
+
+        &__content {
+            @include m.flex-layout(center, center, column);
+        }
+
+        &__location-badge {
+            padding: f.rem(16px) f.rem(32px);
+            bottom: 28.5%;
+        }
+
+        &__location-icon {
+            font-size: f.rem(18px);
+        }
+
+        &__location-text {
+            font-size: f.rem(15px);
+        }
+
+        &__title {
+            width: 70%;
+            margin-top: f.rem(28px);
+        }
+
+        &__description {
+            @include m.flex-layout(center, center, row);
+            @include m.font-style(t.$main-para);
+            margin-top: f.rem(21px);
+            width: 45%;
+            text-align: center;
+        }
+
+        &__actions {
+            padding: f.rem(20px) f.rem(30px);
+            margin-top: f.rem(30px);
+            flex-direction: row;
+            justify-content: center;
+            width: 80%;
+            margin-right: f.rem(25px);
+        }
+
+        &__btn {
+            height: f.rem(49px);
+            width: f.rem(141px);
+            padding: 0;
+        }
+
+        &__decorative-triangles {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: f.rem(40px);
+            width: f.rem(65px);
+            height: f.rem(168px);
+        }
+    }
+
+    @include m.screen(lg) {
+        margin-top: f.rem(20px);
+        padding-right: f.rem(100px);
+        flex-direction: row-reverse; /* Reverses copy context and gallery arrangement */
+        justify-content: space-around;
+
+        &__blur-ellipse {
+            top: 0;
+            left: 0;
+            filter: blur(240px);
+            opacity: 1;
+        }
+
+        &__gallery {
+            width: 100%;
+        }
+
+        &__showcase {
+            width: 92%;
+            top: 8%;
+            left: 4%;
+        }
+
+        &__bg-globe {
+            width: 110%;
+            top: 1%;
+            left: -11%;
+        }
+
+        &__column-left {
+            height: 100%;
+        }
+
+        &__image-wrapper {
+            height: 100%;
+            width: 100%;
+
+            .hero__column-left & {
+                margin-top: f.rem(20px);
+                margin-right: f.rem(40px);
+            }
+        }
+
+        &__column-right {
+            height: 60%;
+            width: 44%;
+            margin-right: f.rem(90px);
+            margin-top: f.rem(26px);
+        }
+
+        &__icon-badge-telegram {
+            font-size: f.rem(22px);
+            top: 44%;
+            left: -8%;
+        }
+
+        &__icon-badge-add-user {
+            font-size: f.rem(22px);
+            bottom: 0;
+            right: 33%;
+        }
+
+        &__location-badge {
+            padding: f.rem(16px) f.rem(32px);
+            bottom: 25%;
+        }
+
+        &__decorative-triangles {
+            top: 100%;
+            left: 2.5%;
+            display: block;
+            position: absolute;
+        }
+
+        &__content {
+            margin-top: f.rem(75px);
+            justify-content: start;
+        }
+
+        &__badge {
+            margin-right: f.rem(140px);
+        }
+
+        &__title {
+            width: 70%;
+            padding-left: f.rem(30px);
+            text-align: start;
+        }
+
+        &__description {
+            text-align: center;
+            margin-top: f.rem(20px);
+            width: 55%;
+        }
+
+        &__actions {
+            margin-right: f.rem(8px);
+            margin-top: f.rem(50px);
+            gap: f.rem(20px);
+        }
+
+        &__btn-watch {
+            width: f.rem(181px);
+        }
+    }
+}

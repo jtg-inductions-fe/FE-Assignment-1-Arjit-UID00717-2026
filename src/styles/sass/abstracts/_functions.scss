@@ -1,0 +1,6 @@
+@use 'sass:math';
+
+// Function to convert pixel in to rem
+@function rem($pixels) {
+    @return math.div($pixels, 16px) * 1rem;
+}

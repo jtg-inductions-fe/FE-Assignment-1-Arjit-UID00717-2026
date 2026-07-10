@@ -1,0 +1,184 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use '../abstracts/colors' as c;
+@use '../abstracts/variables' as v;
+@use '../base/typography' as t;
+
+.footer {
+    min-width: 100%;
+    margin-top: f.rem(124px);
+    padding-inline: f.rem(32px);
+    position: relative;
+
+    gap: f.rem(70px);
+    @include m.flex-layout(center, start, column);
+
+    &__brand {
+        width: 100%;
+        @include m.flex-layout(center, start, column);
+        gap: f.rem(32px);
+    }
+
+    &__logo-title {
+        color: c.$text-color;
+        font-size: f.rem(24px);
+        font-weight: t.$font-weight-bold-max;
+    }
+
+    &__description {
+        font-size: f.rem(16px);
+        color: c.$grey-color;
+        line-height: 160%;
+        font-weight: t.$font-weight-light;
+        width: 110%;
+    }
+
+    &__logo-container {
+        @include m.flex-layout(space-between, center, row);
+        gap: f.rem(15px);
+    }
+
+    &__social-list {
+        @include m.flex-layout(space-between, center, row);
+        gap: f.rem(27px);
+    }
+
+    &__social-link {
+        background-color: c.$primary-color;
+        color: c.$color-white;
+        padding: f.rem(8px);
+        border-radius: 50%;
+    }
+
+    &__mobile {
+        width: 100%;
+        @include m.flex-layout(start, start, column);
+        gap: f.rem(72px);
+        margin-bottom: f.rem(50px);
+    }
+
+    &__details {
+        width: 100%;
+    }
+
+    &__summary {
+        width: 100%;
+        list-style: none;
+        @include m.flex-layout(space-between, start, row);
+    }
+
+    &__summary-title {
+        font-size: f.rem(23px);
+        font-weight: t.$font-weight-bold;
+    }
+
+    &__summary-list {
+        color: c.$grey-color;
+        @include m.flex-layout(center, start, column);
+        gap: f.rem(20px);
+        padding: f.rem(50px) f.rem(20px);
+        box-shadow: c.$card-box-shadow;
+    }
+
+    &__summary-arrow {
+        color: c.$text-color;
+        border-radius: 50%;
+        border: 1px solid c.$text-color;
+        @include m.flex-layout(center, center, row);
+        font-size: f.rem(10px);
+        padding: f.rem(4px);
+
+        &--rotate {
+            transform: rotate(180deg);
+            transition: transform 0.3s ease;
+        }
+    }
+
+    &__desktop {
+        display: none;
+    }
+    &__decor-container {
+        display: none;
+    }
+
+    @include m.screen(md) {
+        gap: f.rem(54px);
+        margin-top: f.rem(210px);
+        padding-inline: f.rem(64px) f.rem(138px);
+
+        &__mobile {
+            display: none;
+        }
+
+        &__tablet {
+            width: 100%;
+            @include m.flex-layout(space-between, start, row);
+        }
+
+        &__group {
+            @include m.flex-layout(space-between, start, column);
+            gap: f.rem(34px);
+        }
+
+        &__group-title {
+            color: c.$text-color;
+            font-size: f.rem(23px);
+            font-weight: t.$font-weight-bold;
+        }
+
+        &__group-list {
+            font-family: t.$secondary-font-family;
+            @include m.flex-layout(center, start, column);
+            gap: f.rem(35px);
+            line-height: f.rem(23px);
+            margin-bottom: f.rem(64px);
+        }
+
+        &__description {
+            font-size: f.rem(23px);
+            width: 110%;
+            line-height: 160%;
+            font-weight: t.$font-weight-light;
+        }
+
+        &__decor-container {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 15%;
+        }
+    }
+
+    @include m.screen(lg) {
+        flex-direction: row;
+        margin-top: f.rem(256px);
+        padding-left: f.rem(130px);
+        padding-right: f.rem(120px);
+
+        &__description {
+            width: 100%;
+            line-height: 160%;
+        }
+
+        &__social {
+            margin-top: f.rem(28px);
+        }
+
+        &__desktop {
+            justify-content: start;
+            gap: f.rem(40px);
+            padding-left: f.rem(10px);
+        }
+
+        &__group {
+            width: 100%;
+        }
+
+        &__decor-container {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
