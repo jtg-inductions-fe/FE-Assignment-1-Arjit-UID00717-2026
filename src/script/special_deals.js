@@ -95,7 +95,7 @@ navSpecialLink.addEventListener('click', () => {
  * @returns {Object[]} Array of unlocked deal objects.
  */
 const getWonDeals = () => {
-    const won = localStorage.getItem('unlocked_deals_data');
+    const won = localStorage.getItem(WON_DEAL_DATA);
     return won ? JSON.parse(won) : []; // Return empty array if deals are not found in local storage
 };
 
@@ -190,9 +190,7 @@ const buildWheel = () => {
  * the winning deal after the wheel animation completes.
  */
 const attachSpinListener = () => {
-    let dealBtn = document.querySelector('.special-deals__spin-button');
-
-    dealBtn.addEventListener('click', () => {
+    spinBtn.addEventListener('click', () => {
         const resultContainer = document.querySelector(
             '.special-deals__result',
         );
@@ -201,8 +199,8 @@ const attachSpinListener = () => {
         );
 
         //when wheel started rotating disable button
-        dealBtn.disabled = true;
-        dealBtn.style.cursor = 'not-allowed';
+        spinBtn.disabled = true;
+        spinBtn.style.cursor = 'not-allowed';
         resultContainer.style.display = 'none'; // Previous result container should be hidden again
 
         // Calculates the winning deal and store that in winningDeal
@@ -210,8 +208,8 @@ const attachSpinListener = () => {
         // Wait 4 seconds for the spin animation to complete before showing results
         setTimeout(() => {
             // Re-enable the spin button for the next turn
-            dealBtn.disabled = false;
-            dealBtn.style.cursor = 'pointer';
+            spinBtn.disabled = false;
+            spinBtn.style.cursor = 'pointer';
 
             // Check if there is a valid winning prize
             if (winningDeal) {
@@ -269,7 +267,7 @@ const calculateWinningDeal = () => {
  */
 const copyCouponCode = () => {
     // Attach the listener once to document.body
-    document.body.addEventListener('click', (e) => {
+    document.body.addEventListener('click', async (e) => {
         // Check if the clicked target (or its parent) matches copy button
         const currentBtn = e.target.closest('#special-deals__copy-button');
         if (!currentBtn) return;
@@ -282,21 +280,28 @@ const copyCouponCode = () => {
             '#special-deals__coupon-code',
         ).textContent;
 
-        // Copy the text to clipboard
-        navigator.clipboard.writeText(code);
+        try {
+            if (!navigator.clipboard) {
+                return;
+            }
 
-        // Save the original button HTML
-        const originalHTML = currentBtn.innerHTML;
+            await navigator.clipboard.writeText(code);
 
-        // Change button content to a Font Awesome check mark
-        currentBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
-        currentBtn.disabled = true; // Prevent double clicks
+            // Save the original button HTML
+            const originalHTML = currentBtn.innerHTML;
 
-        // Revert back to original state after 2 seconds
-        setTimeout(() => {
-            currentBtn.innerHTML = originalHTML;
-            currentBtn.disabled = false;
-        }, COPY_TIME);
+            // Change button content to a Font Awesome check mark
+            currentBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
+            currentBtn.disabled = true; // Prevent double clicks
+
+            // Revert back to original state after 2 seconds
+            setTimeout(() => {
+                currentBtn.innerHTML = originalHTML;
+                currentBtn.disabled = false;
+            }, COPY_TIME);
+        } catch {
+            return;
+        }
     });
 };
 
@@ -336,7 +341,11 @@ const unlockedDealsNavigation = () => {
     renderUnlockedDealsList(sortedDeals);
 };
 
-// Data Sorting
+/**
+ * Sorts unlocked deals by active status and expiry date.
+ * Active deals are displayed first, followed by expired deals.
+ * Within each group, deals with the latest expiry timestamp appear first.
+ */
 const getSortedWonDeals = () => {
     const won = getWonDeals();
     const now = Date.now();
@@ -388,13 +397,13 @@ const renderUnlockedDealsList = (deals) => {
 
         listHtml += `
             <div id="special-deals__coupon" class="coupon special-deals__list-coupon ${expiredCardClass}">
-                <div id="special-deals__coupon-content" class="coupon-content">
-                    <h6 id="special-deals__coupon-title" class="coupon-title">${deal.label}</h6>
-                    <span id="special-deals__coupon-expiry" class="coupon-expiry ${invalidTextClass}">${expiryText}</span>
+                <div id="special-deals__coupon-content" class="coupon__content">
+                    <h6 id="special-deals__coupon-title" class="coupon__title">${deal.label}</h6>
+                    <span id="special-deals__coupon-expiry" class="coupon__expiry ${invalidTextClass}">${expiryText}</span>
                 </div>
-                <div id="special-deals__coupon-action" class="coupon-action">
-                    <span id="special-deals__coupon-code" class="coupon-code ${inactiveContentClass}">${deal.promoCode}</span>
-                    <button id="special-deals__copy-button" class="coupon-button ${disabledBtnClass}">
+                <div id="special-deals__coupon-action" class="coupon__action">
+                    <span id="special-deals__coupon-code" class="coupon__code ${inactiveContentClass}">${deal.promoCode}</span>
+                    <button id="special-deals__copy-button" class="coupon__button ${disabledBtnClass}" title="Copy coupon code">
                         <i class="fa-regular fa-clone special-deals__copy-icon"></i>
                     </button>
                 </div>

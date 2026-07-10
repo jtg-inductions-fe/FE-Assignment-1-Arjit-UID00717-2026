@@ -16,19 +16,19 @@
         rgba(124, 58, 237, 0.1)
     );
 
-    &-content {
+    &__content {
         display: flex;
         flex-direction: column;
         width: 40%;
     }
 
-    &-title {
+    &__title {
         font-size: f.rem(12px);
         color: c.$text-color;
         font-weight: t.$font-weight-bold;
     }
 
-    &-code {
+    &__code {
         font-size: f.rem(12px);
         color: c.$black-color;
         font-weight: t.$font-weight-bold;
@@ -37,19 +37,19 @@
         border-radius: 8px;
     }
 
-    &-action {
+    &__action {
         @include m.flex-layout(space-between, center, row);
         gap: f.rem(8px);
         width: f.rem(134px);
     }
 
-    &-expiry {
+    &__expiry {
         color: c.$purple-color;
         font-size: f.rem(12px);
         font-weight: t.$font-weight-light;
     }
 
-    &-button {
+    &__button {
         border: none;
         font-size: f.rem(16px);
         color: c.$dark-pink;

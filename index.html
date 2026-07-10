@@ -430,8 +430,8 @@
             <section class="special-deals">
                 <div class="special-deals__overlay"></div>
 
-                <div class="special-deals__modal">
-                    <button class="special-deals__close-icon">
+                <div class="special-deals__modal" role="dialog">
+                    <button class="special-deals__close-icon" title="Close">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
 
@@ -457,7 +457,10 @@
                             <span class="special-deals__loading-text"
                                 >Loading...</span
                             >
-                            <button class="special-deals__spin-button">
+                            <button
+                                class="special-deals__spin-button"
+                                title="Spin the wheel"
+                            >
                                 spin
                             </button>
                             <div class="special-deals__segment-wrapper">
@@ -498,29 +501,30 @@
                         <div id="special-deals__coupon" class="coupon">
                             <div
                                 id="special-deals__coupon-content"
-                                class="coupon-content"
+                                class="coupon__content"
                             >
                                 <h6
                                     id="special-deals__coupon-title"
-                                    class="coupon-title"
+                                    class="coupon__title"
                                 ></h6>
                                 <span
                                     id="special-deals__coupon-expiry"
-                                    class="coupon-expiry"
+                                    class="coupon__expiry"
                                 ></span>
                             </div>
 
                             <div
                                 id="special-deals__coupon-action"
-                                class="coupon-action"
+                                class="coupon__action"
                             >
                                 <span
                                     id="special-deals__coupon-code"
-                                    class="coupon-code"
+                                    class="coupon__code"
                                 ></span>
                                 <button
                                     id="special-deals__copy-button"
-                                    class="coupon-button"
+                                    class="coupon__button"
+                                    title="Copy coupon code"
                                 >
                                     <i
                                         class="fa-regular fa-clone special-deals__copy-icon"
@@ -540,8 +544,8 @@
                     </button>
                 </div>
 
-                <div class="special-deals__unlock-modal">
-                    <button class="special-deals__close-icon">
+                <div class="special-deals__unlock-modal" role="dialog">
+                    <button class="special-deals__close-icon" title="Close">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <div class="special-deals__text">
