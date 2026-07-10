@@ -52,7 +52,9 @@
                             >
                         </li>
                         <li>
-                            <a href="#" class="navbar__links-item link link--sm"
+                            <a
+                                href="#"
+                                class="navbar__links-item link link--sm navbar__special-deals"
                                 >Special Deals</a
                             >
                         </li>
@@ -261,7 +263,7 @@
                 >
                     <div class="splide__arrows">
                         <button
-                            class="splide__arrow splide__arrow--prev carousel__arrow carousel__arrow--prev"
+                            class="splide__arrow splide__arrow--prev carousel__arrow carousel__arrow--prev button"
                         >
                             <img
                                 src="/assets/left-arrow.svg"
@@ -270,7 +272,7 @@
                             />
                         </button>
                         <button
-                            class="splide__arrow splide__arrow--next carousel__arrow carousel__arrow--next"
+                            class="splide__arrow splide__arrow--next carousel__arrow carousel__arrow--next button"
                         >
                             <img
                                 src="/assets/right-arrow.svg"
@@ -429,7 +431,7 @@
                 <div class="special-deals__overlay"></div>
 
                 <div class="special-deals__modal">
-                    <button class="special-deals__close">
+                    <button class="special-deals__close-icon">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
 
@@ -455,26 +457,71 @@
                             <span class="special-deals__loading-text"
                                 >Loading...</span
                             >
+                            <button class="special-deals__spin-button">
+                                spin
+                            </button>
+                            <div class="special-deals__segment-wrapper">
+                                <div
+                                    class="special-deals__segment special-deals__segment-1"
+                                >
+                                    <span
+                                        class="special-deals__segment-text1 special-deals__segment-text"
+                                    ></span>
+                                </div>
+                                <div
+                                    class="special-deals__segment special-deals__segment-2"
+                                >
+                                    <span
+                                        class="special-deals__segment-text2 special-deals__segment-text"
+                                    ></span>
+                                </div>
+                                <div
+                                    class="special-deals__segment special-deals__segment-3"
+                                >
+                                    <span
+                                        class="special-deals__segment-text3 special-deals__segment-text"
+                                    ></span>
+                                </div>
+                                <div
+                                    class="special-deals__segment special-deals__segment-4"
+                                >
+                                    <span
+                                        class="special-deals__segment-text4 special-deals__segment-text"
+                                    ></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="special-deals__result">
                         <p class="special-deals__result-title">You won!</p>
-                        <div class="special-deals__coupon coupon">
-                            <div class="special-deals__coupon-content">
-                                <h6 class="special-deals__coupon-title">
-                                    20% off Flights
-                                </h6>
-                                <span class="special-deals__coupon-expiry"
-                                    >Expires in 12d</span
-                                >
+                        <div id="special-deals__coupon" class="coupon">
+                            <div
+                                id="special-deals__coupon-content"
+                                class="coupon-content"
+                            >
+                                <h6
+                                    id="special-deals__coupon-title"
+                                    class="coupon-title"
+                                ></h6>
+                                <span
+                                    id="special-deals__coupon-expiry"
+                                    class="coupon-expiry"
+                                ></span>
                             </div>
 
-                            <div class="special-deals__coupon-action">
-                                <span class="special-deals__coupon-code"
-                                    >FLY20-ABCD</span
+                            <div
+                                id="special-deals__coupon-action"
+                                class="coupon-action"
+                            >
+                                <span
+                                    id="special-deals__coupon-code"
+                                    class="coupon-code"
+                                ></span>
+                                <button
+                                    id="special-deals__copy-button"
+                                    class="coupon-button"
                                 >
-                                <button class="special-deals__copy-button">
                                     <i
                                         class="fa-regular fa-clone special-deals__copy-icon"
                                     ></i>
@@ -483,7 +530,9 @@
                         </div>
                     </div>
 
-                    <button class="special-deals__view-button">
+                    <button
+                        class="special-deals__view-button button button--outlined"
+                    >
                         <span class="special-deals__view-text"
                             >View All Unlocked Deals</span
                         >
@@ -492,7 +541,7 @@
                 </div>
 
                 <div class="special-deals__unlock-modal">
-                    <button class="special-deals__close">
+                    <button class="special-deals__close-icon">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <div class="special-deals__text">
@@ -512,7 +561,9 @@
 
                     <div class="special-deals__list-container"></div>
 
-                    <button class="special-deals__view-button">
+                    <button
+                        class="special-deals__view-button button button--outlined"
+                    >
                         <span class="special-deals__view-text">Go Back</span>
                     </button>
                 </div>

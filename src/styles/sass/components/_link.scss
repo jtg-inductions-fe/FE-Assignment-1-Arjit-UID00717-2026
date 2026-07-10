@@ -3,10 +3,14 @@
 
 .link {
     color: c.$grey-color;
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+    display: inline-block;
 
     &:hover {
         color: c.$primary-color;
+        transform: scale(1.1);
     }
 
     &--lg {

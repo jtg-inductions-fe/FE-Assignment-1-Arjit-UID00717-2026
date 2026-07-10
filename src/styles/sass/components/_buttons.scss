@@ -11,9 +11,13 @@
     font-weight: t.$font-weight-bold;
     @include m.flex-layout(center, center, row);
     gap: f.rem(5px);
+    transition:
+        opacity 0.3s ease-in,
+        transform 0.3s ease;
 
     &:hover {
         opacity: 0.6;
+        transform: scale(1.04);
     }
 
     &--primary {
