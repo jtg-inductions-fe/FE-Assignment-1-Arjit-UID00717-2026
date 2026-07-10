@@ -34,7 +34,7 @@
 
     &__close-icon {
         border: none;
-        font-size: f.rem(20px);
+        font-size: t.$text-lg;
         position: absolute;
         top: 5%;
         right: 5%;
@@ -46,7 +46,7 @@
     }
 
     &__label-icon {
-        font-size: f.rem(14px);
+        font-size: t.$label-text;
         color: c.$dark-pink;
     }
 
@@ -58,7 +58,7 @@
     }
 
     &__title {
-        font-size: f.rem(20px);
+        font-size: t.$text-lg;
         font-weight: t.$font-weight-bold;
     }
 

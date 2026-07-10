@@ -1,6 +1,6 @@
-import { travelData } from '../MOCK_DATA/card_data';
+import { travelData } from '../MOCK_DATA/card-data';
 import splide from './carousel';
-import './special_deals';
+import './special-deals';
 // DOM Element Selectors
 const hamburger = document.querySelector('.navbar__hamburger');
 const navMenu = document.querySelector('.navbar__menu');

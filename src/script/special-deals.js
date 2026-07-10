@@ -4,7 +4,7 @@ import {
     API_URL,
     DEG_RANGE_MAX,
     DEG_RANGE_MIN,
-} from '../constants/common_constants';
+} from '../constants/common-constants';
 
 // Timing configurations constants storage keys for the special deals feature
 const {
