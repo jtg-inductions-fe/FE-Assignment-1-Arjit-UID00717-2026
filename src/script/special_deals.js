@@ -1,15 +1,24 @@
 import {
-    API_KEY,
+    TIMING_CONSTANTS,
+    LOCAL_STORAGE,
+    API_URL,
+    DEG_RANGE_MAX,
+    DEG_RANGE_MIN,
+} from '../constants/common_constants';
+
+// Timing configurations constants storage keys for the special deals feature
+const {
     FALL_BACK_DAY,
     DAY_IN_MS,
-    DEG_RANGE_MIN,
-    DEG_RANGE_MAX,
     REBUILD_WHEEL_DELAY,
     DEAL_WON_DELAY,
     COPY_TIME,
-    WON_DEAL_DATA,
-} from '../constants/common_constants';
+} = TIMING_CONSTANTS;
 
+// Storage keys for the special deals feature
+const { WON_DEAL_DATA } = LOCAL_STORAGE;
+
+// DOM element references for the wheel UI and layout containers.
 const wheel = document.querySelector('.special-deals__wheel');
 const navSpecialLink = document.querySelector('.navbar__special-deals');
 const specialDealsSection = document.querySelector('.special-deals');
@@ -20,9 +29,9 @@ const segmentWrapper = document.querySelector(
 const spinBtn = document.querySelector('.special-deals__spin-button');
 
 const state = {
-    curDeg: 0, // Current degree of wheel
-    dealsData: [], // Stores the data fetched from API
-    randomIndex: [], // Stores the actual index of deals showed in wheel
+    currentDegree: 0, // Current degree of wheel
+    dealsApiResponse: [], // Stores the data fetched from API
+    displayedDeals: [], // Stores the indexes of the deals currently displayed on the wheel
 };
 
 // Handle clicks on the special deals navigation link
@@ -68,10 +77,10 @@ function getWonDeals() {
 
 /**
  * Returns an array containing the labels of all previously unlocked deals.
- * @returns {String[]}
+ * @returns {Object[]}
  */
-function getWonDealLabels() {
-    return getWonDeals().map((item) => item.label); // Get label of won deals only.
+function getWonDealPromoCodes() {
+    return getWonDeals().map((item) => item.promoCode);
 }
 
 /**
@@ -88,8 +97,6 @@ function updateUnlockedCounter() {
  * @param {Object} deal - Won deal object returned from the wheel.
  */
 function saveWonDeal(deal) {
-    if (!deal || deal.label === 'No deals available') return;
-
     const wonDeals = getWonDeals();
 
     if (!wonDeals.some((item) => item.promoCode === deal.promoCode)) {
@@ -102,7 +109,6 @@ function saveWonDeal(deal) {
             validFor: deal.validFor,
             expiresAt: expiryTimestamp,
         });
-
         localStorage.setItem(WON_DEAL_DATA, JSON.stringify(wonDeals));
     }
 
@@ -117,10 +123,10 @@ async function getData() {
     segmentWrapper.style.visibility = 'hidden';
     spinBtn.style.display = 'none';
     // Fetch all available deals from the API
-    const rawData = await fetch(API_KEY);
+    const rawData = await fetch(API_URL);
     const data = await rawData.json();
 
-    state.dealsData = [...data];
+    state.dealsApiResponse = [...data];
 
     updateUnlockedCounter(); // Show the won deal count
 
@@ -138,11 +144,11 @@ async function getData() {
  * Previously unlocked deals are excluded.
  */
 function buildWheel() {
-    state.randomIndex = [];
-    const wonLabels = getWonDealLabels();
+    state.displayedDeals = [];
+    const wonPromoCodes = getWonDealPromoCodes();
     // Remove deals that have already been unlocked by the user
-    const availableDeals = state.dealsData.filter(
-        (item) => !wonLabels.includes(item.label),
+    const availableDeals = state.dealsApiResponse.filter(
+        (item) => !wonPromoCodes.includes(item.promoCode),
     );
 
     const selectedDeals = [];
@@ -161,17 +167,17 @@ function buildWheel() {
     for (let i = 0; i < 4; i++) {
         if (selectedDeals[i]) {
             labels.push(selectedDeals[i].label);
-            const masterIndex = state.dealsData.findIndex(
-                (deal) => deal.label === selectedDeals[i].label,
+            const masterIndex = state.dealsApiResponse.findIndex(
+                (deal) => deal.promoCode === selectedDeals[i].promoCode,
             );
-            state.randomIndex.push(masterIndex);
+            state.displayedDeals.push(masterIndex);
         } else {
             labels.push('No deals available');
-            state.randomIndex.push(-1); // If no deal left push No deals available in the wheel label
+            state.displayedDeals.push(-1); // If no deal left push No deals available in the wheel label
         }
     }
 
-    //Constructing wheel with 4 random deal labels
+    // Constructing wheel with 4 random deal labels
     const wheelSegmentText = document.querySelectorAll(
         '.special-deals__segment-text',
     );
@@ -210,20 +216,19 @@ function attachSpinListener() {
 
             // Check if there is a valid winning prize
             if (winningDeal) {
-                couponTitle.textContent = winningDeal.label; // Display prize name
+                const { label, promoCode, validFor } = winningDeal;
+                couponTitle.textContent = label; // Display prize name
                 document.querySelector(
                     '#special-deals__coupon-code',
-                ).textContent = winningDeal.promoCode;
+                ).textContent = promoCode;
                 const couponExpiry = document.querySelector(
                     '#special-deals__coupon-expiry',
                 );
-
-                const validDays = winningDeal.validFor ?? FALL_BACK_DAY;
+                const validDays = validFor ?? FALL_BACK_DAY;
 
                 couponExpiry.textContent = `Expires in ${validDays} day${validDays > 1 ? 's' : ''}`;
                 saveWonDeal(winningDeal); // Save win data locally
                 resultContainer.style.display = 'flex'; // Display the result container
-
                 setTimeout(() => {
                     buildWheel();
                 }, REBUILD_WHEEL_DELAY);
@@ -241,10 +246,10 @@ function attachSpinListener() {
  */
 function calculateWinningDeal() {
     const randomDeg = Math.ceil(Math.random() * DEG_RANGE_MIN) + DEG_RANGE_MAX; // Wheel will rotate between 5000 - 1000 deg
-    state.curDeg += randomDeg; // It protects wheel from moving backward direction
-    wheel.style.transform = `rotate(${state.curDeg}deg)`;
+    state.currentDegree += randomDeg; // It protects wheel from moving backward direction
+    wheel.style.transform = `rotate(${state.currentDegree}deg)`;
 
-    const actualDegrees = state.curDeg % 360; //It only tell wheel's actual movement from initial position
+    const actualDegrees = state.currentDegree % 360; //It only tell wheel's actual movement from initial position
     const pointerAngle = (360 - actualDegrees) % 360; // Map clockwise rotation to the fixed top pointer
     const quadrant = Math.floor(pointerAngle / 90); // Divide by segment width (90°) to get the quadrant index (0-3)
 
@@ -254,9 +259,9 @@ function calculateWinningDeal() {
     const index = segmentMapping[quadrant];
 
     // Get the actual deal index and fetch the winning item data
-    const masterIndex = state.randomIndex[index];
+    const masterIndex = state.displayedDeals[index];
 
-    return masterIndex !== -1 ? state.dealsData[masterIndex] : null;
+    return masterIndex !== -1 ? state.dealsApiResponse[masterIndex] : null;
 }
 
 /**
@@ -350,7 +355,7 @@ function getSortedWonDeals() {
     });
 }
 
-// 3. UI Component Renderer
+// UI Component Renderer
 function renderUnlockedDealsList(deals) {
     const unlockedDealsList = document.querySelector(
         '.special-deals__list-container',
