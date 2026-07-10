@@ -311,7 +311,7 @@ const copyCouponCode = () => {
  */
 const unlockedDealsNavigation = () => {
     const unlockedDealsBtn = document.querySelector(
-        '.special-deals__view-button',
+        '#special-deals__view-button',
     );
     const wheelModal = document.querySelector('.special-deals__modal');
     const unlockedModal = document.querySelector(
@@ -319,7 +319,7 @@ const unlockedDealsNavigation = () => {
     );
     const specialDeals = document.querySelector('.special-deals');
     const goBackBtn = document.querySelector(
-        '.special-deals__unlock-modal .special-deals__view-button',
+        '.special-deals__unlock-modal #special-deals__unlock-button',
     );
 
     if (!specialDeals) return;

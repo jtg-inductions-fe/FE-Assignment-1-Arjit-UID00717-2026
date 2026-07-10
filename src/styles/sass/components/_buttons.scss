@@ -32,4 +32,9 @@
     &--outlined {
         border: 1px solid c.$off-white;
     }
+
+    &--stretch {
+        width: 100%;
+        color: c.$link-color;
+    }
 }
