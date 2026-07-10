@@ -52,7 +52,9 @@
                             >
                         </li>
                         <li>
-                            <a href="#" class="navbar__links-item link link--sm"
+                            <a
+                                href="#"
+                                class="navbar__links-item link link--sm navbar__special-deals"
                                 >Special Deals</a
                             >
                         </li>
@@ -261,7 +263,7 @@
                 >
                     <div class="splide__arrows">
                         <button
-                            class="splide__arrow splide__arrow--prev carousel__arrow carousel__arrow--prev"
+                            class="splide__arrow splide__arrow--prev carousel__arrow carousel__arrow--prev button"
                         >
                             <img
                                 src="/assets/left-arrow.svg"
@@ -270,7 +272,7 @@
                             />
                         </button>
                         <button
-                            class="splide__arrow splide__arrow--next carousel__arrow carousel__arrow--next"
+                            class="splide__arrow splide__arrow--next carousel__arrow carousel__arrow--next button"
                         >
                             <img
                                 src="/assets/right-arrow.svg"
@@ -424,6 +426,154 @@
                     <img src="assets/object.svg" alt="object icon" />
                 </div>
             </footer>
+
+            <section class="special-deals">
+                <div class="special-deals__overlay"></div>
+
+                <div class="special-deals__modal" role="dialog">
+                    <button class="special-deals__close-icon" title="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                    <div class="special-deals__text">
+                        <div class="special-deals__label">
+                            <i
+                                class="fa-solid fa-gift special-deals__label-icon"
+                            ></i>
+                            <span class="special-deals__label-text"
+                                >SPECIAL DEALS</span
+                            >
+                        </div>
+
+                        <h3 class="special-deals__title">Spin & Win!</h3>
+                        <p class="special-deals__description">
+                            Tap the center of the wheel to spin
+                        </p>
+                    </div>
+
+                    <div class="special-deals__wheel-container">
+                        <div class="special-deals__pointer"></div>
+                        <div class="special-deals__wheel">
+                            <span class="special-deals__loading-text"
+                                >Loading...</span
+                            >
+                            <button
+                                class="special-deals__spin-button"
+                                title="Spin the wheel"
+                            >
+                                spin
+                            </button>
+                            <div class="special-deals__segment-wrapper">
+                                <div
+                                    class="special-deals__segment special-deals__segment-1"
+                                >
+                                    <span
+                                        class="special-deals__segment-text1 special-deals__segment-text"
+                                    ></span>
+                                </div>
+                                <div
+                                    class="special-deals__segment special-deals__segment-2"
+                                >
+                                    <span
+                                        class="special-deals__segment-text2 special-deals__segment-text"
+                                    ></span>
+                                </div>
+                                <div
+                                    class="special-deals__segment special-deals__segment-3"
+                                >
+                                    <span
+                                        class="special-deals__segment-text3 special-deals__segment-text"
+                                    ></span>
+                                </div>
+                                <div
+                                    class="special-deals__segment special-deals__segment-4"
+                                >
+                                    <span
+                                        class="special-deals__segment-text4 special-deals__segment-text"
+                                    ></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="special-deals__result">
+                        <p class="special-deals__result-title">You won!</p>
+                        <div id="special-deals__coupon" class="coupon">
+                            <div
+                                id="special-deals__coupon-content"
+                                class="coupon__content"
+                            >
+                                <h6
+                                    id="special-deals__coupon-title"
+                                    class="coupon__title"
+                                ></h6>
+                                <span
+                                    id="special-deals__coupon-expiry"
+                                    class="coupon__expiry"
+                                ></span>
+                            </div>
+
+                            <div
+                                id="special-deals__coupon-action"
+                                class="coupon__action"
+                            >
+                                <span
+                                    id="special-deals__coupon-code"
+                                    class="coupon__code"
+                                ></span>
+                                <button
+                                    id="special-deals__copy-button"
+                                    class="coupon__button"
+                                    title="Copy coupon code"
+                                >
+                                    <i
+                                        class="fa-regular fa-clone special-deals__copy-icon"
+                                    ></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button
+                        id="special-deals__view-button"
+                        class="button button--outlined button--stretch"
+                    >
+                        <span class="special-deals__view-text"
+                            >View All Unlocked Deals</span
+                        >
+                        <span class="special-deals__count">3</span>
+                    </button>
+                </div>
+
+                <div class="special-deals__unlock-modal" role="dialog">
+                    <button class="special-deals__close-icon" title="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="special-deals__text">
+                        <div>
+                            <i
+                                class="fa-solid fa-gift special-deals__label-icon"
+                            ></i>
+                            <span class="special-deals__label-text"
+                                >SPECIAL DEALS</span
+                            >
+                        </div>
+                        <h3 class="special-deals__title">Unlocked Deals</h3>
+                        <p class="special-deals__description">
+                            All the deals you’ve unlocked yet!
+                        </p>
+                    </div>
+
+                    <div class="special-deals__list-container"></div>
+
+                    <button
+                        id="special-deals__unlock-button"
+                        class="button button--outlined button--stretch"
+                    >
+                        <span class="special-deals__view-text">Go Back</span>
+                    </button>
+                </div>
+            </section>
         </div>
         <script type="module" src="./src/script/index.js"></script>
     </body>

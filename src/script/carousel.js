@@ -1,6 +1,6 @@
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css/core';
-import { carouselData } from '../MOCK_DATA/carousel_data';
+import { carouselData } from '../MOCK_DATA/carousel-data';
 
 // Target the DOM element that will act as the container for the slider items
 const sliderList = document.getElementById('dynamic-slider-list');

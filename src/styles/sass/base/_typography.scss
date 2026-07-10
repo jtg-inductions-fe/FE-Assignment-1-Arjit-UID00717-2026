@@ -9,6 +9,7 @@ $font-weight-bold-max: 900;
 $font-weight-bold: 700;
 $font-weight-semi-bold: 450;
 $font-weight-light: 400;
+$font-weight-medium-bold: 600;
 
 // Main heading variables
 $main-heading-lg: f.rem(69px);
@@ -34,6 +35,11 @@ $main-para-sm: f.rem(16px);
 $sub-para-lg: f.rem(23px);
 $sub-para-md: f.rem(23px);
 $sub-para-sm: f.rem(18px);
+
+//heading-text
+$heading-text: f.rem(12px);
+$label-text: f.rem(14px);
+$text-lg: f.rem(20px);
 
 $main-heading: (
     lg: (
