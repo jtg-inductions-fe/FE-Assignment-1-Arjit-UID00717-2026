@@ -34,6 +34,30 @@ const state = {
     displayedDeals: [], // Stores the indexes of the deals currently displayed on the wheel
 };
 
+/**
+ * Fetch the data from API
+ */
+const getData = async () => {
+    loadingText.style.display = 'flex';
+    segmentWrapper.style.visibility = 'hidden';
+    spinBtn.style.display = 'none';
+    // Fetch all available deals from the API
+    const rawData = await fetch(API_URL);
+    const data = await rawData.json();
+
+    state.dealsApiResponse = [...data];
+
+    updateUnlockedCounter(); // Show the won deal count
+
+    buildWheel(); // Build wheel with new deals came from API
+
+    attachSpinListener(); // Enables spin when clicked on spin button
+    unlockedDealsNavigation(); // To navigate from deals wheel section to won deals section
+    loadingText.style.display = 'none';
+    segmentWrapper.style.visibility = 'visible';
+    spinBtn.style.display = 'block'; // Show spin button after loading
+};
+
 // Handle clicks on the special deals navigation link
 navSpecialLink.addEventListener('click', () => {
     const resultContainer = document.querySelector('.special-deals__result');
@@ -70,33 +94,32 @@ navSpecialLink.addEventListener('click', () => {
  * Retrieves all previously unlocked deals from localStorage.
  * @returns {Object[]} Array of unlocked deal objects.
  */
-function getWonDeals() {
+const getWonDeals = () => {
     const won = localStorage.getItem('unlocked_deals_data');
     return won ? JSON.parse(won) : []; // Return empty array if deals are not found in local storage
-}
+};
 
 /**
  * Returns an array containing the labels of all previously unlocked deals.
  * @returns {Object[]}
  */
-function getWonDealPromoCodes() {
+const getWonDealPromoCodes = () => {
     return getWonDeals().map((item) => item.promoCode);
-}
-
+};
 /**
  * Updates the unlocked deal counter shown on the Special Deals button.
  *
  */
-function updateUnlockedCounter() {
+const updateUnlockedCounter = () => {
     const counterBadge = document.querySelector('.special-deals__count');
     counterBadge.textContent = getWonDeals().length;
-}
+};
 
 /**
  * Saves a newly won deal in localStorage if it has not already been unlocked.
  * @param {Object} deal - Won deal object returned from the wheel.
  */
-function saveWonDeal(deal) {
+const saveWonDeal = (deal) => {
     const wonDeals = getWonDeals();
 
     if (!wonDeals.some((item) => item.promoCode === deal.promoCode)) {
@@ -113,37 +136,13 @@ function saveWonDeal(deal) {
     }
 
     updateUnlockedCounter();
-}
-
-/**
- * Fetch the data from API
- */
-async function getData() {
-    loadingText.style.display = 'flex';
-    segmentWrapper.style.visibility = 'hidden';
-    spinBtn.style.display = 'none';
-    // Fetch all available deals from the API
-    const rawData = await fetch(API_URL);
-    const data = await rawData.json();
-
-    state.dealsApiResponse = [...data];
-
-    updateUnlockedCounter(); // Show the won deal count
-
-    buildWheel(); // Build wheel with new deals came from API
-
-    attachSpinListener(); // Enables spin when clicked on spin button
-    unlockedDealsNavigation(); // To navigate from deals wheel section to won deals section
-    loadingText.style.display = 'none';
-    segmentWrapper.style.visibility = 'visible';
-    spinBtn.style.display = 'block'; // Show spin button after loading
-}
+};
 
 /**
  * Selects up to four random unlocked deals and displays them on the wheel.
  * Previously unlocked deals are excluded.
  */
-function buildWheel() {
+const buildWheel = () => {
     state.displayedDeals = [];
     const wonPromoCodes = getWonDealPromoCodes();
     // Remove deals that have already been unlocked by the user
@@ -184,13 +183,13 @@ function buildWheel() {
     for (let i = 0; i < 4; i++) {
         wheelSegmentText[i].textContent = labels[i];
     }
-}
+};
 
 /**
  * Attaches the spin functionality to the spin button and determines
  * the winning deal after the wheel animation completes.
  */
-function attachSpinListener() {
+const attachSpinListener = () => {
     let dealBtn = document.querySelector('.special-deals__spin-button');
 
     dealBtn.addEventListener('click', () => {
@@ -239,12 +238,12 @@ function attachSpinListener() {
             unlockedDealsNavigation();
         }, DEAL_WON_DELAY);
     });
-}
+};
 
 /**
  * To calculate the deal won by user
  */
-function calculateWinningDeal() {
+const calculateWinningDeal = () => {
     const randomDeg = Math.ceil(Math.random() * DEG_RANGE_MIN) + DEG_RANGE_MAX; // Wheel will rotate between 5000 - 1000 deg
     state.currentDegree += randomDeg; // It protects wheel from moving backward direction
     wheel.style.transform = `rotate(${state.currentDegree}deg)`;
@@ -262,13 +261,13 @@ function calculateWinningDeal() {
     const masterIndex = state.displayedDeals[index];
 
     return masterIndex !== -1 ? state.dealsApiResponse[masterIndex] : null;
-}
+};
 
 /**
  * Copies the coupon code to the clipboard and briefly shows
  * a success icon after copying.
  */
-function copyCouponCode() {
+const copyCouponCode = () => {
     // Attach the listener once to document.body
     document.body.addEventListener('click', (e) => {
         // Check if the clicked target (or its parent) matches copy button
@@ -299,13 +298,13 @@ function copyCouponCode() {
             currentBtn.disabled = false;
         }, COPY_TIME);
     });
-}
+};
 
 /**
  * Handles navigation between the spinning wheel and unlocked deals modal,
  * then renders all unlocked deals.
  */
-function unlockedDealsNavigation() {
+const unlockedDealsNavigation = () => {
     const unlockedDealsBtn = document.querySelector(
         '.special-deals__view-button',
     );
@@ -335,10 +334,10 @@ function unlockedDealsNavigation() {
     // Sort and render list
     const sortedDeals = getSortedWonDeals();
     renderUnlockedDealsList(sortedDeals);
-}
+};
 
 // Data Sorting
-function getSortedWonDeals() {
+const getSortedWonDeals = () => {
     const won = getWonDeals();
     const now = Date.now();
 
@@ -353,10 +352,10 @@ function getSortedWonDeals() {
         // Latest expiry timestamp first
         return b.expiresAt - a.expiresAt;
     });
-}
+};
 
 // UI Component Renderer
-function renderUnlockedDealsList(deals) {
+const renderUnlockedDealsList = (deals) => {
     const unlockedDealsList = document.querySelector(
         '.special-deals__list-container',
     );
@@ -405,12 +404,12 @@ function renderUnlockedDealsList(deals) {
 
     unlockedDealsList.innerHTML = listHtml;
     copyCouponCode(); // Initialize the dynamic copy handlers immediately after generation
-}
+};
 
 /**
  * Close the modal by clicking on close button
  */
-function closeModal() {
+const closeModal = () => {
     const specialDeals = document.querySelector('.special-deals');
     const wheelModal = document.querySelector('.special-deals__modal');
     const unlockedModal = document.querySelector(
@@ -427,6 +426,6 @@ function closeModal() {
             body.style.overflowY = 'scroll';
         }
     });
-}
+};
 
 closeModal();
